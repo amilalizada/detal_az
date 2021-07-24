@@ -1,0 +1,1 @@
+# detal_az
