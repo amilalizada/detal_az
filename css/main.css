@@ -73,7 +73,7 @@ body {
 }
 
 .search-button {
-    width: 180px;
+    width: 100%;
     height: 51px;
     background: #C70E0E;
     border-radius: 4px;
@@ -197,7 +197,7 @@ body {
     width: 100%;
 }
 
-#markalar-card {
+.markalar-card {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -274,7 +274,7 @@ body {
     width: 100%;
 }
 
-#hisseler-card {
+.hisseler-card {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -407,8 +407,9 @@ body {
 
 #contact-img {
     position: absolute;
-    left: -75px;
-    top: -145px;
+    right: 40%;
+    top: -40%;
+    max-width: 70%;
 }
 
 #contact-form-text {
