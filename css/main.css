@@ -13,7 +13,9 @@ body {
 #navbar-section {
     background-color: #E5E5E5;
 }
-
+.responsive-wish{
+    display: none;
+}
 .navbar_item {
     color: #000000;
     text-decoration: none;
@@ -53,6 +55,7 @@ body {
 #first-section-first-row {
     width: 80%;
     margin: 1% auto;
+    margin-top: 3%;
 }
 
 .search-input-main {
@@ -480,7 +483,17 @@ ul {
 
 
 
+
 @media only screen and (max-width: 992px) {
+    .no-wish{
+        display: none;
+    }
+    #first-section-first-row {
+        margin-top: 7%;
+    }
+    .responsive-wish{
+        display: block;
+    }
     #boxes {
         width: 80%;
         margin: 0 auto;
@@ -585,10 +598,23 @@ ul {
     .long-card:nth-child(6){
         display: none;
     }
+    .navbar-nav{
+        text-align: center;
+    }
+    #nav-button{
+        width: 100%;
+    }
+    .nav-item{
+    border-bottom: 2px #C70E0E solid;
+    margin: 20px;
+    }
 }
 
 
 @media only screen and (max-width: 768px) {
+    .no-wish{
+        display: none;
+    }
     #boxes {
         width: 80%;
         margin: 0 auto;
