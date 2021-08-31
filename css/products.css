@@ -280,3 +280,11 @@ ul {
 .footer-li {
     color: white;
 }
+.prev:hover{
+    background-color: #C70E0E;
+    color: white;
+}
+.nextt:hover{
+    background-color: #C70E0E;
+    color: white;
+}
