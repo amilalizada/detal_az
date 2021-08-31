@@ -105,3 +105,40 @@ body{
         height: 90%;
     }
 }
+
+
+
+
+
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.page-link span{
+    color: white;
+}
+.page-link{
+    background-color: #C70E0E;
+    color: white;
+}
+.products-header-2{
+    text-align: center;
+    
+    width: 800px;
+    margin: auto;
+}
+.page-link:hover{
+    background-color: white;
+    color: red;
+}
+
+.prev:hover{
+    background-color: #C70E0E;
+    color: white;
+}
+.nextt:hover{
+    background-color: #C70E0E;
+    color: white;
+}
