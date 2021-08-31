@@ -1,0 +1,107 @@
+body{
+    background: #E5E5E5;
+}
+
+.login-main{
+    width: 80%;
+    height: 600px;
+    margin: 0 auto;
+    margin-top: 5%;
+}
+
+
+#so-login{
+    background:  linear-gradient(0deg, rgba(44, 104, 197, 0.2), rgba(44, 104, 197, 0.2)), url('../assets/images/Rectangle\ 125.png');
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-form-main{
+    background: #FFFFFF;
+    border-radius: 12px;
+    
+}
+
+#login-social-part{
+    background-color: #FFFFFF;
+    width: 45%;
+    height: 45%;
+    border-radius: 8px;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.login-icons{
+    display: flex;
+    margin: 0 auto;
+    width: 40%;
+    justify-content: space-between;
+}
+.login-icon {
+    color: #C70E0E;
+}
+
+
+#login-form-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.login-part{
+    background-color: #FFFFFF;
+    width: 75%;
+    height: 55%;
+    border-radius: 8px;
+    padding: 5%;
+}
+
+#login-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+.login-input{
+    outline: none;
+    border: none;
+    background: #EEEEEE;
+    border-radius: 4px;
+    height: 20%;
+}
+.login-input::placeholder{
+    margin-left: 10%;
+}
+#login-submit{
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 20%;
+    background: #C70E0E;
+    border-radius: 4px;
+    color: #FFFFFF;
+}
+
+
+@media only screen and (max-width:768px){
+    .login-main{
+        flex-direction: column-reverse;
+    }
+    #so-login{
+        height: 50%;
+    }
+    #login-form-main{
+        height: 50%;
+        padding-bottom: 5%;
+    }
+    .login-part{
+        height: 100%;
+    }
+    #login-social-part{
+        height: 90%;
+    }
+}
