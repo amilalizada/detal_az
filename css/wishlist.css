@@ -59,9 +59,19 @@ line-height: 27px;
     font-size: 22px;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 990px) {
    .img-div{
        width: 60%;
        padding: 15px;
    }
   }
+
+  @media only screen and (max-width: 768px) {
+    .img-div{
+        width: 60%;
+        padding: 10px;
+    }
+    .title{
+        font-size: 15px;
+    }
+   }

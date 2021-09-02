@@ -1,0 +1,17 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #E5E5E5 !important;
+}
+.ptag{
+    ont-family: Roboto Slab; font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 47px;
+    
+    color: #000000;
+}
