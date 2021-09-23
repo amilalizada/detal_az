@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: o;
+    box-sizing: border-box;
+}
+
+.car-img{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+.buttons{
+    background-color: #C70E0E;
+    border: none;
+    WIDTH: 60%;
+    height: 60px;
+    border-radius: 10px;
+    margin: auto;
+    color: white;
+}
+.btnn-div{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin:auto;
+}
+.img-arr1{
+    display: flex;
+    place-content: center;
+}
+.img-arr2{
+    display: flex;
+    place-content: center;
+}
+.img-arr3{
+    display: flex;
+    place-content: center;
+    
+}

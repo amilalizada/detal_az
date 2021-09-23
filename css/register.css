@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header h1{
+    color: #C70E0E;
+    
+}
+.inputs{
+    outline: none;
+    border: none;
+    background: #EEEEEE;
+    border-radius: 4px;
+    height: 20%;
+}
+.register-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

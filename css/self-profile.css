@@ -1,0 +1,90 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #E5E5E5;
+}
+.my_container{
+    width: 60%;
+    margin:auto;
+}
+
+.icons{
+    display: flex;
+}
+
+.icon{
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.for-form{
+    background-color: white;
+    margin-top: 50px;
+    border-radius: 20px;
+}
+
+.update-profile{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.update-profile input{
+    background-color: #EEEEEE;
+    margin-top: 20px;
+    width: 60%;
+    height: 50px;
+    border: 1px solid #EEEEEE;
+    border-radius: 5px;
+}
+.update-profile input:focus{
+    border-color: 1px solid #C70E0E !important;
+}
+.buttons{
+    width: 60%;
+    display: flex;
+    justify-content: space-around
+}
+.legv{
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid #dc3545;
+}
+.legv a{
+    text-decoration: none;
+    color: #C70E0E;
+}
+.buttons button {
+    width: 40%;
+    height: 50px;
+}
+.yadda-saxla{
+    border-radius: 5px;
+    border: 1px solid #dc3545;
+    background-color: #C70E0E ;
+    color: white;
+}
+
+@media screen and (max-width: 768px) {
+    .icons{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .icon{
+        width: 100%;
+    }
+    .buttons{
+        flex-direction: column;
+    }
+    .buttons button{
+        width: 100%;
+    }
+  }
