@@ -37,7 +37,7 @@ body {
     border: none;
     outline: none;
     color: white;
-    width: 100%;
+    width: 150%;
     height: 30px;
 }
 
@@ -392,7 +392,6 @@ body {
     transition: 0.5s;
     border-left: 10px solid #C70E0E;
 }
-
 #contact-section {
     margin-top: 15%;
     max-height: 800px;
@@ -430,9 +429,9 @@ body {
 
 #contact-img {
     position: absolute;
-    right: 50%;
-    top: -40%;
-    max-width: 60%;
+    left: 0;
+    width: 60%;
+    transform: translateY(-20%);
 }
 
 #contact-form-text {
@@ -452,7 +451,7 @@ body {
     border: none;
     outline: none;
     color: black;
-    width: 250px;
+    width: 100%;
     height: 40px;
 }
 
@@ -462,6 +461,19 @@ body {
     background-color: transparent;
     border-bottom: 3px solid white;
 }
+
+@media only screen and (min-width: 992px){
+    #contact-img {
+        position: absolute;
+    left: 0;
+    width: 65%;
+    height: 150%;
+    transform: translateY(-15%);
+    }
+}
+
+
+
 
 #footer {
     width: 100%;
@@ -491,6 +503,39 @@ ul {
 
 
 @media only screen and (max-width: 992px) {
+    
+    #contact-img {
+        position: absolute;
+        left: 0;
+        width: 60%;
+        transform: translateY(-20%);
+    }
+    #contact-section {
+        margin-top: 15%;
+        height: 800px;
+        margin-bottom: 10%;
+    }
+    .row-div{
+        flex-direction: column-reverse;
+    }
+    #contact-form {
+        position: relative;
+        background: rgba(255, 21, 21, 0.77);
+        border-radius: 20px;
+        height: 300px;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    #contact-button {
+        background: #EFEFFB;
+        border-radius: 12px;
+        border: none;
+        outline: none;
+        color: black;
+        width: 100%;
+        height: 40px;
+        margin-top: 5%;
+    }
     .no-wish{
         display: none;
     }
@@ -622,6 +667,48 @@ ul {
 
 
 @media only screen and (max-width: 768px) {
+    #contact-img {
+        position: absolute;
+        left: 0;
+        width: 60%;
+        transform: translateY(-20%);
+        display: none;
+    }
+    #contact-section {
+        margin-top: 15%;
+        height: 800px;
+        margin-bottom: 10%;
+    }
+    .row-div{
+        flex-direction: column-reverse;
+    }
+    #contact-form {
+        position: relative;
+        background: rgba(255, 21, 21, 0.77);
+        border-radius: 20px;
+        height: 300px;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    #contact-button {
+        background: #EFEFFB;
+        border-radius: 12px;
+        border: none;
+        outline: none;
+        color: black;
+        width: 100%;
+        height: 40px;
+        margin-top: 5%;
+    }
+    #contact-form-text {
+        position: static;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: 80%;
+        margin: 5% auto;
+    }
     .no-wish{
         display: none;
     }

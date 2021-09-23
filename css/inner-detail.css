@@ -1,0 +1,30 @@
+body{
+    background-color: #E5E5E5;
+}
+
+
+#detail-main-image{
+    width: 70%;
+    margin: 10% auto;    
+}
+
+
+#details-cards{
+    width: 70%;
+    margin: 0 auto;
+}
+
+.detail-card{
+    padding: 1%;
+}
+
+.card{
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.card-text{
+    color: #C70E0E;
+    text-align: center;
+}

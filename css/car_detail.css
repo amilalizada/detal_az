@@ -1,0 +1,144 @@
+#car-parts-main{
+    width: 70%;
+    margin: 0 auto;
+    display: grid;
+    height: 600px;
+    grid-template-columns:1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows:1fr 1fr 1fr 1fr 1fr 1fr;
+    position: relative;
+}
+
+.car-part{
+    width: 100%;
+    background: #C70E0E;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    height: 40%;
+}
+#front-part{
+    grid-row: 1/2;
+    grid-column: 1/2;
+}
+
+#middle-part{
+    grid-row: 1/2;
+    grid-column: 3/4;
+}
+#back-part{
+    grid-row: 1/2;
+    grid-column: 5/6;
+}
+#front-arrow{
+    grid-row: 2/3;
+    grid-column: 1/2;
+    display: flex;
+    justify-content: end;
+}
+
+#middle-arrow{
+    grid-row: 2/3;
+    grid-column: 3/4;
+    display: flex;
+    justify-content: center;
+}
+#back-arrow{
+    grid-row: 2/3;
+    grid-column: 5/6;
+    display: flex;
+    justify-content: start;
+}
+
+#image-part{
+    grid-row: 3/5;
+    grid-column: 2/5;
+}
+
+#under-part{
+    margin-top: 15%;
+    grid-row: 6/7;
+    grid-column: 3/4;
+}
+#under-arrow{
+    margin-top: 15%;
+    grid-row: 5/6;
+    grid-column: 3/4;
+    display: flex;
+    justify-content: center;
+
+}
+
+.under-part{
+    height: 70%;
+}
+#car-img{
+    width: 100%;
+}
+
+
+
+@media only screen and (max-width:768px){
+    #car-parts-main{
+        width: 50%;
+        margin: 0 auto;
+        display: grid;
+        height: 400px;
+        grid-template-columns:1fr;
+        grid-template-rows:1fr 1fr 1fr 1fr;
+        position: relative;
+    }
+    #front-part{
+        grid-row: 1/2;
+        grid-column: 1/2;
+        display: flex;
+        align-items: center;
+    }
+    
+    #middle-part{
+        grid-row: 2/3;
+        grid-column: 1/2;
+        display: flex;
+        align-items: center;
+    }
+    #back-part{
+        grid-row: 3/4;
+        grid-column: 1/2;
+        display: flex;
+        align-items: center;
+    }
+    #under-part{
+        margin: 0;
+        grid-row: 4/4;
+        grid-column: 1/2;
+        display: flex;
+        align-items: center;    
+    }
+    .car-part{
+        width: 100%;
+        background: #C70E0E;
+        color: white;
+        border-radius: 4px;
+        border: none;
+        outline: none;
+        height: 70%;
+    }
+    .under-part{
+        height: 70%;
+    }
+    #front-arrow{
+        display: none;
+    }
+    #back-arrow{
+        display: none;
+    }
+    #middle-arrow{
+        display: none;
+    }
+    #under-arrow{
+        display: none;
+    }
+    #image-part{
+        display: none;
+    }
+}
