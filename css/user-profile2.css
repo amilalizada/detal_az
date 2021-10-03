@@ -1,0 +1,32 @@
+*{
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #E5E5E5 !important;
+}
+i{
+    color: #8F8F8F;
+}
+.location{
+    color: #8F8F8F;
+}
+.number{
+    color: #8F8F8F;
+}
+.brand-name{
+    color: #8F8F8F;
+}
+button{
+    background-color: #C70E0E;
+    height: 30px;
+    width: 90px;
+    border: 1px solid #C70E0E;
+    color: white;
+    border: 5px;
+}
+.left{
+    text-align: right;
+}
