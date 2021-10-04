@@ -1,3 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'assets/css/shops.css' %}">
+{% endblock %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,15 +27,11 @@
         <div>your content3</div>
     </div>
 
-    <script src="../js/singlepage.js"></script>
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-
-      <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-      <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-      <script type="text/javascript" src="../slick-1.8.1/slick/slick.min.js"></script>
 
 
+      {% endblock %}
 
-
-</body>
-</html>
+      {% block js %}
+      <script src="{% static 'assets/js/singlepage.js' %}"></script>
+    
+      {% endblock %}

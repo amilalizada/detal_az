@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'assets/css/register.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h2 style="color: #C70E0E;; text-align: center;">Qeydiyyatdan keçin</h2>
+    <div id="user-profile-main" class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12" id="user-profile-form">
+            <form id="user-form" action="">
+                <input class="user-form-input" type="text" value="Adınız" name="" id="">
+                <input class="user-form-input" type="text" value="Emailiniz">
+                <input class="user-form-input" type="text" value="Telefon nömrəniz">
+                <input class="user-form-input" type="password" value="Şifrəniz">
+                <input class="user-form-input" type="password" value="Şifrəniz">
+                <div id="user-form-buttons">
+                    <button class="col-12 right-button">Qeydiyyatdan keç</button>
+                </div>
+                <p style="text-align: center; margin-top: 5%;">Hesabınız var?<a href="" style="color: #C70E0E; text-decoration: none;">  Daxil olun </a></p>
+            </form>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12 register-img" style="display: flex; align-items: center;">
+            <img id="user-profile-image" src="../assets/images/Group 155.png" alt="">
+        </div>
+    </div>
+
+    {% endblock %}
+
+    {% block js %}
+    {% endblock %}
+    

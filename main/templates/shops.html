@@ -1,74 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'assets/css/shops.css' %}">
+{% endblock %}
+{% block content %}
+
+
+
     
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-        <link rel="stylesheet" href="../css/shops.css">
-    <title>Document</title>
-</head>
-
-<body>
-    <section id="navbar-section" class="container">
-        <nav style="background-color: #E5E5E5; padding: 0px;" class="navbar navbar-expand-lg navbar-light bg-light">
-            <div style="background-color: #E5E5E5;" class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="../assets/images/image-removebg-preview (26) 2.png"
-                        alt=""></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <div class="offset-1"></div>
-                    <ul class="navbar-nav col-11">
-                        <li class="nav-item">
-                            <a class="navbar_item active" aria-current="page" href="#">Məhsullar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="navbar_item" href="#">Mağazalar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="navbar_item" href="#">Haqqımızda</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="navbar_item" href="#">Bizimlə Əlaqə</a>
-                        </li>
-                        <li class="nav-item">
-                            <button id="nav-button">Daxil Ol</button>
-                        </li>
-                        <li class="nav-item">
-                            <a class="wishlist-icon" href="#"><i class="fas fa-heart-circle fa-2x"></i></a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="navbar_item dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="../assets/images/AZ.png" alt="">
-                            </a>
-                            <ul class="dropdown-menu" style="right: 0px; min-width:4rem;"
-                                aria-labelledby="navbarDropdownMenuLink">
-                                <li>
-                                    <a class="dropdown-item" href="#"><img src="../assets/images/AZ.png" alt=""></a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#"><img src="../assets/images/AZ.png" alt=""></a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#"><img src="../assets/images/AZ.png" alt=""></a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </section>
     <section class="under-header container m-auto row mt-5">
         <div class="col-12 col-md-5 col-sm-12">
             <p class="header-text mt-5">Bütün maşın hissələrinə aid mağazalar bizim ünvanda</p>
@@ -175,12 +118,7 @@
     </section>
     
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
-        integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
-        integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous">
-    </script>
-</body>
+    {% endblock %}
 
-</html>
+    {% block js %}
+    {% endblock %}
