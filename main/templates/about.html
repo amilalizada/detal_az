@@ -5,7 +5,7 @@
 
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'assets/css/about.css' %}">
+<link rel="stylesheet" href="{% static '/css/about.css' %}">
 {% endblock %}
 {% block content %}
 
@@ -17,7 +17,7 @@
                     hazırda 200den çox mağazaya ev sahipliyi edirik</p>
             </div>
             <div class="col-12 col-sm-5">
-                <img class="w-100" src="../assets/images/Group 349.png" alt="">
+                <img class="w-100" src="{% static 'assets/images/Group 349.png' %}" alt="">
             </div>
         </div>
     </section>

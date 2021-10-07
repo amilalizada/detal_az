@@ -5,7 +5,7 @@
 
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'assets/css/car_detail.css' %}">
+<link rel="stylesheet" href="{% static '/css/car_detail.css' %}">
 {% endblock %}
 {% block content %}
     <section id="car-parts">
@@ -15,19 +15,19 @@
                 <button class="car-part">Ön Hissə</button>
             </div>
             <div id="front-arrow">
-                <img style="width: 50%;" src="../assets/images/Arrow 1.png" alt="">
+                <img style="width: 50%;" src="{% static '/assets/images/Arrow 1.png' %}" alt="">
             </div>
             <div  id="middle-part">
                 <button class="car-part">Orta Hissə</button>
             </div>
             <div id="middle-arrow">
-                <img src="../assets/images/Arrow 2.png" alt="">
+                <img src="{% static '/assets/images/Arrow 2.png' %}" alt="">
             </div>
             <div  id="back-part">
                 <button class="car-part">Arxa Hissə</button>
             </div>
             <div id="back-arrow">
-                <img style="width: 50%;"  src="../assets/images/Arrow 3.png" alt="">
+                <img style="width: 50%;"  src="{% static '/assets/images/Arrow 3.png' %}" alt="">
             </div>
             <div id="image-part">
                 <img id="car-img" src="../assets/images/image-removebg-preview (3) 10.png" alt="">
@@ -36,7 +36,7 @@
                 <button class="car-part under-part">Alt Hissə</button>
             </div>
             <div id="under-arrow">
-                <img src="../assets/images/Arrow 4.png" alt="">
+                <img src="{% static '/assets/images/Arrow 4png' %}" alt="">
             </div>
 
         </div>

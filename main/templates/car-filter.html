@@ -5,7 +5,7 @@
 
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'assets/css/car-filter.css' %}">
+<link rel="stylesheet" href="{% static '/css/car-filter.css' %}">
 {% endblock %}
 {% block content %}
 
@@ -15,7 +15,7 @@
                 <button class="buttons">on hisse</button>
             </div>
             <div class="img-arr1 d-none d-md-block">
-                <img src="../assets/images/Arrow 1.png" alt="">
+                <img src="{% static '/assets/images/Arrow 1.png'%}" alt="">
             </div>
         </div>
         <div class="col-md-4 m-auto">
@@ -23,7 +23,7 @@
                 <button class="buttons">on hisse</button>
             </div>
             <div class="img-arr2 d-none d-md-block">
-                <img src="../assets/images/Arrow 2.png" alt="">
+                <img src="{% static '/assets/images/Arrow 2.png'%}" alt="">
             </div>
         </div>
         <div class="col-md-4 m-auto">
@@ -32,13 +32,13 @@
                 <button class="buttons">on hisse</button>
             </div>
             <div class="img-arr3 d-none d-md-block">
-                <img src="../assets/images/Arrow 3.png" alt="">
+                <img src="{% static '/assets/images/Arrow 3.png'%}" alt="">
             </div>
         </div>
     </div>
 
     <div class="car-img w-100">
-        <img class="w-100" src="../assets/images/image-removebg-preview (3) 10.png" alt="">
+        <img class="w-100" src="{% static '/assets/images/image-removebg-preview (3) 10.png'%}" alt="">
     </div>
 
 
@@ -48,7 +48,7 @@
         </div>
         <div class="col-4 m-auto">
             <div class="img-arr2 d-none d-md-block">
-                <img class="" src="../assets/images/Arrow 4.png" alt="">
+                <img class="" src="{% static '/assets/images/Arrow 4.png'%}" alt="">
             </div>
             <div class="btnn-div">
                 <button class="buttons">on hisse</button>

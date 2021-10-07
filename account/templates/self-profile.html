@@ -5,7 +5,7 @@
 
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'assets/css/self-profile.css' %}">
+<link rel="stylesheet" href="{% static '/css/self-profile.css' %}">
 {% endblock %}
 {% block content %}
 
@@ -14,7 +14,7 @@
         <div class="icons">
             <div class="icon mb-sm-5 mb-md-none">
                 <div class="img">
-                    <img src="../assets/images/resume 1.png" alt="">
+                    <img src="{% static '/assets/images/resume 1.png'%}" alt="">
                 </div>
                 <div class="text">
                     <span class="mr-5">Redakte et</span>
@@ -22,7 +22,7 @@
             </div>
             <div class="icon mb-sm-5 mb-md-none">
                 <div class="img">
-                    <img src="../assets/images/open-box 1.png" alt="">
+                    <img src="{% static '/assets/images/open-box 1.png'%}" alt="">
                 </div>
                 <div class="text">
                     <span class="mr-5">Hesabim</span>
@@ -30,7 +30,7 @@
             </div>
             <div class="icon mb-sm-5 mb-md-none">
                 <div class="img">
-                    <img src="../assets/images/logout 1.png" alt="">
+                    <img src="{% static '/assets/images/logout 1.png'%}" alt="">
                 </div>
                 <div class="text">
                     <span class="mr-5">cixis</span>

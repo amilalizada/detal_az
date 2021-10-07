@@ -5,7 +5,7 @@
 
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'assets/css/contact.css' %}">
+<link rel="stylesheet" href="{% static '/css/contact.css' %}">
 {% endblock %}
 {% block content %}
 
@@ -21,7 +21,7 @@
                     <p class="contact-desc">Nerimanov rayonu</p>
                 </div>
                 <div class="col-md-12 col-sm-12 col-12 col-lg-8 text-start text-sm-center" id="contact-form">
-                    <img id="contact-img" src="../assets/images/image 12 (1).png" alt="">
+                    <img id="contact-img" src="{% static '/assets/images/image 12 (1).png'%}" alt="">
                     <form id="contact-form-text" action="">
                         <h3 style="color: white;">Sualınız qalıbsa?</h3>
                         <h5 style="color: white;">o zaman biz cavablayaq</h5>
