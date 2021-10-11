@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
-    'acoount',
+    'account',
     'product',
     
 ]
@@ -55,6 +55,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'detalaz.urls'
+
+AUTH_USER_MODEL = 'account.User'
 
 
 TEMPLATES = [
@@ -90,6 +92,10 @@ DATABASES = {
         }
     }
 
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -133,6 +139,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 

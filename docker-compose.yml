@@ -12,10 +12,7 @@ services:
       POSTGRES_USER: 'user'
       POSTGRES_PASSWORD: '12345'
   
-  # web:
-  #   build: .
-  #   ports:
-  #     - "5000:5000"
+ 
 
   
 
