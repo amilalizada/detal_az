@@ -43,6 +43,8 @@ class Modell(models.Model):
     # relation's
     marka_id = models.ForeignKey(Marka, verbose_name="Marka", 
                                 on_delete=models.CASCADE, db_index=True,related_name="marka_model")
+    parent_modell = models.ForeignKey('self', verbose_name='Parent Modell', on_delete=models.CASCADE, db_index=True,
+                                       related_name='sub_models', blank=True, null=True)
 
 
 

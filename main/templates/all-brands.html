@@ -34,150 +34,17 @@
         </div>
 
         <div class="row all-cars">
+            {% for marka in markalar%}
             <div class="col-12 col-lg-3 col-md-4 col-sm-6 all-cars-cards">
                 <div class="all-cars-card">
                     <div class="all-cars-card-img" style="height: 100px;">
-                        <img src="{% static '/assets/images/image 26.png' %}" style="width:100%" alt="">
+                        <a href="{{marka.slug}}"> <img src="{{marka.image.url}}" style="width:100%" alt=""></a>
                     </div>
-                    <h6 class="card-title">Toyota</h6>
-                    <button class="card-button">Hissələri</button>
+                    <h6 class="card-title">{{marka.title}}</h6>
+                    <a class="card-url" href="{{marka.slug}}"><button class="card-button">Hissələri</button></a>
                 </div>
             </div>
-            <div class="col-12 col-lg-3 col-md-4 col-sm-6">
-                <div class="all-cars-card">
-                    <div class="all-cars-card-img" style="height: 100px;">
-                        <img src="{% static '/assets/images/image 26.png' %}" style="width:100%" alt="">
-                    </div>
-                    <h6 class="card-title">Toyota</h6>
-                    <button class="card-button">Hissələri</button>
-                </div>
-            </div>
-            <div class="col-12 col-lg-3 col-md-4 col-sm-6">
-                <div class="all-cars-card">
-                    <div class="all-cars-card-img" style="height: 100px;">
-                        <img src="{% static '/assets/images/image 26.png' %}" style="width:100%" alt="">
-                    </div>
-                    <h6 class="card-title">Toyota</h6>
-                    <button class="card-button">Hissələri</button>
-                </div>
-            </div>
-            <div class="col-12 col-lg-3 col-md-4 col-sm-6">
-                <div class="all-cars-card">
-                    <div class="all-cars-card-img" style="height: 100px;">
-                        <img src="{% static '/assets/images/image 26.png' %}" style="width:100%" alt="">
-                    </div>
-                    <h6 class="card-title">Toyota</h6>
-                    <button class="card-button">Hissələri</button>
-                </div>
-            </div>
-            <div class="col-12 col-lg-3 col-md-4 col-sm-6 all-cars-cards">
-                <div class="all-cars-card">
-                    <div class="all-cars-card-img" style="height: 100px;">
-                        <img src="{% static '/assets/images/image 26.png' %}" style="width:100%" alt="">
-                    </div>
-                    <h6 class="card-title">Toyota</h6>
-                    <button class="card-button">Hissələri</button>
-                </div>
-            </div>
-            <div class="col-12 col-lg-3 col-md-4 col-sm-6">
-                <div class="all-cars-card">
-                    <div class="all-cars-card-img" style="height: 100px;">
-                        <img src="{% static '/assets/images/image 26.png' %}" style="width:100%" alt="">
-                    </div>
-                    <h6 class="card-title">Toyota</h6>
-                    <button class="card-button">Hissələri</button>
-                </div>
-            </div>
-            <div class="col-12 col-lg-3 col-md-4 col-sm-6">
-                <div class="all-cars-card">
-                    <div class="all-cars-card-img" style="height: 100px;">
-                        <img src="{% static '/assets/images/image 26.png' %}" style="width:100%" alt="">
-                    </div>
-                    <h6 class="card-title">Toyota</h6>
-                    <button class="card-button">Hissələri</button>
-                </div>
-            </div>
-            <div class="col-12 col-lg-3 col-md-4 col-sm-6">
-                <div class="all-cars-card">
-                    <div class="all-cars-card-img" style="height: 100px;">
-                        <img src="{% static '/assets/images/image 26.png' %}" style="width:100%" alt="">
-                    </div>
-                    <h6 class="card-title">Toyota</h6>
-                    <button class="card-button">Hissələri</button>
-                </div>
-            </div>
-            <div class="col-12 col-lg-3 col-md-4 col-sm-6 all-cars-cards">
-                <div class="all-cars-card">
-                    <div class="all-cars-card-img" style="height: 100px;">
-                        <img src="{% static '/assets/images/image 26.png' %}" style="width:100%" alt="">
-                    </div>
-                    <h6 class="card-title">Toyota</h6>
-                    <button class="card-button">Hissələri</button>
-                </div>
-            </div>
-            <div class="col-12 col-lg-3 col-md-4 col-sm-6">
-                <div class="all-cars-card">
-                    <div class="all-cars-card-img" style="height: 100px;">
-                        <img src="{% static '/assets/images/image 26.png' %}" style="width:100%" alt="">
-                    </div>
-                    <h6 class="card-title">Toyota</h6>
-                    <button class="card-button">Hissələri</button>
-                </div>
-            </div>
-            <div class="col-12 col-lg-3 col-md-4 col-sm-6">
-                <div class="all-cars-card">
-                    <div class="all-cars-card-img" style="height: 100px;">
-                        <img src="{% static '/assets/images/image 26.png' %}" style="width:100%" alt="">
-                    </div>
-                    <h6 class="card-title">Toyota</h6>
-                    <button class="card-button">Hissələri</button>
-                </div>
-            </div>
-            <div class="col-12 col-lg-3 col-md-4 col-sm-6">
-                <div class="all-cars-card">
-                    <div class="all-cars-card-img" style="height: 100px;">
-                        <img src="{% static '/assets/images/image 26.png' %}" style="width:100%" alt="">
-                    </div>
-                    <h6 class="card-title">Toyota</h6>
-                    <button class="card-button">Hissələri</button>
-                </div>
-            </div>
-            <div class="col-12 col-lg-3 col-md-4 col-sm-6 all-cars-cards">
-                <div class="all-cars-card">
-                    <div class="all-cars-card-img" style="height: 100px;">
-                        <img src="{% static '/assets/images/image 26.png' %}" style="width:100%" alt="">
-                    </div>
-                    <h6 class="card-title">Toyota</h6>
-                    <button class="card-button">Hissələri</button>
-                </div>
-            </div>
-            <div class="col-12 col-lg-3 col-md-4 col-sm-6">
-                <div class="all-cars-card">
-                    <div class="all-cars-card-img" style="height: 100px;">
-                        <img src="{% static '/assets/images/image 26.png' %}" style="width:100%" alt="">
-                    </div>
-                    <h6 class="card-title">Toyota</h6>
-                    <button class="card-button">Hissələri</button>
-                </div>
-            </div>
-            <div class="col-12 col-lg-3 col-md-4 col-sm-6">
-                <div class="all-cars-card">
-                    <div class="all-cars-card-img" style="height: 100px;">
-                        <img src="{% static '/assets/images/image 26.png' %}" style="width:100%" alt="">
-                    </div>
-                    <h6 class="card-title">Toyota</h6>
-                    <button class="card-button">Hissələri</button>
-                </div>
-            </div>
-            <div class="col-12 col-lg-3 col-md-4 col-sm-6">
-                <div class="all-cars-card">
-                    <div class="all-cars-card-img" style="height: 100px;">
-                        <img src="{% static '/assets/images/image 26.png' %}" style="width:100%" alt="">
-                    </div>
-                    <h6 class="card-title">Toyota</h6>
-                    <button class="card-button">Hissələri</button>
-                </div>
-            </div>
+            {% endfor %}
         </div>
         <nav style="margin-top: 5%;" aria-label="Page navigation example pagination">
             <ul class="pagination">
