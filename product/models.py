@@ -19,7 +19,7 @@ class Category(models.Model):
 
     title = models.CharField(_('Title'), max_length=120)
     image = models.ImageField(_("Image") , upload_to='product_image', null=True, blank=True)
-    category_order = models.IntegerField(_("Category Order"))
+    category_order = models.IntegerField(_("Category Order"), null=True, blank=True)
     slug = models.SlugField(('slug'), max_length=255, editable=False, unique=True)
 
 
@@ -58,7 +58,7 @@ class Product(models.Model):
     description = models.TextField(_("Description"), null=True,blank=True)
     vin_code = models.CharField(_("Vin code"), max_length=120, null=True, blank=True)
     price = models.DecimalField(_('Qiymet'),max_digits=6, decimal_places=2)
-    discount = models.DecimalField(_('Discount Percentage'),max_digits=6, decimal_places=2)
+    discount = models.DecimalField(_('Discount Percentage'),max_digits=6, decimal_places=2,null=True,blank=True)
     main_image = models.ImageField(_("Main Image") , upload_to='product_image', null=True, blank=True)
     image = models.ImageField(_('Image'), upload_to='product_image', blank=True, null=True)
     slug = models.SlugField(('slug'), max_length=255, editable=False, unique=True)
@@ -80,6 +80,8 @@ class Product(models.Model):
     def save(self,*args, **kwargs):
         
         title = self.title
+
+    #moderations
         self.slug = f"{slugify(self.title)}-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
         super().save()
     
