@@ -119,80 +119,17 @@
     <section class="container" id="markalar-section">
         <div id="markalar-main-div">
             <div class="row" id="markalar-cards">
+                {% for marka in markalar %}
                 <div class="col-md-4  col-lg-3 col-sm-4 col-6 marka-card">
                     <div class="markalar-card">
                         <div class="markalar-img">
-                            <img style="width:100%;" src="{% static '/assets/images/image 26.png' %}" alt="">
+                            <img style="width:100%;" src="{{marka.image.url}}" alt="">
                         </div>
-                        <h6 class="card-title">Toyota</h6>
-                        <button class="card-button">Hissələri</button>
+                        <h6 class="card-title">{{marka.title}}</h6>
+                        <a class="card-url" href="{{marka.slug}}"><button class="card-button">Hissələri</button></a>
                     </div>
                 </div>
-                <div class="col-md-4  col-lg-3 col-sm-4 col-6 marka-card">
-                    <div class="markalar-card">
-                        <div class="markalar-img">
-                            <img style="width:100%;" src="{% static '/assets/images/image 25.png' %}" alt="">
-                        </div>
-                        <h6 class="card-title">Audi</h6>
-                        <button class="card-button">Hissələri</button>
-                    </div>
-                </div>
-                <div class="col-md-4  col-lg-3 col-sm-4 col-6 marka-card">
-                    <div class="markalar-card">
-                        <div class="markalar-img">
-                            <img style="width:100%;" src="{% static '/assets/images/image 27.png' %}" alt="">
-                        </div>
-                        <h6 class="card-title">Mercedes</h6>
-                        <button class="card-button">Hissələri</button>
-                    </div>
-                </div>
-                <div class="col-md-4  col-lg-3 col-sm-4 col-6 marka-card">
-                    <div class="markalar-card">
-                        <div class="markalar-img">
-                            <img style="width:100%;" src="{% static '/assets/images/image 28.png' %}" alt="">
-                        </div>
-                        <h6 class="card-title">Hyundai</h6>
-                        <button class="card-button">Hissələri</button>
-                    </div>
-                </div>
-
-                <div class="col-md-4  col-lg-3 col-sm-4 col-6 marka-card">
-                    <div class="markalar-card">
-                        <div class="markalar-img">
-                            <img style="width:100%;" src="{% static '/assets/images/PngItem_1627112 2.png' %}" alt="">
-                        </div>
-                        <h6 class="card-title">Porshce</h6>
-                        <button class="card-button">Hissələri</button>
-                    </div>
-                </div>
-                <div class="col-md-4  col-lg-3 col-sm-4 col-6 marka-card">
-                    <div class="markalar-card">
-                        <div class="markalar-img">
-                            <img style="width:100%;" src="{% static '/assets/images/image 29.png' %}" alt="">
-                        </div>
-                        <h6 class="card-title">Honda</h6>
-                        <button class="card-button">Hissələri</button>
-                    </div>
-                </div>
-                <div class="col-md-4  col-lg-3 col-sm-4 col-6 marka-card">
-                    <div class="markalar-card">
-                        <div class="markalar-img">
-                            <img style="width:100%;" src="{% static '/assets/images/PngItem_278804 2.png' %}" alt="">
-                        </div>
-                        <h6 class="card-title">Chevrolet</h6>
-                        <button class="card-button">Hissələri</button>
-                    </div>
-                </div>
-                <div class="col-md-4  col-lg-3 col-sm-4 col-6 marka-card">
-                    <div class="markalar-card">
-                        <div class="markalar-img">
-                            <img style="width:100%;" src="{% static '/assets/images/PngItem_716667 2.png' %}" alt="">
-                        </div>
-                        <h6 class="card-title">Ford</h6>
-                        <button class="card-button">Hissələri</button>
-                    </div>
-                </div>
-
+                {% endfor %}
             </div>
         </div>
     </section>
