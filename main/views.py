@@ -5,6 +5,8 @@ from django.views.generic import TemplateView
 from django.views.generic import (
     ListView, DetailView
 )
+from django.http import HttpResponseRedirect
+from django.urls import reverse_lazy
 
 
 # Create your views here.
@@ -48,8 +50,24 @@ class AllBrandsView(ListView):
         context['markalar'] = self.get_markalar()
         return context
 
-class BrandsView(TemplateView):
+class BrandsView(DetailView):
+    model = Marka
     template_name = 'brands.html'
+    context_object_name = 'marka'
+
+    def get_success_url(self , **kwargs):
+        return reverse_lazy('main:brands' , kwargs = {'pk': self.object.pk})
+
+    def get_modeller(self):
+        print(self.object.id,'buradi')
+        modeller = Modell.objects.filter(marka_id=self.object.pk)
+        return modeller
+
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['modeller'] = self.get_modeller()
+        return context
 
 
 class CarDetailView(TemplateView):

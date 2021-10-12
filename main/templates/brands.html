@@ -10,151 +10,21 @@
 {% block content %}
 
     <div class="brand-title">
-        <h1>Mercedes</h1>
+        <h1>{{marka.title}}</h1>
     </div>
 
 
     <div class="car-brands">
+        {% for model in modeller %}
+        {% if not model.parent_modell %}
         <div>
-            <h3>A-class</h3>
-            <p>A-140</p>
-            <p>A-150</p>
-            <p>A-180</p>
-            <p>A-200</p>
+            <h3>{{model.title}}</h3>
+            {% for submodel in model.sub_models.all %}
+            <p>{{submodel.title}}</p>
+            {% endfor %}
         </div>
-        <div>
-            <h3>B-class</h3>
-            <p>B-170</p>
-            <p>B-180</p>
-            <p>B-180</p>
-            <p>B-200</p>
-        </div>
-        <div>
-            <h3>C-class</h3>
-            <p>C-200</p>
-            <p>C-200</p>
-            <p>C-200</p>
-            <p>C-200</p>
-        </div>
-        <div>
-            <h3>C-class</h3>
-            <p>C-200</p>
-            <p>C-200</p>
-            <p>C-200</p>
-            <p>C-200</p>
-        </div>
-        <div>
-            <h3>C-class</h3>
-            <p>C-200</p>
-            <p>C-200</p>
-            <p>C-200</p>
-            <p>C-200</p>
-        </div>
-        <div>
-            <h3>A-class</h3>
-            <p>A-140</p>
-            <p>A-150</p>
-            <p>A-180</p>
-            <p>A-200</p>
-        </div>
-        <div>
-            <h3>B-class</h3>
-            <p>B-170</p>
-            <p>B-180</p>
-            <p>B-180</p>
-            <p>B-200</p>
-        </div>
-        <div>
-            <h3>C-class</h3>
-            <p>C-200</p>
-            <p>C-200</p>
-            <p>C-200</p>
-            <p>C-200</p>
-        </div>
-        <div>
-            <h3>C-class</h3>
-            <p>C-200</p>
-            <p>C-200</p>
-            <p>C-200</p>
-            <p>C-200</p>
-        </div>
-        <div>
-            <h3>C-class</h3>
-            <p>C-200</p>
-            <p>C-200</p>
-            <p>C-200</p>
-            <p>C-200</p>
-        </div>
-        <div>
-            <h3>A-class</h3>
-            <p>A-140</p>
-            <p>A-150</p>
-            <p>A-180</p>
-            <p>A-200</p>
-        </div>
-        <div>
-            <h3>B-class</h3>
-            <p>B-170</p>
-            <p>B-180</p>
-            <p>B-180</p>
-            <p>B-200</p>
-        </div>
-        <div>
-            <h3>C-class</h3>
-            <p>C-200</p>
-            <p>C-200</p>
-            <p>C-200</p>
-            <p>C-200</p>
-        </div>
-        <div>
-            <h3>C-class</h3>
-            <p>C-200</p>
-            <p>C-200</p>
-            <p>C-200</p>
-            <p>C-200</p>
-        </div>
-        <div>
-            <h3>C-class</h3>
-            <p>C-200</p>
-            <p>C-200</p>
-            <p>C-200</p>
-            <p>C-200</p>
-        </div>
-        <div>
-            <h3>A-class</h3>
-            <p>A-140</p>
-            <p>A-150</p>
-            <p>A-180</p>
-            <p>A-200</p>
-        </div>
-        <div>
-            <h3>B-class</h3>
-            <p>B-170</p>
-            <p>B-180</p>
-            <p>B-180</p>
-            <p>B-200</p>
-        </div>
-        <div>
-            <h3>C-class</h3>
-            <p>C-200</p>
-            <p>C-200</p>
-            <p>C-200</p>
-            <p>C-200</p>
-        </div>
-        <div>
-            <h3>C-class</h3>
-            <p>C-200</p>
-            <p>C-200</p>
-            <p>C-200</p>
-            <p>C-200</p>
-        </div>
-        <div>
-            <h3>C-class</h3>
-            <p>C-200</p>
-            <p>C-200</p>
-            <p>C-200</p>
-            <p>C-200</p>
-        </div>
+        {% endif %}
+        {% endfor %}
     </div>
 
     {% endblock %}
