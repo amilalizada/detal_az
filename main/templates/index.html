@@ -282,14 +282,16 @@
                 </div>
                 <div class="col-md-12 col-sm-12 col-12 col-lg-8 text-start text-sm-center" id="contact-form">
                     <img id="contact-img" src="{% static '/assets/images/image 12 (1).png' %}" alt="">
-                    <form id="contact-form-text" action="">
+                    <form id="contact-form-text" action="" method='POST'>
+                    {% csrf_token %}
+                    
                         <h3 style="color: white;">Sualınız qalıbsa?</h3>
                         <h5 style="color: white;">o zaman biz cavablayaq</h5>
                         <p style="color: white;">Adınız</p>
-                        <input class="contact-input" type="" name="" id="">
+                        <input class="contact-input" type="" name="name" id="name">
                         <p style="color: white;">Nömrəniz</p>
-                        <input class="contact-input" type="text">
-                        <button id="contact-button">Bizimlə əlaqə saxlayın</button>
+                        <input class="contact-input" type="number" id='number' name='phone_number'>
+                        <button type='submit' id="contact-button">Bizimlə əlaqə saxlayın</button>
                     </form>
                 </div>
             </div>
@@ -300,4 +302,5 @@
     {% endblock %}
 
     {% block js %}
+     <script src="{% static '/js/app.js' %}"></script>
     {% endblock %}
