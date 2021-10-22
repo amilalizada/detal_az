@@ -10,12 +10,11 @@
     <h2 style="color: #C70E0E;; text-align: center;">Qeydiyyatdan keçin</h2>
     <div id="user-profile-main" class="row">
         <div class="col-lg-6 col-md-6 col-sm-12 col-12" id="user-profile-form">
-            <form id="user-form" action="">
-                <input class="user-form-input" type="text" value="Adınız" name="" id="">
-                <input class="user-form-input" type="text" value="Emailiniz">
-                <input class="user-form-input" type="text" value="Telefon nömrəniz">
-                <input class="user-form-input" type="password" value="Şifrəniz">
-                <input class="user-form-input" type="password" value="Şifrəniz">
+            <form id="user-form"  method="POST" enctype="multipart/form-data" action="">
+                {% csrf_token %}
+                {% for field in form %}
+                    {{field}}
+                {% endfor %}
                 <div id="user-form-buttons">
                     <button class="col-12 right-button">Qeydiyyatdan keç</button>
                 </div>

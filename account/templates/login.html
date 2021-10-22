@@ -63,10 +63,11 @@
                 
                 color: #C70E0E;
                 text-align: center;">CarDent</h3>
-                <form action="" id="login-form">
-                    <input class="login-input" type="text" placeholder="Email hesabınız">
-                    <input class="login-input" type="password" placeholder="Şifrəniz">
-                    <input type="checkbox" id="myCheck" onclick="" value="">
+                <form action="" method="POST" enctype="multipart/form-data" id="login-form">
+                    {% csrf_token %}
+                {% for field in form %}
+                    {{field}}
+                {% endfor %}
                     <button id="login-submit">Daxil ol</button>
                     <h6 style="font-family: Roboto;
                     font-style: normal;

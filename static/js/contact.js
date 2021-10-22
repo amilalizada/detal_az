@@ -26,6 +26,7 @@ document.getElementById('contact-button').addEventListener('click', async (e) =>
     
 
     // console.log(name);
-
+    name.value = ''
+    phone_number.value=''
     console.log("hey");
 })

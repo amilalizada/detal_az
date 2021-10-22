@@ -12,7 +12,7 @@ class RegistrationForm(UserCreationForm):
         label=_("Password"),
         strip=False,
         widget=forms.PasswordInput(attrs={'autocomplete': 'new-password',
-                                          'class': 'form-control',
+                                          'class': 'user-form-input',
                                           'placeholder': 'Password'
                                           }),
         help_text=password_validation.password_validators_help_text_html(),
@@ -20,7 +20,7 @@ class RegistrationForm(UserCreationForm):
     password2 = forms.CharField(
         label=_("Password confirmation"),
         widget=forms.PasswordInput(attrs={'autocomplete': 'new-password',
-                                          'class': 'form-control',
+                                          'class': 'user-form-input',
                                           'placeholder': 'Confirm Password'}),
         strip=False,
         help_text=_("Enter the same password as before, for verification."),
@@ -60,19 +60,19 @@ class RegistrationForm(UserCreationForm):
 
 
 
-class LoginForm(forms.Form):
-    email = forms.EmailField(max_length=40, widget=forms.EmailInput(attrs={
-        'class': 'form-control',
+class LoginForm(AuthenticationForm):
+    username = forms.EmailField(max_length=40, widget=forms.EmailInput(attrs={
+        'class': 'login-input',
         'placeholder': 'Email'
     }))
     password = forms.CharField(max_length=40, widget=forms.PasswordInput(attrs={
-        'class': 'form-control',
+        'class': 'login-input',
         'placeholder': 'Password'
     }))
     
     class Meta:
         model = User
         fields = (
-            'email',
+            'username',
             'password'
         )

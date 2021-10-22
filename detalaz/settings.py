@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -119,6 +120,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+LOGIN_URL = reverse_lazy('main:home')
+LOGOUT_URL = reverse_lazy('main:home')
+LOGIN_REDIRECT_URL = reverse_lazy('main:home')
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
