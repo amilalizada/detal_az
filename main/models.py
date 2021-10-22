@@ -106,3 +106,16 @@ class WishList(models.Model):
     
     # def get_absolute_url(self):
     #     return reverse_lazy('tours:tour-detail', kwargs={'slug': self.slug})
+
+
+class Contact(models.Model):
+
+    name = models.CharField('Name',max_length=40)
+    phone_number = models.PositiveIntegerField('Phone Number')
+
+    class Meta:
+        verbose_name = 'Our Contact'
+        verbose_name_plural = 'Our Contacts'
+
+    def __str__(self):
+        return self.name

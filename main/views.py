@@ -1,10 +1,11 @@
 from django.db import models
 from django.shortcuts import render,redirect 
 from main.models import *
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, CreateView, FormView
 from django.views.generic import (
     ListView, DetailView
 )
+from main.forms import *
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 
@@ -80,6 +81,7 @@ class CarFilterView(TemplateView):
 
 class ContactView(TemplateView):
     template_name = 'contact.html'
+
 
 
 class InnerDetailView(TemplateView):

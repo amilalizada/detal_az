@@ -5,6 +5,7 @@ from main.models import *
 admin.site.register(Marka)
 admin.site.register(Modell)
 admin.site.register(WishList)
+admin.site.register(Contact)
 
 
 # class TourImageInline(admin.TabularInline):
