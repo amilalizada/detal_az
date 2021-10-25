@@ -12,8 +12,10 @@
         <div class="col-lg-6 col-md-6 col-sm-12 col-12" id="user-profile-form">
             <form id="user-form"  method="POST" enctype="multipart/form-data" action="">
                 {% csrf_token %}
+                {{form.non_field_errors }}
                 {% for field in form %}
                     {{field}}
+                    {{field.errors}}
                 {% endfor %}
                 <div id="user-form-buttons">
                     <button class="col-12 right-button">Qeydiyyatdan keç</button>

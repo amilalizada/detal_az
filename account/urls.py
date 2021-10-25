@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path,re_path
 from account.views import *
 
 app_name = 'account'
@@ -8,5 +8,11 @@ urlpatterns = [
     path('register/',RegisterPageView.as_view(),name='register'),
     path('self-profile/',SelfProfilePageView.as_view(),name='self-profile'),
     path('user-profile/',UserProfilePageView.as_view(),name='user-profile'),
+    path('change-password/',ChangePasswordPageView.as_view(),name='change-password'),
+    path('forget-password/',ForgetPasswordView.as_view(),name='forget-password'),
+    # re_path(r'password-reset-confirm/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/', CustomPasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('reset/<uidb64>/<token>/', 
+         CustomPasswordResetConfirmView.as_view(),
+        name='password_reset_confirm'),
     
 ]

@@ -65,6 +65,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     image = models.ImageField(
         _('Image'), upload_to='user_image', blank=True, null=True)
     is_market = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField('Date joined', default=timezone.now)
     # legacy fields
     old_psw_hash = models.CharField(blank=True, null=True, max_length=300)
@@ -100,6 +101,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     @property
     def fullname(self):
         return self.name + self.surname
+    
 
 
 # class UserManager(BaseUserManager):
