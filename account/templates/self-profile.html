@@ -9,7 +9,8 @@
 {% endblock %}
 {% block content %}
 
-    <section class="my_container">
+{% if request.user.is_authenticated %}
+ <section class="my_container">
 
         <div class="icons">
             <div class="icon mb-sm-5 mb-md-none">
@@ -17,7 +18,7 @@
                     <img src="{% static '/assets/images/resume 1.png'%}" alt="">
                 </div>
                 <div class="text">
-                    <span class="mr-5">Redakte et</span>
+                    <a href="" class="mr-5">Redakte et</a>
                 </div>
             </div>
             <div class="icon mb-sm-5 mb-md-none">
@@ -25,7 +26,7 @@
                     <img src="{% static '/assets/images/open-box 1.png'%}" alt="">
                 </div>
                 <div class="text">
-                    <span class="mr-5">Hesabim</span>
+                    <a href="" class="mr-5">Hesabim</a>
                 </div>
             </div>
             <div class="icon mb-sm-5 mb-md-none">
@@ -33,22 +34,24 @@
                     <img src="{% static '/assets/images/logout 1.png'%}" alt="">
                 </div>
                 <div class="text">
-                    <span class="mr-5">cixis</span>
+                    <a href="{% url 'account:logout' %}?next=/main/" class="mr-5">cixis</a>
                 </div>
             </div>
         </div>
 
-        <div class="for-form">
-            <form action="" class="update-profile">
-                <input placeholder="Ad Soyad" type="text">
-                <input placeholder="e-mail" type="email">
-                <input placeholder="nomre" type="number">
-                <input class="mb-4" placeholder="passwrod" type="password">
+        <div class="for-form mb-5">
+            <form action="" class="update-profile" method="POST">
+            {% csrf_token %}
+            
+                <input placeholder="Ad Soyad" name='first_name' value='{{user.first_name}}' type="text">
+                <input placeholder="e-mail" name='email'  value='{{user}}' type="email">
+                <input placeholder="nomre" name='phone'  value='{{user.phone}}' type="number">
+                {% comment %} <input class="mb-4" placeholder="passwrod" type="password"> {% endcomment %}
 
-                <div class="buttons">
-                    <button class="legv mb-3 mb-md-none">
+                <div class="buttons mt-5">
+                    {% comment %} <button class="legv mb-3 mb-md-none">
                         <a href="">legv et</a>
-                    </button>
+                    </button> {% endcomment %}
                     <button class="yadda-saxla mb-3   mb-md-none" type="submit">
                         Yadda saxla
                     </button>
@@ -57,6 +60,12 @@
         </div>
 
     </section>
+{% else %}
+olmaz
+{% endif %}
+
+
+   
 
 
     {% endblock %}
