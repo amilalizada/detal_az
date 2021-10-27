@@ -64,6 +64,13 @@ body{
 #right-button{
     width: 100%;
 }
+
+
+.user-select-is-market{
+    
+}
+
+
 @media only screen and (max-width: 768px) {
     .register-img{
         display: none !important;

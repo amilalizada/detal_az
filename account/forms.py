@@ -33,9 +33,12 @@ class RegistrationForm(UserCreationForm):
         fields = (
             'email',
             'first_name',
+            'phone',
+            'is_market',
+            'adress',
             'password1',
             'password2',
-            'phone',
+
         )
 
         widgets = {
@@ -51,7 +54,15 @@ class RegistrationForm(UserCreationForm):
                 'class': 'user-form-input',
                 'placeholder': 'Phone'
             }),
-        }
+            'is_marketd': forms.CheckboxInput(attrs={
+                'class':'user-select-is-market',
+                'sozunu':'marketsinqizmi'
+            }),
+            'adress': forms.TextInput(attrs={
+                'class': 'user-form-input',
+                'placeholder': 'Adress'
+            })
+}
 
     def clean(self):
         password1 = self.cleaned_data.get('password1')

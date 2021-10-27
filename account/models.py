@@ -61,6 +61,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(
         _("Last Name"), max_length=70, null=False, blank=False)
     email = models.EmailField(_('Email'), unique=True)
+    adress = models.CharField(_("Adress"), max_length=300, null=True, blank=True)
     phone = models.CharField(_("Phone"), max_length=15, null=True, blank=True)
     image = models.ImageField(
         _('Image'), upload_to='user_image', blank=True, null=True)
