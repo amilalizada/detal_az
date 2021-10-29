@@ -8,11 +8,13 @@ from django.contrib.auth.views import LoginView, PasswordChangeView, PasswordRes
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import get_user_model
+from django.views.generic.edit import UpdateView
 from account.tasks import send_confirmation_mail
 from account.forms import RegistrationForm,LoginForm,CustomPasswordChangeForm,CustomPasswordResetForm,ResetPasswordForm
 from django.views.generic import (
     ListView, DetailView, CreateView, TemplateView
 )
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 User = get_user_model()
 
@@ -84,6 +86,7 @@ class CustomPasswordResetConfirmView(PasswordResetConfirmView):
 
 
 
+<<<<<<< HEAD
 
 
 @login_required
@@ -91,6 +94,13 @@ def logout(request):
     django_logout(request)
     messages.success(request, 'Siz cixis etdiniz')
     return redirect(reverse_lazy('product:product_list'))
+=======
+# @login_required
+# def logout(request):
+#     django_logout(request)
+#     messages.success(request, 'Siz cixis etdiniz')
+#     return redirect(reverse_lazy('product:product_list'))
+>>>>>>> f8233d0c4d8ce0e0f4a8a4bcd614819ffafbfe5d
 
 
 # class LoginPageView(TemplateView):
@@ -99,8 +109,13 @@ def logout(request):
 # class RegisterPageView(TemplateView):
 #     template_name = 'register.html'
 
-class SelfProfilePageView(TemplateView):
+class SelfProfilePageView(UpdateView):
+    model = User
+    form_class = RegistrationForm
     template_name = 'self-profile.html'
 
-class UserProfilePageView(TemplateView):
+    
+
+class UserProfilePageView(TemplateView,LoginRequiredMixin):
+    print('salammmmm')
     template_name = 'user-profile2.html'
