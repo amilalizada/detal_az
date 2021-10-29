@@ -84,6 +84,8 @@ class CustomPasswordResetConfirmView(PasswordResetConfirmView):
 
 
 
+
+
 @login_required
 def logout(request):
     django_logout(request)

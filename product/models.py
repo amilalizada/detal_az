@@ -21,7 +21,7 @@ class Category(models.Model):
     image = models.ImageField(_("Image") , upload_to='product_image', null=True, blank=True)
     category_order = models.IntegerField(_("Category Order"), null=True, blank=True)
     slug = models.SlugField(('slug'), max_length=255, editable=False, unique=True)
-
+    is_parent = models.BooleanField(_("Is Parent"),default=False)
 
 
      #moderations
@@ -58,7 +58,7 @@ class Product(models.Model):
     description = models.TextField(_("Description"), null=True,blank=True)
     vin_code = models.CharField(_("Vin code"), max_length=120, null=True, blank=True)
     price = models.DecimalField(_('Qiymet'),max_digits=6, decimal_places=2)
-    discount = models.DecimalField(_('Discount Percentage'),max_digits=6, decimal_places=2,null=True,blank=True)
+    discount = models.IntegerField(_('Discount Percentage'),null=True,blank=True)
     main_image = models.ImageField(_("Main Image") , upload_to='product_image', null=True, blank=True)
     image = models.ImageField(_('Image'), upload_to='product_image', blank=True, null=True)
     slug = models.SlugField(('slug'), max_length=255, editable=False, unique=True)
@@ -76,6 +76,12 @@ class Product(models.Model):
 
     def __str__(self):
         return f"{self.title}" 
+
+    @property
+    def endirim(self):
+        if self.discount:
+            son_qiymet = self.price - (self.price * self.discount)/100
+            return round(son_qiymet,2)
 
     def save(self,*args, **kwargs):
         

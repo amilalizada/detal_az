@@ -89,102 +89,21 @@
     </div>
     <section class="products container mb-5">
         <div class="row mb-5">
+            {% for i in products %}
             <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
                 <div class="incard">
                     <i class="fas fa-heart"></i>
-                    <img src="{% static '/assets/images/image-removebg-preview (13) 2.png' %}" alt="">
+                    <img src="{{i.main_image.url}}" alt="">
                     <div class="d-flex">
                         <span>satici:</span>
-                        <span>amil</span>
+                        <span style="color: red;">{{i.user_id.first_name}}</span>
                     </div>
-                    <p>Mercedes Benz 2014 e220 engine</p>
+                    <p>{{i.title}}</p>
                     <button>23</button>
                 </div>
             </div>
-            <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
-                <div class="incard">
-                    <i class="fas fa-heart"></i>
-                    <img src="{% static '/assets/images/image-removebg-preview (13) 2.png' %}" alt="">
-                    <div class="d-flex">
-                        <span>satici:</span>
-                        <span>amil</span>
-                    </div>
-                    <p>Mercedes Benz 2014 e220 engine</p>
-                    <button>23</button>
-                </div>
-            </div>
-            <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
-                <div class="incard">
-                    <i class="fas fa-heart"></i>
-                    <img src="{% static '/assets/images/image-removebg-preview (13) 2.png' %}" alt="">
-                    <div class="d-flex">
-                        <span>satici:</span>
-                        <span>amil</span>
-                    </div>
-                    <p>Mercedes Benz 2014 e220 engine</p>
-                    <button>23</button>
-                </div>
-            </div>
-            <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
-                <div class="incard">
-                    <i class="fas fa-heart"></i>
-                    <img src="{% static '/assets/images/image-removebg-preview (13) 2.png' %}" alt="">
-                    <div class="d-flex">
-                        <span>satici:</span>
-                        <span>amil</span>
-                    </div>
-                    <p>Mercedes Benz 2014 e220 engine</p>
-                    <button>23</button>
-                </div>
-            </div>
-            <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
-                <div class="incard">
-                    <i class="fas fa-heart"></i>
-                    <img src="{% static '/assets/images/image-removebg-preview (13) 2.png' %}" alt="">
-                    <div class="d-flex">
-                        <span>satici:</span>
-                        <span>amil</span>
-                    </div>
-                    <p>Mercedes Benz 2014 e220 engine</p>
-                    <button>23</button>
-                </div>
-            </div>
-            <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
-                <div class="incard">
-                    <i class="fas fa-heart"></i>
-                    <img src="{% static '/assets/images/image-removebg-preview (13) 2.png' %}" alt="">
-                    <div class="d-flex">
-                        <span>satici:</span>
-                        <span>amil</span>
-                    </div>
-                    <p>Mercedes Benz 2014 e220 engine</p>
-                    <button>23</button>
-                </div>
-            </div>
-            <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
-                <div class="incard">
-                    <i class="fas fa-heart"></i>
-                    <img src="{% static '/assets/images/image-removebg-preview (13) 2.png' %}" alt="">
-                    <div class="d-flex">
-                        <span>satici:</span>
-                        <span>amil</span>
-                    </div>
-                    <p>Mercedes Benz 2014 e220 engine</p>
-                    <button>23</button>
-                </div>
-            </div>
-            <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
-                <div class="incard">
-                    <i class="fas fa-heart"></i>
-                    <img src="{% static '/assets/images/image-removebg-preview (13) 2.png' %}" alt="">
-                    <div class="d-flex">
-                        <span>satici:</span>
-                        <span>amil</span>
-                    </div>
-                    <p>Mercedes Benz 2014 e220 engine</p>
-                    <button>23</button>
-                </div>
-            </div>
+            {% endfor %}
+            
         </div>
         <nav aria-label="Page navigation example pagination">
             <ul class="pagination">

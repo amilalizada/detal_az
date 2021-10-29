@@ -1,3 +1,4 @@
+from typing import List
 from django.db import models
 from django.shortcuts import render,redirect 
 from main.models import *
@@ -8,6 +9,7 @@ from django.views.generic import (
 from main.forms import *
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
+from product.models import Category, Product
 
 
 # Create your views here.
@@ -24,6 +26,7 @@ class HomePageView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['markalar'] = self.get_markalar()
+        context['endirimli'] = Product.objects.filter(is_discount = True)
         return context
 
 
@@ -71,9 +74,20 @@ class BrandsView(DetailView):
         return context
 
 
-class CarDetailView(TemplateView):
+class CarDetailView(ListView):
+    model = Marka
     template_name = 'car_detail.html'
+    context_object_name = 'main_categories'
 
+    def get_main_categories(self):
+        main_categories = Category.objects.filter(is_parent = True)
+        return main_categories
+
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['main_categories'] = self.get_main_categories()
+        return context
 
 class CarFilterView(TemplateView):
     template_name = 'car-filter.html'

@@ -11,34 +11,43 @@
     <section id="car-parts">
         <div id="car-parts-main">
             
+            {% for i in main_categories%}
+            {% if i.image.url == '/media/product_image/Arrow_1.png' %}
             <div  id="front-part">
-                <button class="car-part">Ön Hissə</button>
+                <button class="car-part">{{i.title}}</button>
             </div>
             <div id="front-arrow">
-                <img style="width: 50%;" src="{% static '/assets/images/Arrow 1.png' %}" alt="">
+                <img style="width: 50%;" src="{{i.image.url}}" alt="">
             </div>
+            {%endif%}
+            {% if  i.image.url == '/media/product_image/Arrow_2.png' %}
             <div  id="middle-part">
-                <button class="car-part">Orta Hissə</button>
+                <button class="car-part">{{i.title}}</button>
             </div>
             <div id="middle-arrow">
-                <img src="{% static '/assets/images/Arrow 2.png' %}" alt="">
+                <img src="{{i.image.url}}" alt="">
             </div>
+            {% endif %}
+            {% if  i.image.url == '/media/product_image/Arrow_3.png'%}
             <div  id="back-part">
-                <button class="car-part">Arxa Hissə</button>
+                <button class="car-part">{{i.title}}</button>
             </div>
             <div id="back-arrow">
-                <img style="width: 50%;"  src="{% static '/assets/images/Arrow 3.png' %}" alt="">
+                <img style="width: 50%;"  src="{{i.image.url}}" alt="">
             </div>
+            {% endif %}
+            {% if  i.image.url == '/media/product_image/Arrow_4.png'%}
             <div id="image-part">
-                <img id="car-img" src="../assets/images/image-removebg-preview (3) 10.png" alt="">
+                <img id="car-img" src="{% static '/assets/images/image-removebg-preview (3) 10.png' %}" alt="">
             </div>
             <div  id="under-part">
-                <button class="car-part under-part">Alt Hissə</button>
+                <button class="car-part under-part">{{i.title}}</button>
             </div>
             <div id="under-arrow">
-                <img src="{% static '/assets/images/Arrow 4png' %}" alt="">
+                <img src="{{i.image.url}}" alt="">
             </div>
-
+            {% endif %}
+            {% endfor %}
         </div>
     </section>
 
