@@ -9,6 +9,7 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from tools.slug_generator import slugify
 from django.utils.translation import ugettext_lazy as _
+from django.urls import reverse_lazy
 
 from django.contrib.auth.models import UserManager
 
@@ -87,7 +88,10 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name_plural = 'Accounts'
 
     def __str__(self):
-        return self.email
+        return self.first_name
+
+    def get_absolute_url(self):
+        return reverse_lazy('account:self-profile',kwargs={'slug':self.slug})
 
     def save(self, *args, **kwargs):
         super(User, self).save(*args, **kwargs)

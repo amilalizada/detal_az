@@ -89,7 +89,21 @@
     </div>
     <section class="products container mb-5">
         <div class="row mb-5">
+        {% for item in  items %}
             <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
+                <div class="incard">
+                    <i class="fas fa-heart"></i>
+                    <img src="{{item.main_image.url}}" alt="">
+                    <div class="d-flex">
+                        <span>satici:</span>
+                        <span>{{item.user}}</span>
+                    </div>
+                    <p>{{item.title}}</p>
+                    <button>{{item.price}}</button>
+                </div>
+            </div>
+        {% endfor %}
+            {% comment %} <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
                 <div class="incard">
                     <i class="fas fa-heart"></i>
                     <img src="{% static '/assets/images/image-removebg-preview (13) 2.png' %}" alt="">
@@ -172,19 +186,7 @@
                     <p>Mercedes Benz 2014 e220 engine</p>
                     <button>23</button>
                 </div>
-            </div>
-            <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
-                <div class="incard">
-                    <i class="fas fa-heart"></i>
-                    <img src="{% static '/assets/images/image-removebg-preview (13) 2.png' %}" alt="">
-                    <div class="d-flex">
-                        <span>satici:</span>
-                        <span>amil</span>
-                    </div>
-                    <p>Mercedes Benz 2014 e220 engine</p>
-                    <button>23</button>
-                </div>
-            </div>
+            </div> {% endcomment %}
         </div>
         <nav aria-label="Page navigation example pagination">
             <ul class="pagination">

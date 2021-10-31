@@ -55,6 +55,7 @@ class BrandsView(DetailView):
     model = Marka
     template_name = 'brands.html'
     context_object_name = 'marka'
+    print('AMILLLLLLLLLLLLLLLLLLLLL')
 
     def get_success_url(self , **kwargs):
         return reverse_lazy('main:brands' , kwargs = {'pk': self.object.pk})

@@ -10,7 +10,7 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth import get_user_model
 from django.views.generic.edit import UpdateView
 from account.tasks import send_confirmation_mail
-from account.forms import RegistrationForm,LoginForm,CustomPasswordChangeForm,CustomPasswordResetForm,ResetPasswordForm
+from account.forms import EditProfileForm, RegistrationForm,LoginForm,CustomPasswordChangeForm,CustomPasswordResetForm,ResetPasswordForm
 from django.views.generic import (
     ListView, DetailView, CreateView, TemplateView
 )
@@ -99,11 +99,36 @@ class CustomPasswordResetConfirmView(PasswordResetConfirmView):
 # class RegisterPageView(TemplateView):
 #     template_name = 'register.html'
 
-class SelfProfilePageView(UpdateView):
+class SelfProfilePageView(LoginRequiredMixin,UpdateView):
+    
     model = User
-    form_class = RegistrationForm
+    form_class = EditProfileForm
     template_name = 'self-profile.html'
 
+
+    
+    def form_valid(self, form):
+    
+        self.object = form.save()
+        return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        self.object = self.get_object()
+        context['id'] = self.object.id
+        print(context['id'])
+        return context
+
+    # def get_success_url(self):
+    #     print(self.success_url,'urllllll')
+    #     if not self.success_url:
+    #         raise BaseException("No URL to redirect to. Provide a success_url.")
+    #     return str(self.success_url)
+
+            
+
+    def get_object(self):
+        return self.request.user
     
 
 class UserProfilePageView(TemplateView,LoginRequiredMixin):

@@ -27,6 +27,8 @@
                     {% if request.user.is_authenticated %}
                     <li>
                         <a href="{% url 'account:logout' %}?next=/main/" class="nav-item" style="border: none;">Chixish</a>
+                        <a href="{% url 'account:self-profile' request.user.slug %}" class="nav-item" style="border: none;">{{request.user}}</a>
+                    
                     </li>
                     {% else %} 
                         <li>
