@@ -87,134 +87,24 @@
     </div>
     <section class="products container mb-5">
         <div class="row mb-5">
+            {% for i in sale %}
             <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
                 <div class="incard">
                     <i class="fas fa-heart"></i>
                     <div class="sale-percent">
-                        <span class="sale-span">25</span><span class="sale-span">%</span>
+                        <span class="sale-span">{{i.discount}}</span><span class="sale-span">%</span>
                         
                     </div>
-                    <img src="{% static '/assets/images/image-removebg-preview (13) 2.png' %}" alt="">
+                    <img src="{{i.main_image.url}}" alt="">
                     <div class="d-flex">
                         <span class="satici mb-4">satici:</span>
-                        <span class="saler">amil</span>
+                        <span class="saler">{{i.user_id.first_name}}</span>
                     </div>
-                    <p>Mercedes Benz 2014 e220 engine</p>
-                    <button><span style="text-decoration: line-through; margin-right:20px">100</span><span>75</span></button>
+                    <p>{{i.title}}</p>
+                    <button><span style="text-decoration: line-through; margin-right:20px">{{i.price}}</span><span>{{i.endirim}}</span></button>
                 </div>
             </div>
-            <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
-                <div class="incard">
-                    <i class="fas fa-heart"></i>
-                    <div class="sale-percent">
-                        <span class="sale-span">25</span><span class="sale-span">%</span>
-                        
-                    </div>
-                    <img src="{% static '/assets/images/image-removebg-preview (13) 2.png' %}" alt="">
-                    <div class="d-flex">
-                        <span class="satici mb-4">satici:</span>
-                        <span class="saler">amil</span>
-                    </div>
-                    <p>Mercedes Benz 2014 e220 engine</p>
-                    <button><span style="text-decoration: line-through; margin-right:20px">100</span><span>75</span></button>
-                </div>
-            </div>
-            <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
-                <div class="incard">
-                    <i class="fas fa-heart"></i>
-                    <div class="sale-percent">
-                        <span class="sale-span">25</span><span class="sale-span">%</span>
-                        
-                    </div>
-                    <img src="{% static '/assets/images/image-removebg-preview (13) 2.png' %}" alt="">
-                    <div class="d-flex">
-                        <span class="satici mb-4">satici:</span>
-                        <span class="saler">amil</span>
-                    </div>
-                    <p>Mercedes Benz 2014 e220 engine</p>
-                    <button><span style="text-decoration: line-through; margin-right:20px">100</span><span>75</span></button>
-                </div>
-            </div>
-            <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
-                <div class="incard">
-                    <i class="fas fa-heart"></i>
-                    <div class="sale-percent">
-                        <span class="sale-span">25</span><span class="sale-span">%</span>
-                        
-                    </div>
-                    <img src="{% static '/assets/images/image-removebg-preview (13) 2.png' %}" alt="">
-                    <div class="d-flex">
-                        <span class="satici mb-4">satici:</span>
-                        <span class="saler">amil</span>
-                    </div>
-                    <p>Mercedes Benz 2014 e220 engine</p>
-                    <button><span style="text-decoration: line-through; margin-right:20px">100</span><span>75</span></button>
-                </div>
-            </div>
-            <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
-                <div class="incard">
-                    <i class="fas fa-heart"></i>
-                    <div class="sale-percent">
-                        <span class="sale-span">25</span><span class="sale-span">%</span>
-                        
-                    </div>
-                    <img src="{% static '/assets/images/image-removebg-preview (13) 2.png' %}" alt="">
-                    <div class="d-flex">
-                        <span class="satici mb-4">satici:</span>
-                        <span class="saler">amil</span>
-                    </div>
-                    <p>Mercedes Benz 2014 e220 engine</p>
-                    <button><span style="text-decoration: line-through; margin-right:20px">100</span><span>75</span></button>
-                </div>
-            </div>
-            <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
-                <div class="incard">
-                    <i class="fas fa-heart"></i>
-                    <div class="sale-percent">
-                        <span class="sale-span">25</span><span class="sale-span">%</span>
-                        
-                    </div>
-                    <img src="{% static '/assets/images/image-removebg-preview (13) 2.png' %}" alt="">
-                    <div class="d-flex">
-                        <span class="satici mb-4">satici:</span>
-                        <span class="saler">amil</span>
-                    </div>
-                    <p>Mercedes Benz 2014 e220 engine</p>
-                    <button><span style="text-decoration: line-through; margin-right:20px">100</span><span>75</span></button>
-                </div>
-            </div>
-            <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
-                <div class="incard">
-                    <i class="fas fa-heart"></i>
-                    <div class="sale-percent">
-                        <span class="sale-span">25</span><span class="sale-span">%</span>
-                        
-                    </div>
-                    <img src="{% static '/assets/images/image-removebg-preview (13) 2.png' %}" alt="">
-                    <div class="d-flex">
-                        <span class="satici mb-4">satici:</span>
-                        <span class="saler">amil</span>
-                    </div>
-                    <p>Mercedes Benz 2014 e220 engine</p>
-                    <button><span style="text-decoration: line-through; margin-right:20px">100</span><span>75</span></button>
-                </div>
-            </div>
-            <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
-                <div class="incard">
-                    <i class="fas fa-heart"></i>
-                    <div class="sale-percent">
-                        <span class="sale-span">25</span><span class="sale-span">%</span>
-                        
-                    </div>
-                    <img src="{% static '/assets/images/image-removebg-preview (13) 2.png' %}" alt="">
-                    <div class="d-flex">
-                        <span class="satici mb-4">satici:</span>
-                        <span class="saler">amil</span>
-                    </div>
-                    <p>Mercedes Benz 2014 e220 engine</p>
-                    <button><span style="text-decoration: line-through; margin-right:20px">100</span><span>75</span></button>
-                </div>
-            </div>
+            {% endfor %}
         </div>
         <nav aria-label="Page navigation example pagination">
             <ul class="pagination">

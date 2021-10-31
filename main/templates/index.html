@@ -151,92 +151,18 @@
     <section class="container" id="hisseler-section">
         <div id="hisseler-main-div">
             <div class="row" id="hisseler-cards">
+                {% for i in endirimli %}
                 <div class="col-md-4 col-lg-3 col-sm-4 col-6 hisse-kart">
                     <div class="hisseler-card">
                         <div style="height: 100px;">
-                            <img class="hisseler-img" src="{% static '/assets/images/image-removebg-preview (13) 2.png' %}" alt="">
+                            <img class="hisseler-img" src="{{i.main_image.url}}" alt="">
                         </div>
-                        <h6 class="hisseler-title">Toyota</h6>
-                        <p class="hisseler-desc"> Mercedes Benz 2014 e220 engine</p>
+                        <h6 class="hisseler-title">{{i.title}}</h6>
+                        <p class="hisseler-desc"> {{i.description}}</p>
                         <button class="hisseler-button">Hissələri</button>
                     </div>
                 </div>
-                <div class="col-md-4 col-lg-3 col-sm-4 col-6 hisse-kart">
-                    <div class="hisseler-card">
-                        <div style="height: 100px;">
-                            <img class="hisseler-img" src="{% static '/assets/images/image-removebg-preview (13) 2.png' %}" alt="">
-                        </div>
-                        <h6 class="hisseler-title">Toyota</h6>
-                        <p class="hisseler-desc"> Mercedes Benz 2014 e220 engine</p>
-                        <button class="hisseler-button">Hissələri</button>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3 col-sm-4 col-6 hisse-kart">
-                    <div class="hisseler-card">
-                        <div style="height: 100px;">
-                            <img class="hisseler-img" src="{% static '/assets/images/image-removebg-preview (13) 2.png' %}" alt="">
-                        </div>
-                        <h6 class="hisseler-title">Toyota</h6>
-                        <p class="hisseler-desc"> Mercedes Benz 2014 e220 engine</p>
-                        <button class="hisseler-button">Hissələri</button>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3 col-sm-4 col-6 hisse-kart">
-                    <div class="hisseler-card">
-                        <div style="height: 100px;">
-                            <img class="hisseler-img" src="{% static '/assets/images/image-removebg-preview (13) 2.png' %}" alt="">
-                        </div>
-                        <h6 class="hisseler-title">Toyota</h6>
-                        <p class="hisseler-desc"> Mercedes Benz 2014 e220 engine</p>
-                        <button class="hisseler-button">Hissələri</button>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-lg-3 col-sm-4 col-6 hisse-kart">
-                    <div class="hisseler-card">
-                        <div style="height: 100px;">
-                            <img class="hisseler-img" src="{% static '/assets/images/image-removebg-preview (13) 2.png' %}" alt="">
-                        </div>
-                        <h6 class="hisseler-title">Toyota</h6>
-                        <p class="hisseler-desc"> Mercedes Benz 2014 e220 engine</p>
-                        <button class="hisseler-button">Hissələri</button>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3 col-sm-4 col-6 hisse-kart">
-                    <div class="hisseler-card">
-                        <div style="height: 100px;">
-                            <img class="hisseler-img" src="{% static '/assets/images/image-removebg-preview (13) 2.png' %}" alt="">
-                        </div>
-                        <h6 class="hisseler-title">Toyota</h6>
-                        <p class="hisseler-desc"> Mercedes Benz 2014 e220 engine</p>
-                        <button class="hisseler-button">Hissələri</button>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3 col-sm-4 col-6 hisse-kart">
-                    <div class="hisseler-card">
-                        <div style="height: 100px;">
-                            <img class="hisseler-img" src="{% static '/assets/images/image-removebg-preview (13) 2.png' %}" alt="">
-                        </div>
-                        <h6 class="hisseler-title">Toyota</h6>
-                        <p class="hisseler-desc"> Mercedes Benz 2014 e220 engine</p>
-                        <button class="hisseler-button">Hissələri</button>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3 col-sm-4 col-6 hisse-kart">
-                    <div class="hisseler-card">
-                        <div style="height: 100px;">
-                            <img class="hisseler-img" src="{% static '/assets/images/image-removebg-preview (13) 2.png' %}" alt="">
-                        </div>
-                        <h6 class="hisseler-title">Toyota</h6>
-                        <p class="hisseler-desc"> Mercedes Benz 2014 e220 engine</p>
-                        <button class="hisseler-button">Hissələri</button>
-                    </div>
-                </div>
-                <div class="col-12 d-flex justify-content-center mt-5">
-                    <button class="all-parts-button">
-                        Bütün məhsullar
-                    </button>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section>

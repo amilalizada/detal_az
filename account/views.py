@@ -86,11 +86,21 @@ class CustomPasswordResetConfirmView(PasswordResetConfirmView):
 
 
 
+<<<<<<< HEAD
+
+
+@login_required
+def logout(request):
+    django_logout(request)
+    messages.success(request, 'Siz cixis etdiniz')
+    return redirect(reverse_lazy('product:product_list'))
+=======
 # @login_required
 # def logout(request):
 #     django_logout(request)
 #     messages.success(request, 'Siz cixis etdiniz')
 #     return redirect(reverse_lazy('product:product_list'))
+>>>>>>> f8233d0c4d8ce0e0f4a8a4bcd614819ffafbfe5d
 
 
 # class LoginPageView(TemplateView):
