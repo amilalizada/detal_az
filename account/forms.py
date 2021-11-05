@@ -148,3 +148,27 @@ class ResetPasswordForm(SetPasswordForm):
         'placeholder': 'New password confirmation',}),
     )
 
+class EditProfileForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('first_name', 'email', 'phone','adress')
+        widgets = {
+            'first_name': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'First name',
+            }),
+            
+            'email': forms.EmailInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Email',
+            }),
+            'phone': forms.NumberInput(attrs={
+                'class': 'user-form-input',
+                'placeholder': 'Phone'
+            }),
+            'adress': forms.TextInput(attrs={
+                'class': 'user-form-input',
+                'placeholder': 'Address'
+            }),
+
+        }

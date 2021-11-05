@@ -6,27 +6,29 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <a class="navbar-brand" href="#"><img src="{% static '/assets/images/image-removebg-preview (26) 2.png' %}" alt=""></a>
+          <a class="navbar-brand" href="{% url 'main:home' %}"><img src="{% static '/assets/images/image-removebg-preview (26) 2.png' %}" alt=""></a>
           <a class="wishlist-icon responsive-wish" href="#"><i class="fas fa-heart-circle fa-2x"></i></a>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <div class="offset-md-1"></div>
                 <ul class="navbar-nav col-md-11">
                     <li class="nav-item">
-                        <a class="navbar_item active" aria-current="page" href="#">Məhsullar</a>
+                        <a class="navbar_item active" aria-current="page" href="{% url 'product:products' %}">Məhsullar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="navbar_item" href="#">Mağazalar</a>
+                        <a class="navbar_item" href="{% url 'main:shops' %}">Mağazalar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="navbar_item" href="#">Haqqımızda</a>
+                        <a class="navbar_item" href="{% url 'main:about' %}">Haqqımızda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="navbar_item" href="#">Bizimlə Əlaqə</a>
+                        <a class="navbar_item" href="{% url 'main:contact' %}">Bizimlə Əlaqə</a>
                     </li>
                     
                     {% if request.user.is_authenticated %}
                     <li>
                         <a href="{% url 'account:logout' %}?next=/main/" class="nav-item" style="border: none;">Chixish</a>
+                        <a href="{% url 'account:self-profile' request.user.slug %}" class="nav-item" style="border: none;">{{request.user}}</a>
+                    
                     </li>
                     {% else %} 
                         <li>

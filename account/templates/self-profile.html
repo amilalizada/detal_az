@@ -10,6 +10,8 @@
 {% block content %}
 
 {% if request.user.is_authenticated %}
+
+
  <section class="my_container">
 
         <div class="icons">
@@ -26,7 +28,7 @@
                     <img src="{% static '/assets/images/open-box 1.png'%}" alt="">
                 </div>
                 <div class="text">
-                    <a href="" class="mr-5">Hesabim</a>
+                    <a href="{% url 'account:user-profile' request.user.slug %}" class="mr-5">Hesabim</a>
                 </div>
             </div>
             <div class="icon mb-sm-5 mb-md-none">
@@ -39,13 +41,20 @@
             </div>
         </div>
 
+
+
+
         <div class="for-form mb-5">
-            <form action="" class="update-profile" method="POST">
+            <form action="" class="update-profile" enctype="multipart/form-data" method="POST">
             {% csrf_token %}
             
                 <input placeholder="Ad Soyad" name='first_name' value='{{user.first_name}}' type="text">
-                <input placeholder="e-mail" name='email'  value='{{user}}' type="email">
+                <input placeholder="e-mail" name='email'  value='{{user.email}}' type="email">
                 <input placeholder="nomre" name='phone'  value='{{user.phone}}' type="number">
+                {% if request.user.is_market %}
+                <input placeholder="address" name='adress'  value='{{user.adress}}' type="text">
+
+                {% endif %}
                 {% comment %} <input class="mb-4" placeholder="passwrod" type="password"> {% endcomment %}
 
                 <div class="buttons mt-5">

@@ -92,7 +92,10 @@
             {% for i in products %}
             <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
                 <div class="incard">
-                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-heart wish"></i>
+                    <span class='d-none foridinput'>{{i.id}}</span>
+                    <span class='d-none foridinput'>{{request.user.id}}</span>
+                    
                     <img src="{{i.main_image.url}}" alt="">
                     <div class="d-flex">
                         <span>satici:</span>
@@ -148,4 +151,5 @@
     {% endblock %}
 
     {% block js %}
+    <script src="{% static '/js/wishlistapi.js' %}"></script>
     {% endblock %}
