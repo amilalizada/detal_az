@@ -24,78 +24,19 @@
         </div>
     </section>
     <section class="shops row mt-5 m-auto container">
+    {% for shop in shops %}
+    
         <div class="shop-card col-3 mt-5 col-md-4 col-lg-3 col-xl-3 col-sm-6 col-12">
             <div class="cart-img-div">
                 <img class="cart-img" src="{% static '/assets/images/Rectangle 188.png' %}" alt="">
             </div>
 
             <div class="cart-title d-flex justify-content-center align-items-center">
-                <h3 class="text-center">magaza</h3>
+                <h3 class="text-center">{{shop}}</h3>
             </div>
         </div>
-        <div class="shop-card col-3 mt-5 col-md-4 col-lg-3 col-xl-3 col-sm-6 col-12">
-            <div class="cart-img-div">
-                <img class="cart-img" src="{% static '/assets/images/Rectangle 188.png' %}" alt="">
-            </div>
-
-            <div class="cart-title d-flex justify-content-center align-items-center">
-                <h3 class="text-center">magaza</h3>
-            </div>
-        </div>
-        <div class="shop-card col-3 mt-5 col-md-4 col-lg-3 col-xl-3 col-sm-6 col-12">
-            <div class="cart-img-div">
-                <img class="cart-img" src="{% static '/assets/images/Rectangle 188.png' %}" alt="">
-            </div>
-
-            <div class="cart-title d-flex justify-content-center align-items-center">
-                <h3 class="text-center">magaza</h3>
-            </div>
-        </div>
-        <div class="shop-card col-3 mt-5 col-md-4 col-lg-3 col-xl-3 col-sm-6 col-12">
-            <div class="cart-img-div">
-                <img class="cart-img" src="{% static '/assets/images/Rectangle 188.png' %}" alt="">
-            </div>
-
-            <div class="cart-title d-flex justify-content-center align-items-center">
-                <h3 class="text-center">magaza</h3>
-            </div>
-        </div>
-        <div class="shop-card col-3 mt-5 col-md-4 col-lg-3 col-xl-3 col-sm-6 col-12">
-            <div class="cart-img-div">
-                <img class="cart-img" src="{% static '/assets/images/Rectangle 188.png' %}" alt="">
-            </div>
-
-            <div class="cart-title d-flex justify-content-center align-items-center">
-                <h3 class="text-center">magaza</h3>
-            </div>
-        </div>
-        <div class="shop-card col-3 mt-5 col-md-4 col-lg-3 col-xl-3 col-sm-6 col-12">
-            <div class="cart-img-div">
-                <img class="cart-img" src="{% static '/assets/images/Rectangle 188.png' %}" alt="">
-            </div>
-
-            <div class="cart-title d-flex justify-content-center align-items-center">
-                <h3 class="text-center">magaza</h3>
-            </div>
-        </div>
-        <div class="shop-card col-3 mt-5 col-md-4 col-lg-3 col-xl-3 col-sm-6 col-12">
-            <div class="cart-img-div">
-                <img class="cart-img" src="{% static '/assets/images/Rectangle 188.png' %}" alt="">
-            </div>
-
-            <div class="cart-title d-flex justify-content-center align-items-center">
-                <h3 class="text-center">magaza</h3>
-            </div>
-        </div>
-        <div class="shop-card col-3 mt-5 col-md-4 col-lg-3 col-xl-3 col-sm-6 col-12">
-            <div class="cart-img-div">
-                <img class="cart-img" src="{% static '/assets/images/Rectangle 188.png' %}" alt="">
-            </div>
-
-            <div class="cart-title d-flex justify-content-center align-items-center">
-                <h3 class="text-center">magaza</h3>
-            </div>
-        </div>
+    {% endfor %}
+        
 
         <nav class="mt-4" aria-label="Page navigation example pagination">
             <ul class="pagination">

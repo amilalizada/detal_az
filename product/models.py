@@ -48,7 +48,7 @@ class Product(models.Model):
     # relation's
     user_id = models.ForeignKey(User, verbose_name="User", 
                                 on_delete=models.CASCADE, db_index=True,related_name="user_product")
-    modell_id = models.ForeignKey(Modell, verbose_name="Model",
+    modell_id = models.ForeignKey('main.Modell', verbose_name="Modell",
                                 on_delete=models.CASCADE, db_index=True, related_name="model_product")
     category_id = models.ForeignKey(Category, verbose_name=_("Category"), 
                                 on_delete=models.CASCADE, db_index=True, related_name="category_product")    
@@ -93,4 +93,5 @@ class Product(models.Model):
     
     # def get_absolute_url(self):
     #     return reverse_lazy('tours:tour-detail', kwargs={'slug': self.slug})
+
 
