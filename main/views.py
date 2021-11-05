@@ -103,8 +103,16 @@ class InnerDetailView(TemplateView):
     template_name = 'inner-details.html'
 
 
-class ShopsView(TemplateView):
+class ShopsView(ListView):
     template_name = 'shops.html'
+    model = User
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["shops"] = User.objects.filter(is_market = True).all()
+        
+        return context
+    
 
 
 class SinglePageView(TemplateView):

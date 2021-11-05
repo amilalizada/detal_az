@@ -16,6 +16,8 @@ from django.views.generic import (
 )
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from product.models import Product
+
 User = get_user_model()
 
 # class RegisterPageView(CreateView):
@@ -134,3 +136,17 @@ class SelfProfilePageView(LoginRequiredMixin,UpdateView):
 class UserProfilePageView(TemplateView,LoginRequiredMixin):
     print('salammmmm')
     template_name = 'user-profile2.html'
+    model = Product
+
+    def get_products(self):
+        sale_products = Product.objects.filter(user_id=self.request.user.id).all().order_by('-created_at')
+        return sale_products
+
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['products'] = self.get_products()
+        return context
+
+    
+    

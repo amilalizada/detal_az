@@ -11,7 +11,7 @@
 
 {% if request.user.is_authenticated %}
 
-{{request.user.is_market}}
+
  <section class="my_container">
 
         <div class="icons">
@@ -28,7 +28,7 @@
                     <img src="{% static '/assets/images/open-box 1.png'%}" alt="">
                 </div>
                 <div class="text">
-                    <a href="{% url 'account:logout' %}" class="mr-5">Hesabim</a>
+                    <a href="{% url 'account:user-profile' request.user.slug %}" class="mr-5">Hesabim</a>
                 </div>
             </div>
             <div class="icon mb-sm-5 mb-md-none">
@@ -41,8 +41,8 @@
             </div>
         </div>
 
-{{request.user.adress}}
-{{user}}
+
+
 
         <div class="for-form mb-5">
             <form action="" class="update-profile" enctype="multipart/form-data" method="POST">
