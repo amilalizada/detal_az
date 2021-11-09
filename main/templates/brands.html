@@ -20,7 +20,9 @@
         <div>
             <h3>{{model.title}}</h3>
             {% for submodel in model.sub_models.all %}
-            <p>{{submodel.title}}</p>
+            <a href="{% url 'main:car-detail' model.slug submodel.slug %}">
+                <p>{{submodel.title}}</p>
+            </a>
             {% endfor %}
         </div>
         {% endif %}

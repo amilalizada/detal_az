@@ -1,0 +1,36 @@
+body{
+    background: #E5E5E5;
+}
+
+#subparts-main{
+    width: 85%;
+    margin: 0 auto;
+}
+
+.sub-parts-title{
+    text-align: center;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 33px;
+    
+}
+.sub-parts-inner{
+    margin: 5%;
+}
+.sub-parts-a{
+    text-decoration: none;
+    color: #C70E0E;
+}
+
+.sub-parts-a:hover{
+    color: #C70E0E;
+}
+.sub-parts-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 200px;
+}

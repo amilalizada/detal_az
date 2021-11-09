@@ -1,10 +1,11 @@
 from django.db import models
 from django.shortcuts import render,redirect 
-from product.models import Product
+from product.models import Category, Product
 from django.views.generic import TemplateView
 from django.views.generic import (
     ListView, DetailView
 )
+from main.models import *
 
 
 # Create your views here.
@@ -15,17 +16,44 @@ class AddProductPageView(TemplateView):
 class ProductPageView(TemplateView):
     template_name = 'products.html'
     model = Product
-    context_object_name = 'sale-products'
+    context_object_name = 'all-products'
 
     def get_products(self):
-        sale_products = Product.objects.all().order_by('-created_at')
-        return sale_products
+        all_products = Product.objects.all().order_by('-created_at')
+        return all_products
 
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['products'] = self.get_products()
         return context
+
+
+
+class FilteredProducts(ListView):
+    template_name = 'filtered_products.html'
+    model = Product
+
+    # def get_success_url(self , **kwargs):
+    #     return reverse_lazy('main:sub-parts' , kwargs = {'pk': self.object.pk})
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # print(self.kwargs.get('detail_slug'),'ididi')
+        parent_cat = Category.objects.filter(slug = self.kwargs.get('parent_detail_slug'))[0]
+        context['model'] = self.kwargs.get('model_slug')
+        model = Modell.objects.filter(slug = self.kwargs.get('model_slug'))[0]
+        context['marka'] = self.kwargs.get('marka_slug')
+        context['parent_detail'] = self.kwargs.get('parent_detail_slug')
+        context['subparent_detail'] = self.kwargs.get('subparent_detail_slug')
+        context['child_detail'] = self.kwargs.get('child_detail_slug')
+        category = Category.objects.filter(slug = self.kwargs.get('child_detail_slug'))[0]
+        products = Product.objects.filter(modell_id = model, category_id = category)
+        # context["subparts"] = Category.objects.filter(parent_category = parent_cat.id).all()
+        context['products'] = products
+        
+        return context
+
 
 
 class SaleProductPageView(ListView):

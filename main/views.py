@@ -82,15 +82,24 @@ class CarDetailView(ListView):
     template_name = 'car_detail.html'
     context_object_name = 'main_categories'
 
+    # def get_success_url(self , **kwargs):
+    #     return reverse_lazy('main:car-detail' , kwargs = {'slug': self.marka_slug, "model_slug":self.marka_model.model_slug})
+
     def get_main_categories(self):
         main_categories = Category.objects.filter(is_parent = True)
+        # print(main_categories,'bulardi')
         return main_categories
 
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        # print(self.kwargs.get['slug'],'salam')
+        context['marka'] = self.kwargs.get('marka_slug')
+        context['model'] = self.kwargs.get('model_slug')
         context['main_categories'] = self.get_main_categories()
         return context
+
+    
 
 class CarFilterView(TemplateView):
     template_name = 'car-filter.html'
@@ -101,8 +110,24 @@ class ContactView(TemplateView):
 
 
 
-class InnerDetailView(TemplateView):
+class InnerDetailView(ListView):
     template_name = 'inner-details.html'
+    model = Category
+
+    # def get_success_url(self , **kwargs):
+    #     return reverse_lazy('main:sub-parts' , kwargs = {'pk': self.object.pk})
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        print(self.kwargs.get('subparent_detail_slug'),'ididi')
+        context['model'] = self.kwargs.get('model_slug')
+        context['marka'] = self.kwargs.get('marka_slug')
+        context['parent_detail'] = self.kwargs.get('parent_detail_slug')
+        context['subparent_detail'] = self.kwargs.get('subparent_detail_slug')
+        parent_cat = Category.objects.filter(slug = self.kwargs.get('subparent_detail_slug'))[0]
+        context["parts"] = Category.objects.filter(parent_category = parent_cat.id).all()
+        
+        return context
 
 
 class ShopsView(ListView):
@@ -115,7 +140,23 @@ class ShopsView(ListView):
         
         return context
     
+class SubParts(ListView):
+    template_name = 'sub_parts.html'
+    model = Category
 
+    # def get_success_url(self , **kwargs):
+    #     return reverse_lazy('main:sub-parts' , kwargs = {'pk': self.object.pk})
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # print(self.kwargs.get('detail_slug'),'ididi')
+        parent_cat = Category.objects.filter(slug = self.kwargs.get('parent_detail_slug'))[0]
+        context['model'] = self.kwargs.get('model_slug')
+        context['marka'] = self.kwargs.get('marka_slug')
+        context['parent_detail'] = self.kwargs.get('parent_detail_slug')
+        context["subparts"] = Category.objects.filter(parent_category = parent_cat.id).all()
+        
+        return context
 
 class SinglePageView(TemplateView):
     template_name = 'singlepage.html'

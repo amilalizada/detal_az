@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+body{
+    background: #E5E5E5;
+}
+
+
 .car-img{
     width: 80%;
     margin: auto;

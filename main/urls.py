@@ -9,11 +9,12 @@ urlpatterns = [
     path('allbrands/',AllBrandsView.as_view(),name='allbrands'),
     path('brands/<int:pk>/',BrandsView.as_view(),name='brands'),
     path('car-filter/',CarFilterView.as_view(),name='car-filter'),
-    path('car-detail/',CarDetailView.as_view(),name='car-detail'),
+    path('car-detail/<str:model_slug>/<str:marka_slug>/',CarDetailView.as_view(),name='car-detail'),
     path('contact/',ContactView.as_view(),name='contact'),
     path('shops/',ShopsView.as_view(),name='shops'),
-    path('inner-details/',InnerDetailView.as_view(),name='inner-details'),
+    path('inner-details/<str:model_slug>/<str:marka_slug>/<str:parent_detail_slug>/<str:subparent_detail_slug>/',InnerDetailView.as_view(),name='inner-details'),
     path('single-page/',SinglePageView.as_view(),name='isingle-page'),
     path('wishlist/',WishlistPageView.as_view(),name='wishlist'),
+    path('sub-parts/<str:model_slug>/<str:marka_slug>/<str:parent_detail_slug>/',SubParts.as_view(),name='sub-parts'),
 
 ]

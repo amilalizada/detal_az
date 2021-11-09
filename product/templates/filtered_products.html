@@ -1,0 +1,155 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/products.css' %}">
+{% endblock %}
+{% block content %}<!DOCTYPE html>
+
+    
+    <section>
+        <div id="main-div-first-section">
+            <div id="inner-div-first-section" class="container">
+                <div class="row" id="first-section-first-row">
+                    <div class="col-9">
+                        <div class="row first-section-inner-row">
+                            <div class="col-5 search-input-main">
+                                <input class="search-input" placeholder="Axtardiginiz mehsulun adini qeyd edin"
+                                    type="text">
+                            </div>
+                            <div class="col-5 search-input-main">
+                                <input class="search-input" placeholder="Vin kod ile axtar" type="text">
+                            </div>
+                        </div>
+                        <div class="row first-section-inner-row">
+                            <div class="col-4">
+                                <select name="Maşın markası" id="" class="search-part-select">
+                                    <option value="0">Maşın markası</option>
+                                    <option value="1">BMW</option>
+                                    <option value="2">Mercedes</option>
+                                    <option value="3">Porshce</option>
+                                    <option value="4">Hyundai</option>
+                                </select>
+                            </div>
+                            <div class="col-4">
+                                <select name="Maşın modeli" id="" class="search-part-select">
+                                    <option value="0">Maşın modeli</option>
+                                    <option value="1">C-class</option>
+                                    <option value="2">E-class</option>
+                                    <option value="3">G-class</option>
+                                    <option value="4">B-class</option>
+                                </select>
+                            </div>
+                            <div class="col-4">
+                                <select name="Buraxılış ili" id="" class="search-part-select">
+                                    <option value="0">Buraxılış ili</option>
+                                    <option value="1">2016</option>
+                                    <option value="2">2017</option>
+                                    <option value="3">2018</option>
+                                    <option value="4">2019</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-3">
+                        <button class="search-button">Axtar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="cardent container row m-auto mt-5">
+        <div class="col-12 col-md-5 ml-5">
+            <div style="margin-left: 60px;" class="inner-cardent">
+                <p class="w-100 mb-md-3 mb-sm-5">Orginal hissələr yalnız bu addresdə </p>
+                <div class="d-flex mb-md-3 mb-sm-5 mt-5">
+                    <h1 style="width: 100px;" class="mb-2">Car</h1>
+                    <h1 style="color: white;" class="">dent</h1>
+                </div>
+
+                <h3 class="w-100 mb-md-3 mb-4">Axtardığınızı bizim addressdə tapın</h3>
+                <button class="sm-mt-3 mt-2">Indi Al</button>
+            </div>
+        </div>
+        <div class="col-12 col-md-7">
+            <img style="margin-left:70px;width:70%;height:80%" src="{% static '/assets/images/Group 342.png' %}" alt="">
+        </div>
+    </div>
+
+    <div class="products-header mt-5 mb-5">
+        <div style="width: 50%; margin:auto;"><h1 class="text-center mb-4 hisseler">Hissələr</h1></div>
+        
+        <h1 class="text-center">Ən son məhsullar</h1>
+    </div>
+    <section class="products container mb-5">
+        <div class="row mb-5">
+            {% for i in products %}
+            <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
+                <div class="incard">
+                    <i class="fas fa-heart wish"></i>
+                    <span class='d-none foridinput'>{{i.id}}</span>
+                    <span class='d-none foridinput'>{{request.user.id}}</span>
+                    
+                    <img src="{{i.main_image.url}}" alt="">
+                    <div class="d-flex">
+                        <span>satici:</span>
+                        <span style="color: red;">{{i.user_id.first_name}}</span>
+                    </div>
+                    <p>{{i.title}}</p>
+                    <button>23</button>
+                </div>
+            </div>
+            {% endfor %}
+            
+        </div>
+        <nav aria-label="Page navigation example pagination">
+            <ul class="pagination">
+              <li class="page-item prev">
+                <a class="page-link prev" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item nextt">
+                <a class="page-link nextt" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+    </section>
+
+    <div class="products-header-2 mt-5 mb-5 d-none d-xl-block">
+        <div style="width: 30%; margin:auto;"><h1 class="text-center mb-4 hisseler">Feedbacklər</h1></div>
+        
+        <h1 style="white-space: nowrap;" class="text-center">Müştərilərimiz hər zaman bizdən razı qalırlar </h1>
+    </div>
+
+    <div class="row container m-auto mb-5">
+        <div class="col-6 customer  d-none d-xl-block">
+            <p class="customer-text">Mağazalar hər zaman orginal məhsullar satır</p>
+            <img src="{% static '/assets/images/Group 345.png' %}" alt="">
+            <img class="customer-photo" src="{% static '/assets/images/image 35.png' %}" alt="">
+        </div>
+        <div class="col-6 customer  d-none d-xl-block">
+            <p class="customer-text">Mağazalar hər zaman orginal məhsullar satır</p>
+            <img class="ml-5" src="{% static '/assets/images/Group 344.png' %}" alt="">
+            <img class="customer-photo" src="{% static '/assets/images/image 35.png' %}" alt="">
+        </div>
+    </div>
+
+    
+
+    {% endblock %}
+
+    {% block js %}
+    <script src="{% static '/js/wishlistapi.js' %}"></script>
+    {% endblock %}
