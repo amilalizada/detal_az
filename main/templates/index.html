@@ -64,54 +64,69 @@
 
     <section class="container" style="margin-top: 5%;">
         <div id="boxes">
+            {% for i in box_categories %}
+
+                    {% if forloop.counter == 1 %}
                     <div id="first-box">
                         <div class="box-title" style="display: flex;
                         justify-content: center;
-                        align-items: center;color: white;">Maşın yağları</div>
+                        align-items: center;color: white;">{{i.title}}</div>
                         <div class="box_img d-flex align-items-center">
-                            <img class="" src="{% static '/assets/images/image 17.png'%}" style="width: 100%;"  alt="">
+                            <img class="" src="{{i.image.url}}" style="width: 100%;"  alt="">
                         </div>
                     </div>
+                    {% endif %}
+                    {% if forloop.counter == 2%}
                     <div id="second-box">
                         <div class="box-title" style="display: flex;
                         justify-content: center;
-                        align-items: center;color: white;">Maşın motorlari</div>
+                        align-items: center;color: white;">{{i.title}}</div>
                         <div class="box_img d-flex align-items-center">
-                            <img class="" src="{% static '/assets/images/image 20.png'%}" style="width: 100%;"  alt="">
+                            <img class="" src="{{i.image.url}}" style="width: 100%;"  alt="">
                         </div>
                     </div>
+                    {% endif %}
+                    {% if forloop.counter == 3 %}
                 <div id="third-box-main">
                         <div class="box_img">
-                            <img class="" class="d-flex align-items-center" src="{%static '/assets/images/image 18.png'%}" style="width: 100%;" alt=" ">
+                            <img class="" class="d-flex align-items-center" src="{{i.image.url}}" style="width: 100%;" alt=" ">
                         </div>
                         <div class="box-title" style="display: flex;
                         justify-content: center;
-                        align-items: center;text-align: center;color: white; ">Maşın akkumlyatorları</div>
+                        align-items: center;text-align: center;color: white; ">{{i.title}}</div>
                 </div>
+                {% endif%}
+                {% if forloop.counter == 4 %}
                 <div  id="fourth-box">
                     <div class="box-title" style="display: flex;
                     justify-content: center;
-                    align-items: center;color: white;">Maşın akksesuarları</div>
+                    align-items: center;color: white;">{{i.title}}</div>
                     <div class="box_img d-flex align-items-center">
-                        <img class="" src="{% static '/assets/images/image 19.png'%}" style="width: 100%;"  alt="">
+                        <img class="" src="{{i.image.url}}" style="width: 100%;"  alt="">
                     </div>
                 </div>
+                {% endif %}
+                {% if forloop.counter == 5 %}
                 <div  id="fifth-box">
                     <div class="box-title" style="display: flex;
                     justify-content: center;
-                    align-items: center;color: white;">Maşın farları</div>
+                    align-items: center;color: white;">{{i.title}}</div>
                     <div class="box_img d-flex align-items-center">
-                        <img class="" src="{% static '/assets/images/image-removebg-preview (2) 1.png' %}" style="width: 100%;" alt="">
+                        <img class="" src="{{i.image.url}}" style="width: 100%;" alt="">
                     </div>
                 </div>
+                {% endif %}
+                {% if forloop.counter == 6 %}
                 <div id="sixth-box">
                     <div class="box-title" style="display: flex;
                     justify-content: center;
-                    align-items: center;color: white;">Maşın təkərləri</div>
+                    align-items: center;color: white;">{{i.title}}</div>
                     <div class="box_img d-flex align-items-center">
-                        <img class="" src="{% static '/assets/images/image 22.png' %}" style="width: 100%;" alt="">
+                        <img class="" src="{{i.image.url}}" style="width: 100%;" alt="">
                     </div>
                 </div>
+                {% endif %}
+                {% endfor %}
         </div>
     </section>
 
@@ -171,24 +186,11 @@
     <section id="long-cards-section" class="container">
         <div id="long-cards-main">
             <div id="long-cards" class="row">
+                {% for cat in long_box_categories %}
                 <div class="col-md-4 col-sm-4 col-4 col-lg-2 long-card">
-                    <img class=long-img src="{% static '/assets/images/Rectangle 18.png' %}" alt="">
+                    <img class=long-img src="{{cat.image.url}}" alt="">
                 </div>
-                <div class="col-md-4 col-sm-4 col-4 col-lg-2 col-4 long-card">
-                    <img class=long-img src="{% static '/assets/images/Rectangle 20 (1).png' %}" alt="">
-                </div>
-                <div class="col-md-4 col-sm-4 col-4 col-lg-2 col-4 long-card">
-                    <img class=long-img src="{% static '/assets/images/Rectangle 21.png' %}" alt="">
-                </div>
-                <div class="col-md-4 col-sm-4 col-4 col-lg-2 col-4 long-card">
-                    <img class=long-img src="{% static '/assets/images/Rectangle 33.png' %}" alt="">
-                </div>
-                <div class="col-md-4 col-sm-4 col-4 col-lg-2 col-4 long-card">
-                    <img class=long-img src="{% static '/assets/images/Rectangle 18.png' %}" alt="">
-                </div>
-                <div class="col-md-4 col-sm-4 col-4 col-lg-2 col-4 long-card">
-                    <img class=long-img src="{% static '/assets/images/Rectangle 21.png' %}" alt="">
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section>

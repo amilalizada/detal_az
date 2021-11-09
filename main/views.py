@@ -27,6 +27,8 @@ class HomePageView(ListView):
         context = super().get_context_data(**kwargs)
         context['markalar'] = self.get_markalar()
         context['endirimli'] = Product.objects.filter(is_discount = True)
+        context['box_categories'] =  Category.objects.filter(is_box_category = True)
+        context['long_box_categories'] = Category.objects.filter(is_long_box_category = True)
         return context
 
 

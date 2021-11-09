@@ -22,6 +22,8 @@ class Category(models.Model):
     category_order = models.IntegerField(_("Category Order"), null=True, blank=True)
     slug = models.SlugField(('slug'), max_length=255, editable=False, unique=True)
     is_parent = models.BooleanField(_("Is Parent"),default=False)
+    is_box_category = models.BooleanField(_("Is Box Category"),default=False, null=True, blank=True)
+    is_long_box_category = models.BooleanField(_("Is Long Box Category"), default=False, null=True, blank=True)
 
 
      #moderations
