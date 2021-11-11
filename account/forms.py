@@ -75,7 +75,7 @@ class RegistrationForm(UserCreationForm):
                 'class': 'user-form-input',
                 'placeholder': 'Adress'
             }),
-            # 'image':forms.FileField(widget=PictureWidget)
+            # 'image':forms.FileField()
 }
 
     def clean(self):

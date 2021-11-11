@@ -7,7 +7,7 @@ hearts.forEach(element => {
         
         if(element.classList.contains("wish")){
             element.classList.remove('wish')
-            
+            let csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
             
             element.style = 'color: #C70E0E;'
         

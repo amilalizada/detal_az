@@ -3,7 +3,7 @@ let xButtons = document.querySelectorAll('.x-button');
 xButtons.forEach(element => {
     element.addEventListener('click', async (e) => { 
         e.preventDefault();
-        
+        let csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
         
         let product = element.nextElementSibling.innerHTML
         console.log(element , 'fgf')
