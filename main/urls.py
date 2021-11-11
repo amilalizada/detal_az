@@ -14,6 +14,5 @@ urlpatterns = [
     path('shops/',ShopsView.as_view(),name='shops'),
     path('inner-details/',InnerDetailView.as_view(),name='inner-details'),
     path('single-page/',SinglePageView.as_view(),name='isingle-page'),
-    path('wishlist/',WishlistPageView.as_view(),name='wishlist'),
-
+    path('wishlist/<str:slug>',WishlistPageView.as_view(),name='wishlist'),
 ]

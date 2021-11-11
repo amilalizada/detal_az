@@ -10,6 +10,7 @@ from main.forms import *
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from product.models import Category, Product
+from django.db.models import Q
 
 
 # Create your views here.
@@ -58,7 +59,7 @@ class BrandsView(DetailView):
     model = Marka
     template_name = 'brands.html'
     context_object_name = 'marka'
-    print('AMILLLLLLLLLLLLLLLLLLLLL')
+    
 
     def get_success_url(self , **kwargs):
         return reverse_lazy('main:brands' , kwargs = {'pk': self.object.pk})
@@ -121,5 +122,15 @@ class SinglePageView(TemplateView):
 
 class WishlistPageView(TemplateView):
     template_name = 'wishlist.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        
+        wishlists = WishList.objects.filter(user = self.request.user).all()
+        print(wishlists)
+        context['wishes'] = wishlists
+        return context
+
+
 
 

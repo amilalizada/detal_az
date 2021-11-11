@@ -1,5 +1,8 @@
+from django.contrib.auth.models import AnonymousUser
 from django.db import models
-from django.shortcuts import render,redirect 
+from django.http import request
+from django.shortcuts import render,redirect
+from main.models import WishList 
 from product.models import Product
 from django.views.generic import TemplateView
 from django.views.generic import (
@@ -25,6 +28,16 @@ class ProductPageView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['products'] = self.get_products()
+        if self.request.user.is_authenticated: 
+            print('wawawawawawaawaw')
+            wishlists = WishList.objects.filter(user= self.request.user)
+            print(wishlists)
+            wish_products = []
+            for i in wishlists:
+                title = i.product.title
+                wish_products.append(title)
+            # print(wish_products)
+            context['wishes'] = wish_products
         return context
 
 

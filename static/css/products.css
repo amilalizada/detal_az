@@ -212,8 +212,14 @@ width: 100%;
     position: absolute;
     left: 20px;
     top: 20px;
-    color: #C70E0E;
+    color: grey;
     font-size: 25px;
+}
+.wish{
+    color: grey;
+}
+.unwish{
+    color: #C70E0E;
 }
 .pagination{
     display: flex;
