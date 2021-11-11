@@ -26,26 +26,28 @@
                     
                     {% if request.user.is_authenticated %}
                     <li>
-                        <a href="{% url 'account:logout' %}?next=/main/" class="nav-item" style="border: none;">Chixish</a>
-                        <a href="{% url 'account:self-profile' request.user.slug %}" class="nav-item" style="border: none;">{{request.user}}</a>
+                        <a href="{% url 'account:logout' %}?next=/main/" class="nav-item" style="border: none; text-decoration:none;color:black;">Chixish</a>
+                        <a href="{% url 'account:self-profile' request.user.slug %}" class="nav-item" style="border: none; text-decoration:none;color:black;">{{request.user}}</a>
                     
                     </li>
                     {% else %} 
                         <li>
-                        <a href="{% url 'account:login' %}" class="nav-item" style="border: none;">Daxil Ol</a>
+                        <a href="{% url 'account:login' %}" class="nav-item" style="border: none; text-decoration:none; color:black;">Daxil Ol</a>
                         </li>
                     {% endif %}
                      {% if not request.user.is_authenticated %}
                     <li>
-                        <a href="{% url 'account:register' %}" class="nav-item" style="border: none;">Qeydiyyat</a>
+                        <a href="{% url 'account:register' %}" class="nav-item" style="border: none; text-decoration:none;color:black;">Qeydiyyat</a>
                     </li>
                     {% endif %}
                     {% comment %} <li class="nav-item" style="border: none;">
                         <button id="nav-button">Daxil Ol</button>
                     </li> {% endcomment %}
+                    {% if request.user.is_authenticated %}
                     <li class="nav-item no-wish">
-                        <a class="wishlist-icon" href="#"><i class="fas fa-heart-circle fa-2x"></i></a>
+                        <a class="wishlist-icon" href="{% url 'main:wishlist' request.user.slug %}"><i class="fas fa-heart-circle fa-2x"></i></a>
                     </li>
+                    {% endif %}
                     <li class="nav-item dropdown" style="border: none;">
                         <a class="navbar_item dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="{% static '/assets/images/AZ.png' %}" alt="">
