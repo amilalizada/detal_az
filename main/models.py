@@ -115,9 +115,7 @@ class WishList(models.Model):
 
         super().save()
         create = str(self.created_at)
-        print(type(create),'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+        
         self.slug = f"{slugify(create)}-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
         super().save()
 
-    # def get_absolute_url(self):
-    #     return reverse_lazy('tours:tour-detail', kwargs={'slug': self.slug})

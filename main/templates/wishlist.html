@@ -13,87 +13,25 @@
 
     <section class="wishes container">
         <div class="row m-auto pl-2 pr-2 mt-5">
-            <div class="col-12 col-sm-6 cart mb-4">
-                <div class="incart">
-                    <div class="img-div">
-                        <img src="{% static '/assets/images/image 20.png' %}" alt="">
-                    </div>
-                    <div class="cart-text">
-                        <h2 class="title">Engine</h2>
-                        <span class="price">100</span><span class="valyuta ml-3">azn</span>
-                        <span class="sale-price"></span>
-                    </div>
-                    <i class="far fa-times x-button"></i>
-                </div>
-            </div>
 
+        {% for item in wishes %}
             <div class="col-12 col-sm-6 cart mb-4">
                 <div class="incart">
                     <div class="img-div">
-                        <img src="{% static '/assets/images/image 20.png' %}" alt="">
+                        <img src="{{item.product.main_image.url}}" alt="">
                     </div>
                     <div class="cart-text">
-                        <h2 class="title">Engine</h2>
-                        <span class="price">100</span><span class="valyuta ml-3">azn</span>
+                        <h2 class="title">{{item.product.title}}</h2>
+                        <span class="price">{{item.product.price}}</span><span class="valyuta ml-3">azn</span>
                         <span class="sale-price"></span>
                     </div>
                     <i class="far fa-times x-button"></i>
+                    <span class='d-none'>{{item.product.id}}</span>
                 </div>
             </div>
-            <div class="col-12 col-sm-6 cart mb-4">
-                <div class="incart">
-                    <div class="img-div">
-                        <img src="{% static '/assets/images/image 20.png' %}" alt="">
-                    </div>
-                    <div class="cart-text">
-                        <h2 class="title">Engine</h2>
-                        <span class="price">100</span><span class="valyuta ml-3">azn</span>
-                        <span class="sale-price"></span>
-                    </div>
-                    <i class="far fa-times x-button"></i>
-                </div>
-            </div>
+        {% endfor %}
 
-            <div class="col-12 col-sm-6 cart mb-4">
-                <div class="incart">
-                    <div class="img-div">
-                        <img src="{% static '/assets/images/image 20.png' %}" alt="">
-                    </div>
-                    <div class="cart-text">
-                        <h2 class="title">Engine</h2>
-                        <span class="price">100</span><span class="valyuta ml-3">azn</span>
-                        <span class="sale-price"></span>
-                    </div>
-                    <i class="far fa-times x-button"></i>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 cart mb-4">
-                <div class="incart">
-                    <div class="img-div">
-                        <img src="{% static '/assets/images/image 20.png' %}" alt="">
-                    </div>
-                    <div class="cart-text">
-                        <h2 class="title">Engine</h2>
-                        <span class="price">100</span><span class="valyuta ml-3">azn</span>
-                        <span class="sale-price"></span>
-                    </div>
-                    <i class="far fa-times x-button"></i>
-                </div>
-            </div>
-
-            <div class="col-12 col-sm-6 cart mb-4">
-                <div class="incart">
-                    <div class="img-div">
-                        <img src="{% static '/assets/images/image 20.png' %}" alt="">
-                    </div>
-                    <div class="cart-text">
-                        <h2 class="title">Engine</h2>
-                        <span class="price">100</span><span class="valyuta ml-3">azn</span>
-                        <span class="sale-price"></span>
-                    </div>
-                    <i class="far fa-times x-button"></i>
-                </div>
-            </div>
+            
 
         </div>
     </section>
@@ -102,4 +40,5 @@
     {% endblock %}
 
     {% block js %}
+    <script src="{% static '/js/unwish.js' %}"></script>
     {% endblock %}

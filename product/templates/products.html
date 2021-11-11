@@ -92,7 +92,11 @@
             {% for i in products %}
             <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
                 <div class="incard">
+                    {% if i.title in wishes %}
+                    <i class="fas fa-heart unwish"></i>
+                    {% else %}
                     <i class="fas fa-heart wish"></i>
+                    {%endif%}
                     <span class='d-none foridinput'>{{i.id}}</span>
                     <span class='d-none foridinput'>{{request.user.id}}</span>
                     
@@ -151,5 +155,5 @@
     {% endblock %}
 
     {% block js %}
-    <script src="{% static '/js/wishlistapi.js' %}"></script>
+    
     {% endblock %}
