@@ -7,7 +7,7 @@ hearts.forEach(element => {
         
         if(element.classList.contains("wish")){
             element.classList.remove('wish')
-            
+            let csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
             
             element.style = 'color: #C70E0E;'
         
@@ -27,7 +27,8 @@ hearts.forEach(element => {
             let data = await fetch('http://127.0.0.1:8000/contact-api/wishlist/', {
                 method: 'POST',
                 headers: {
-                    "Content-type": "application/json"
+                    "Content-type": "application/json",
+                    "X-CSRFToken": csrf_token
                 },
                 body: JSON.stringify(obj)
             })

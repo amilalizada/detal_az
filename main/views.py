@@ -69,7 +69,6 @@ class BrandsView(DetailView):
     def get_modeller(self):
         print(self.object.id,'buradi')
         marka = Marka.objects.get(slug = self.kwargs.get('slug'))
-
         modeller = Modell.objects.filter(marka_id=marka.id)
         return modeller
 

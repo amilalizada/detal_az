@@ -3,7 +3,7 @@ let xButtons = document.querySelectorAll('.x-button');
 xButtons.forEach(element => {
     element.addEventListener('click', async (e) => { 
         e.preventDefault();
-        
+        let csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
         
         let product = element.nextElementSibling.innerHTML
         console.log(element , 'fgf')
@@ -19,7 +19,8 @@ xButtons.forEach(element => {
             let data = await fetch('http://127.0.0.1:8000/contact-api/wishlist/', {
                 method: 'DELETE',
                 headers: {
-                    "Content-type": "application/json"
+                    "Content-type": "application/json",
+                    "X-CSRFToken": csrf_token
                 },
                 body: JSON.stringify(obj)
             });

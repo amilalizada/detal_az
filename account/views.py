@@ -44,7 +44,10 @@ class RegisterPageView(CreateView):
     form_class = RegistrationForm
     success_url = reverse_lazy('account:login')
     template_name = 'register.html'
-    print("buradi")
+
+    def form_valid(self, form):
+        print(form.data,'form')
+        return super().form_valid(form)
 
 class LoginPageView(LoginView):
     form_class = LoginForm
