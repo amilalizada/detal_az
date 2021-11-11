@@ -64,11 +64,13 @@ class BrandsView(DetailView):
     
 
     def get_success_url(self , **kwargs):
-        return reverse_lazy('main:brands' , kwargs = {'pk': self.object.pk})
+        return reverse_lazy('main:brands' , kwargs = {'slug': self.object.slug})
 
     def get_modeller(self):
         print(self.object.id,'buradi')
-        modeller = Modell.objects.filter(marka_id=self.object.pk)
+        marka = Marka.objects.get(slug = self.kwargs.get('slug'))
+
+        modeller = Modell.objects.filter(marka_id=marka.id)
         return modeller
 
 
@@ -88,6 +90,8 @@ class CarDetailView(ListView):
 
     def get_main_categories(self):
         main_categories = Category.objects.filter(is_parent = True)
+        for i in main_categories:
+            print(i.image)
         # print(main_categories,'bulardi')
         return main_categories
 

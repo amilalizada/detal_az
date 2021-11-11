@@ -50,6 +50,8 @@ class Product(models.Model):
     # relation's
     user_id = models.ForeignKey(User, verbose_name="User", 
                                 on_delete=models.CASCADE, db_index=True,related_name="user_product")
+    marka_id = models.ForeignKey('main.Marka', verbose_name="Marka", 
+                                on_delete=models.CASCADE, db_index=True,related_name="marka_product")
     modell_id = models.ForeignKey('main.Modell', verbose_name="Modell",
                                 on_delete=models.CASCADE, db_index=True, related_name="model_product")
     category_id = models.ForeignKey(Category, verbose_name=_("Category"), 
