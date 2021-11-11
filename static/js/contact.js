@@ -16,13 +16,14 @@ document.getElementById('contact-button').addEventListener('click', async (e) =>
     let data = await fetch('http://127.0.0.1:8000/contact-api/contact/', {
         method: 'POST',
         headers: {
-            "Content-type": "application/json"
+            "Content-type": "application/json",
+            "X-CSRFToken": csrf_token
         },
         body: JSON.stringify(obj)
     })
 
     let response = await data.json();
-    console.log(response);
+    console.log(response, 'AAAA');
     
 
     // console.log(name);

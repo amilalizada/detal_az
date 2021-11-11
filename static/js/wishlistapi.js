@@ -27,7 +27,8 @@ hearts.forEach(element => {
             let data = await fetch('http://127.0.0.1:8000/contact-api/wishlist/', {
                 method: 'POST',
                 headers: {
-                    "Content-type": "application/json"
+                    "Content-type": "application/json",
+                    "X-CSRFToken": csrf_token
                 },
                 body: JSON.stringify(obj)
             })

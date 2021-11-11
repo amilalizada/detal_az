@@ -65,11 +65,6 @@ body{
     width: 100%;
 }
 
-
-.user-select-is-market{
-    
-}
-
 input[type="file"] {
     display: none;
 }
