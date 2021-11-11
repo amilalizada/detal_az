@@ -141,7 +141,7 @@
                             <img style="width:100%;" src="{{marka.image.url}}" alt="">
                         </div>
                         <h6 class="card-title">{{marka.title}}</h6>
-                        <a class="card-url" href="{{marka.slug}}"><button class="card-button">Hissələri</button></a>
+                        <a class="card-url" href="{% url 'main:brands' marka.id %}"><button class="card-button">Hissələri</button></a>
                     </div>
                 </div>
                 {% endfor %}

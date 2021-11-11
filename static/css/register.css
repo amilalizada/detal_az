@@ -70,6 +70,20 @@ body{
     
 }
 
+input[type="file"] {
+    display: none;
+}
+
+#id_image{
+  display: inline-block;
+  font-family: calibri;
+  width: 150px;
+  padding: 10px;
+  border: 1px dashed #BBB;
+  text-align: center;
+  background-color: #DDD;
+  cursor: pointer;
+}
 
 @media only screen and (max-width: 768px) {
     .register-img{

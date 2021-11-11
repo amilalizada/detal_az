@@ -5,8 +5,20 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm,PasswordResetForm,\
 SetPasswordForm
 from django.contrib.auth.password_validation import validate_password, password_validators_help_text_html
+from django.utils.safestring import mark_safe
+from string import Template
 
 User = get_user_model()
+
+
+# from string import Template
+# from django.utils.safestring import mark_safe
+# from django.forms import ImageField
+
+class PictureWidget(forms.widgets.Widget):
+    def render(self, name, value, attrs=None, **kwargs):
+        html =  Template("""<img src="$link"/>""")
+        return mark_safe(html.substitute(link=value))
 
 
 class RegistrationForm(UserCreationForm):
@@ -36,6 +48,7 @@ class RegistrationForm(UserCreationForm):
             'phone',
             'is_market',
             'adress',
+            'image',
             'password1',
             'password2',
 
@@ -61,7 +74,8 @@ class RegistrationForm(UserCreationForm):
             'adress': forms.TextInput(attrs={
                 'class': 'user-form-input',
                 'placeholder': 'Adress'
-            })
+            }),
+            # 'image':forms.FileField(widget=PictureWidget)
 }
 
     def clean(self):
