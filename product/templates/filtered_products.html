@@ -96,7 +96,9 @@
                     <span class='d-none foridinput'>{{i.id}}</span>
                     <span class='d-none foridinput'>{{request.user.id}}</span>
                     
-                    <img src="{{i.main_image.url}}" alt="">
+                    <a href="{% url 'product:single-product' i.slug%}">
+                        <img src="{{i.main_image.url}}" alt="">
+                    </a>
                     <div class="d-flex">
                         <span>satici:</span>
                         <span style="color: red;">{{i.user_id.first_name}}</span>

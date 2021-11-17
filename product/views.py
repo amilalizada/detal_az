@@ -13,9 +13,18 @@ from django.views.generic import (
 from main.models import *
 
 
+class SingleProductView(DetailView):
+    model = Product 
+    template_name = 'single-product.html'
+    context_object_name = 'product'
+
 # Create your views here.
 class AddProductPageView(TemplateView):
     template_name = 'add-product.html'
+
+
+# class SingleProductView(TemplateView):
+#     template_name = 'single-product.html'
 
 
 class ProductPageView(TemplateView):

@@ -64,7 +64,6 @@ class Product(models.Model):
     price = models.DecimalField(_('Qiymet'),max_digits=6, decimal_places=2)
     discount = models.IntegerField(_('Discount Percentage'),null=True,blank=True)
     main_image = models.ImageField(_("Main Image") , upload_to='product_image', null=True, blank=True)
-    image = models.ImageField(_('Image'), upload_to='product_image', blank=True, null=True)
     slug = models.SlugField(('slug'), max_length=255, editable=False, unique=True)
     is_discount = models.BooleanField(_("Is Discount") , default=False)
 
@@ -99,3 +98,19 @@ class Product(models.Model):
     #     return reverse_lazy('tours:tour-detail', kwargs={'slug': self.slug})
 
 
+class Image(models.Model):
+    
+    # relation's
+    product = models.ForeignKey(Product, verbose_name="Product", 
+                                on_delete=models.CASCADE, db_index=True,related_name="product_image")   
+
+    image = models.ImageField(_('Image'), upload_to='product_image')
+    is_main = models.BooleanField(_("Is Main") , default=False)
+
+    class Meta():
+        verbose_name = 'Image'
+        verbose_name_plural = 'Images'
+        # ordering = ('-created_at', '-title')
+
+    def __str__(self):
+        return f"{self.image}" 
