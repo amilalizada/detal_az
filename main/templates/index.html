@@ -17,44 +17,36 @@
                     <div class="col-md-9 col-12">
                         <div class="row first-section-inner-row">
                             <div class="col-md-5 search-input-main">
-                                <input class="search-input" placeholder="Axtardiginiz mehsulun adini qeyd edin" type="text">
+                                <input id='search' class="search-input" placeholder="Axtardiginiz mehsulun adini qeyd edin" type="text">
                             </div>
                             <div class="col-md-5 search-input-main">
-                                <input class="search-input" placeholder="Vin kod ile axtar" type="text">
+                                <input id='ban' class="search-input" placeholder="Ban nomre ile axtar" type="text">
                             </div>
                         </div>
                         <div class="row first-section-inner-row">
                             <div class="col-md-4 search-select">
-                                <select name="Maşın markası" id="" class="search-part-select">
-                                    <option value="0">Maşın markası</option>
-                                    <option value="1">BMW</option>
-                                    <option value="2">Mercedes</option>
-                                    <option value="3">Porshce</option>
-                                    <option value="4">Hyundai</option>
+                                <select name="Maşın markası" id="filter-mark" class="search-part-select">
+                                    
+                                    
+                                    
                                 </select>
                             </div>
                             <div class="col-md-4 search-select">
-                                <select name="Maşın modeli" id="" class="search-part-select">
-                                    <option value="0">Maşın modeli</option>
-                                    <option value="1">C-class</option>
-                                    <option value="2">E-class</option>
-                                    <option value="3">G-class</option>
-                                    <option value="4">B-class</option>
+                                <select name="Maşın modeli" id="filter-model" class="search-part-select amil">
+                                    
+                                    
                                 </select>
                             </div>
                             <div class="col-md-4 search-select">
-                                <select name="Buraxılış ili" id="" class="search-part-select">
+                                <select name="Buraxılış ili" id="buraxilish-filter" class="search-part-select">
                                     <option value="0">Buraxılış ili</option>
-                                    <option value="1">2016</option>
-                                    <option value="2">2017</option>
-                                    <option value="3">2018</option>
-                                    <option value="4">2019</option>
+                                    
                                 </select>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-3 col-12" style="display: flex;align-items: flex-end;margin-bottom: 5%;">
+                    <div class="col-md-3 col-12 axtarish" style="display: flex;align-items: flex-end;margin-bottom: 5%;">
                         <button class="search-button">Axtar</button>
                     </div>
                 </div>
@@ -231,4 +223,5 @@
 
     {% block js %}
      <script src="{% static '/js/app.js' %}"></script>
+     <script src="{% static '/js/main.js' %}"></script>
     {% endblock %}

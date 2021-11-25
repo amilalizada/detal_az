@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models import fields
-from main.models import Contact, WishList
+from main.models import Contact, Marka, Modell, WishList
+from product.models import Product
 from rest_framework import serializers
 
 class ContactSerializer(serializers.ModelSerializer):
@@ -21,3 +22,39 @@ class WishListSerializer(serializers.ModelSerializer):
             'product',
         )
         
+
+class MainPageSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Marka
+        fields = (
+            'title',
+            'id',
+        )
+
+
+class MainPageModelSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Modell
+        fields = (
+            'title',
+            'id',
+            'min_year',
+            'max_year',
+        )
+
+
+class FilteredProductSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Product
+
+        fields = (
+            'title',
+            'price',
+            'description',
+            'vin_code',
+            'main_image',
+            'discount',   
+        )
