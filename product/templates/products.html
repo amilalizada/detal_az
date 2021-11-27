@@ -90,6 +90,7 @@
     <section class="products container mb-5">
         <div class="row mb-5">
             {% for i in products %}
+            <a style="text-decoration: none; color: black;" href="{% url 'product:single-product' i.slug%}">
             <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
                 <div class="incard">
                     {% csrf_token %}
@@ -101,7 +102,9 @@
                     <span class='d-none foridinput'>{{i.id}}</span>
                     <span class='d-none foridinput'>{{request.user.id}}</span>
                     
-                    <img src="{{i.main_image.url}}" alt="">
+                    
+                        <img src="{{i.main_image.url}}" alt="">
+                    
                     <div class="d-flex">
                         <span>satici:</span>
                         <span style="color: red;">{{i.user_id.first_name}}</span>
@@ -110,6 +113,7 @@
                     <button>23</button>
                 </div>
             </div>
+        </a>
             {% endfor %}
             
         </div>

@@ -66,6 +66,7 @@ class Product(models.Model):
     main_image = models.ImageField(_("Main Image") , upload_to='product_image', null=True, blank=True)
     slug = models.SlugField(('slug'), max_length=255, editable=False, unique=True)
     is_discount = models.BooleanField(_("Is Discount") , default=False)
+    year = models.IntegerField(_('Year'))
 
 
     #moderations
