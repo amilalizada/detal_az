@@ -78,9 +78,19 @@ class FilteredProductAPIView(APIView):
         searchValue = request.data['search_value']
         banCode = request.data['ban_code']
         print(marka_id,model_id,year,searchValue,banCode)
-        if searchValue and marka_id and model_id and year and banCode:
-            products =  Product.objects.filter( Q(title__icontains = searchValue) | Q(marka_id = marka_id) | Q(modell_id = model_id) | Q(vin_code = banCode))
+        if banCode:
+            products = Product.objects.filter(vin_code = banCode)
+            print('vin cide gagash')
+        elif searchValue:
+            products = Product.objects.filter(title__icontains = searchValue)
+            print('searchdan gelen')
+
+        elif searchValue and marka_id and model_id and year and banCode:
+            products =  Product.objects.filter( Q(title__icontains = searchValue) | Q(marka_id = marka_id) | Q(modell_id = model_id))
             print(products)
+        
+        else:
+            products = Product.objects.filter(marka_id = marka_id)
         
             
            

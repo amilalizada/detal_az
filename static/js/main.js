@@ -1,6 +1,6 @@
-const markaUrl = 'http://localhost:8000/contact-api/main'
-const modelUrl = 'http://localhost:8000/contact-api/main-model/'
-const filterUrl = 'http://localhost:8000/contact-api/filtered-prod/'
+const markaUrl = 'http://127.0.0.1:8000/contact-api/main/'
+const modelUrl = 'http://127.0.0.1:8000/contact-api/main-model/'
+const filterUrl = 'http://127.0.0.1:8000/contact-api/filtered-prod/'
 
 
 for(let i=1980 ; i < 2023 ; i++){
@@ -32,7 +32,10 @@ let data = fetch(markaUrl, {
 
 document.getElementById('filter-model').innerHTML = '<option class="models" value="">Masin modeli</option>'
 
-document.getElementById('filter-mark').addEventListener("click", e => {
+const filter_mark = document.getElementById('filter-mark');
+
+filter_mark.addEventListener("change", e => {
+  console.log("taped");
     let option = e.target;
     console.log(option.value);
     marka_id = option.value
