@@ -14,6 +14,7 @@ urlpatterns = [
     path('shops/',ShopsView.as_view(),name='shops'),
     path('inner-details/<str:model_slug>/<str:marka_slug>/<str:parent_detail_slug>/<str:subparent_detail_slug>/',InnerDetailView.as_view(),name='inner-details'),
     path('single-page/',SinglePageView.as_view(),name='isingle-page'),
+    path('searched-products/',SearchedProdsView.as_view(),name='searched'),
     
     path('sub-parts/<str:model_slug>/<str:marka_slug>/<str:parent_detail_slug>/',SubParts.as_view(),name='sub-parts'),
 

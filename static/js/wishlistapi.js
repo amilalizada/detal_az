@@ -24,7 +24,7 @@ hearts.forEach(element => {
                 
             }
             
-            let data = await fetch('http://127.0.0.1:8000/contact-api/wishlist/', {
+            let data = await fetch('http://127.0.0.1:8000/main-api/wishlist/', {
                 method: 'POST',
                 headers: {
                     "Content-type": "application/json",
@@ -42,16 +42,18 @@ hearts.forEach(element => {
             console.log(element , 'budi')
             element.classList.remove('unwish')
             element.classList.add('wish')
+            let csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
             console.log(product);
             let obj = {
                 product
             }
             element.style = 'color: grey;'
             console.log(obj);
-            let data = await fetch('http://127.0.0.1:8000/contact-api/wishlist/', {
+            let data = await fetch('http://127.0.0.1:8000/main-api/wishlist/', {
                 method: 'DELETE',
                 headers: {
-                    "Content-type": "application/json"
+                    "Content-type": "application/json",
+                    "X-CSRFToken": csrf_token
                 },
                 body: JSON.stringify(obj)
             })

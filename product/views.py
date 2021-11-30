@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AnonymousUser
 from django.db import models
+from django.template.response import TemplateResponse
 
 from product.models import Category, Product
 from django.http import request
@@ -85,3 +86,5 @@ class SaleProductPageView(ListView):
         context = super().get_context_data(**kwargs)
         context['sale'] = self.get_sale_products()
         return context
+
+

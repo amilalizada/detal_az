@@ -3,7 +3,7 @@ from django.urls import path
 
 
 
-app_name = 'contactapi'
+app_name = 'mainapi'
 urlpatterns = [
     path('contact/',ContactAPIView.as_view(),name='contact'),
     path('wishlist/',WishlistAPIView.as_view(),name='wishlist'),

@@ -2,9 +2,22 @@ from django.db import models
 from django.db.models import fields
 from main.models import Contact, Marka, Modell, WishList
 from product.models import Product
+from account.models import User
 from rest_framework import serializers
 
+
+class UserSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = (
+            'id',
+            'username',
+        )
+
+
 class ContactSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Contact
         fields = (
@@ -46,15 +59,18 @@ class MainPageModelSerializer(serializers.ModelSerializer):
 
 
 class FilteredProductSerializer(serializers.ModelSerializer):
+    user_id = UserSerializer()
 
     class Meta:
         model = Product
 
         fields = (
+            'id',
+            'user_id',
             'title',
             'price',
             'description',
             'vin_code',
             'main_image',
-            'discount',   
+            'discount',
         )
