@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+from django.utils.translation import ugettext_lazy as _
 from pathlib import Path
 import os
 from django.urls import reverse_lazy
@@ -33,6 +34,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,12 +46,13 @@ INSTALLED_APPS = [
     'product',
     'rest_framework',
     'corsheaders',
-    
+    'rosetta'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -87,15 +90,15 @@ WSGI_APPLICATION = 'detalaz.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'detal',
-            'USER': 'user',
-            'PASSWORD': '12345',
-            'HOST': 'localhost',
-            'PORT': '5432'
-        }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'detal',
+        'USER': 'user',
+        'PASSWORD': '12345',
+        'HOST': 'localhost',
+        'PORT': '5432'
     }
+}
 
 
 AUTHENTICATION_BACKENDS = (
@@ -128,15 +131,25 @@ LOGIN_REDIRECT_URL = reverse_lazy('main:home')
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
-TIME_ZONE = 'Asia/Baku'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
 USE_L10N = True
 
 USE_TZ = True
+
+LANGUAGES = (
+    ('en', _('English')),
+    ('az', _('Azerbaijani')),
+    ('ru', _('Russian')),
+)
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale/',
+]
 
 SITE_ID = 1
 
@@ -151,7 +164,7 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Default primary key field type

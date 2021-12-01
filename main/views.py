@@ -180,3 +180,13 @@ class WishlistPageView(TemplateView):
 
 
 
+
+
+def change_language(request):
+    if request.GET.get('lang') == 'en' or request.GET.get('lang') == 'az' or request.GET.get('lang') == 'ru':
+        path_list = request.META.get('HTTP_REFERER').split('/')
+        path_list[3] = request.GET.get('lang')
+        path = '/'.join(path_list)
+        response = HttpResponseRedirect(path)
+        response.set_cookie('django_language', request.GET['lang'])
+        return response

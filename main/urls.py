@@ -18,4 +18,5 @@ urlpatterns = [
     path('sub-parts/<str:model_slug>/<str:marka_slug>/<str:parent_detail_slug>/',SubParts.as_view(),name='sub-parts'),
 
     path('wishlist/<str:slug>',WishlistPageView.as_view(),name='wishlist'),
+    path('set_language/', change_language, name="set_language")
 ]
