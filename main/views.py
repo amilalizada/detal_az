@@ -11,6 +11,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from product.models import Category, Product
 from django.db.models import Q
+from django.utils.translation import get_language
 
 
 # Create your views here.
@@ -27,6 +28,7 @@ class HomePageView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['markalar'] = self.get_markalar()
+        context['lang'] = get_language()
         context['endirimli'] = Product.objects.filter(is_discount = True)
         context['box_categories'] =  Category.objects.filter(is_box_category = True)
         context['long_box_categories'] = Category.objects.filter(is_long_box_category = True)
