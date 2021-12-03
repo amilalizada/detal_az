@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'product',
     'rest_framework',
     'corsheaders',
-    'rosetta'
+    'rosetta',
+    'django_celery_beat',
 ]
 
 MIDDLEWARE = [
@@ -78,6 +79,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'main.context_processors.get_language_info',
             ],
         },
     },
@@ -180,3 +182,12 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'yusifhuseynli1105@gmail.com'
 EMAIL_HOST_PASSWORD = 'fuokisbhrtbdtlrp'
+
+
+# CELERY STUFF
+CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Asia/Baku'

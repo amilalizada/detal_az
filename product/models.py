@@ -67,7 +67,7 @@ class Product(models.Model):
     image = models.ImageField(_('Image'), upload_to='product_image', blank=True, null=True)
     slug = models.SlugField(('slug'), max_length=255, editable=False, unique=True)
     is_discount = models.BooleanField(_("Is Discount") , default=False)
-
+    is_active = models.BooleanField(_("Is Active"), default=True)
 
     #moderations
     created_at = models.DateTimeField(auto_now_add=True)
