@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models import fields
+from rest_framework import permissions
 from main.models import Contact, Marka, Modell, WishList
 from product.models import Product
 from rest_framework import serializers
@@ -57,4 +58,21 @@ class FilteredProductSerializer(serializers.ModelSerializer):
             'vin_code',
             'main_image',
             'discount',   
+        )
+
+class ProductSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Product
+        permisson_classes = [permissions.IsAuthenticated]
+
+        fields = (
+            'id',
+            'title',
+            'price',
+            'description',
+            'vin_code',
+            'main_image',
+            'discount',   
+            'is_active',
         )
