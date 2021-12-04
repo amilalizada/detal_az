@@ -1,10 +1,13 @@
-from main.api.serializers import ContactSerializer , WishListSerializer
+from django.db.models.base import Model
+from main.api.serializers import ContactSerializer, MainPageSerializer , WishListSerializer,MainPageModelSerializer, FilteredProductSerializer
 from rest_framework.generics import CreateAPIView
 from rest_framework.views import APIView
-from main.models import Contact, WishList
+from main.models import Contact, Modell, WishList ,Marka
+from product.models import Product
 from rest_framework.response import Response
 from rest_framework import status
 from django.http import Http404
+from django.db.models import Q
 
 
 class ContactAPIView(CreateAPIView):
@@ -34,6 +37,72 @@ class WishlistAPIView(APIView):
         obj = WishList.objects.filter(product = product_id)
         obj.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class MainPageMarkaAPIView(APIView):
+
+
+    def get(self,request,format=None):
+        markas = Marka.objects.all()
+        print(markas)
+        serializer = MainPageSerializer(markas , many = True)
+        
+        print(serializer.data,'2---------------')
+        return Response(serializer.data,status=status.HTTP_200_OK) 
+
+    
+
+
+class MainPageModelAPIView(APIView):
+
+    def post(self,request,*args, **kwargs):
+        
+        marka_id = request.data['marka_id']
+        print(marka_id)
+        models = Modell.objects.filter(marka_id = marka_id)
+        
+        serializer = MainPageModelSerializer(models , many = True)
+        
+        
+      
+        print(serializer.data)
+        return Response(serializer.data,status=status.HTTP_200_OK)
+
+
+class FilteredProductAPIView(APIView):
+    
+    def post(self,request,*args, **kwargs):
+        marka_id = request.data['marka_id']
+        model_id = request.data['modell_id']
+        year = request.data['year']
+        searchValue = request.data['search_value']
+        banCode = request.data['ban_code']
+        print(marka_id,model_id,year,searchValue,banCode)
+        if banCode:
+            products = Product.objects.filter(vin_code = banCode)
+            print('vin cide gagash')
+        elif searchValue:
+            products = Product.objects.filter(title__icontains = searchValue)
+            print('searchdan gelen')
+
+        elif searchValue and marka_id and model_id and year and banCode:
+            products =  Product.objects.filter( Q(title__icontains = searchValue) | Q(marka_id = marka_id) | Q(modell_id = model_id))
+            print(products)
+        
+        else:
+            products = Product.objects.filter(marka_id = marka_id)
+        
+            
+           
+        
+           
+        
+        serializer = FilteredProductSerializer(products,many = True)
+       
+        #                                                            
+        return Response(serializer.data,status=status.HTTP_200_OK)
+
+    
 
 
 

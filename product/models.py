@@ -67,6 +67,7 @@ class Product(models.Model):
     slug = models.SlugField(('slug'), max_length=255, editable=False, unique=True)
     is_discount = models.BooleanField(_("Is Discount") , default=False)
     year = models.IntegerField(_('Year'))
+    is_active = models.BooleanField(_('Is_active'), default=False)
 
 
     #moderations

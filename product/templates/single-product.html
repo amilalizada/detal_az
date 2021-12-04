@@ -24,10 +24,11 @@
       <img style="width: 50%; margin: 0 auto;" src="{{i.image.url}}" />
     </a>
     {% endif %}
-    
+    {% if forloop.counter > 1 %}
     <a data-fancybox="gallery" data-src="{{i.image.url}}">
 
     </a>
+    {% endif %}
     {% endfor %}
 
 
@@ -55,6 +56,7 @@
             </div>
         </div>
         <div>
+            <a href="{% url 'product:update-product' product.slug %}">Elanı düzəlt</a>
             <p>Məhsulun adı: <b>{{product.title}}</b></p>
             <p>Məhsulun markası: <b>{{product.marka_id}}</b></p>
             <p>Məhsulun modeli: <b>{{product.modell_id}}</b></p>

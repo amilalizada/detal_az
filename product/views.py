@@ -23,6 +23,12 @@ class AddProductPageView(TemplateView):
     template_name = 'add-product.html'
 
 
+class UpdateProduct(DetailView):
+    template_name = 'update-product.html'
+    context_object_name = "product"
+    model = Product
+
+
 # class SingleProductView(TemplateView):
 #     template_name = 'single-product.html'
 
