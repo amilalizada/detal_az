@@ -43,6 +43,7 @@ class MainPageSerializer(serializers.ModelSerializer):
         fields = (
             'title',
             'id',
+            'slug',
         )
 
 
@@ -53,8 +54,7 @@ class MainPageModelSerializer(serializers.ModelSerializer):
         fields = (
             'title',
             'id',
-            'min_year',
-            'max_year',
+            'slug',
         )
 
 

@@ -10,131 +10,146 @@
 {% endblock %}
 {% block content %}
 
-{{request.user.is_market}}
 
-{% if request.user.is_market  %}
+
+{% if user.is_market %}
 <header class="head row m-0 container m-auto">
-        <div class="col-md-6 col-12 p-0">
-            <div class="row ">
-                <div class="img col-6">
-                    <img src="{% static '/assets/images/image 25.png' %}" alt="">
-                </div>
-                <div class="desc col-6">
-                    <div class="d-flex flex-column">
+    <div class="col-md-6 col-12 p-0">
+        <div class="row ">
+            <div class="img col-6">
+                <img src="{% static '/assets/images/image 25.png' %}" alt="">
+            </div>
+            <div class="desc col-6">
+                <div class="d-flex flex-column">
 
-                        <span class="brand-name">{{request.user}}</span>
-                        <div class="locate">
-                            <span><i class="fas fa-map-marker-alt"></i></span>
-                            <span class="location">{{request.user.adress}}</span>
-                        </div>
-                        <div class="phone">
-                            <span><i class="fas fa-phone"></i></span>
-                            <span class="number">{{request.user.phone}}</span>
-                        </div>
-                        <div class="stars d-flex">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                    <span class="brand-name">{{request.user}}</span>
+                    <div class="locate">
+                        <span><i class="fas fa-map-marker-alt"></i></span>
+                        <span class="location">{{request.user.adress}}</span>
+                    </div>
+                    <div class="phone">
+                        <span><i class="fas fa-phone"></i></span>
+                        <span class="number">{{request.user.phone}}</span>
+                    </div>
+                    <div class="stars d-flex">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
 
-                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
-        <div class="col-md-6 col-12 p-0 left">
-            <form class="left mr-4" action="rating">
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
 
-                </div>
-                <div class="button">
-                    <button type="submit">
-                        reyting ver
-                    </button>
-                </div>
+    </div>
+    <div class="col-md-6 col-12 p-0 left">
+        <form class="left mr-4" action="rating">
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
 
-            </form>
-        </div>
-    </header>
-    <section class="products container mb-5">
-        <div class="row mb-5">
-            {% for i in products %}
-            <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
-                <div class="incard">
-                    <i class="fas fa-heart"></i>
-                    <img src="{{i.main_image.url}}" alt="">
-                    <div class="d-flex">
-                        <span>satici:</span>
-                        <span style="color: red;">{{i.user_id.first_name}}</span>
-                    </div>
-                    <p>{{i.title}}</p>
-                    <button>23</button>
-                </div>
             </div>
-            {% endfor %}
-            
+            <div class="button">
+                <button type="submit">
+                    reyting ver
+                </button>
+            </div>
 
-{% else %}
-
-<header class="headd  m-0 m-auto">
-<div id='foratag'>
-
-    <a class='atagfix' style="text-decoration:none; color:white;" href="{% url 'account:self-profile' request.user.slug %}">redakte et</a>
-</div>
-
+        </form>
+    </div>
 </header>
-<section class="products container mb-5 mt-5">
-        <div class="row mb-5">
-            {% for i in products %}
-            <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
-                <div class="incard">
-                    <i class="fas fa-heart"></i>
-                    <img src="{{i.main_image.url}}" alt="">
-                    <div class="d-flex">
-                        <span>satici:</span>
-                        <span style="color: red;">{{i.user_id.first_name}}</span>
-                    </div>
-                    <p>{{i.title}}</p>
-                    <button>23</button>
+
+<section class="products container mb-5">
+    <div class="row mb-5">
+        {% for i in products %}
+        <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
+            <div class="incard">
+                <i class="fas fa-heart"></i>
+                <img src="{{i.main_image.url}}" alt="">
+                <div class="d-flex">
+                    <span>satici:</span>
+                    <span style="color: red;">{{i.user_id.first_name}}</span>
                 </div>
+                <p>{{i.title}}</p>
+                <button>23</button>
             </div>
-            {% endfor %}
-            
         </div>
-        <nav aria-label="Page navigation example pagination">
-            <ul class="pagination">
-              <li class="page-item prev">
-                <a class="page-link prev" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                </a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item nextt">
-                <a class="page-link nextt" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-    </section> 
-        
-
-{% endif %}
-
-    
+        {% endfor %}
 
 
-    {% endblock %}
+        {% else %}
 
-    {% block js %}
-    {% endblock %}
-    
+        <header class="headd  m-0 m-auto">
+           
+
+            {% if request.user.is_authenticated and user == request.user %}
+            <div id='foratag'>
+
+                <a class='atagfix' style="text-decoration:none; color:white;"
+                    href="{% url 'account:self-profile' request.user.slug %}">redakte et</a>
+            </div>
+
+            {% endif %}
+
+        </header>
+        <section class="products container mb-5 mt-5">
+            <div class="row mb-5">
+                {% if request.user.is_authenticated and user == request.user %}
+                <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
+                    <a href="{% url 'product:add-product' %}" class="incard">
+                        <img src="{% static '/assets/images/Group 264.png' %}" alt="">
+                    </a>
+                </div>
+                {% endif %}
+
+
+                {% for i in products %}
+                <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
+                    <div class="incard">
+                        <i class="fas fa-heart"></i>
+                        <img src="{{i.main_image.url}}" alt="">
+                        <div class="d-flex">
+                            <span>satici:</span>
+                            <span style="color: red;">{{i.user_id.first_name}}</span>
+                        </div>
+                        <p>{{i.title}}</p>
+                        <button>23</button>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+            <nav aria-label="Page navigation example pagination">
+                <ul class="pagination">
+                    <li class="page-item prev">
+                        <a class="page-link prev" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item nextt">
+                        <a class="page-link nextt" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+
+
+        {% endif %}
+
+
+
+
+        {% endblock %}
+
+        {% block js %}
+        {% endblock %}

@@ -21,7 +21,7 @@ let data = fetch(markaUrl, {
     document.getElementById('filter-mark').innerHTML = '<option class="" value="">Masin markasi</option>'
     responseJson.forEach(element => {
         
-        document.getElementById('filter-mark').innerHTML +=`<option class="markas" value="${element.id}">${element.title}</option>` 
+        document.getElementById('filter-mark').innerHTML +=`<option class="markas" value="${element.slug}">${element.title}</option>` 
     });
     
   // console.log(responseJson);
@@ -36,10 +36,13 @@ const filter_mark = document.getElementById('filter-mark');
 const filter_model = document.getElementById('filter-model');
 filter_model.innerHTML = '<option class="models" value="">Masin modeli</option>'
 filter_mark.addEventListener("change", e => {
+  filter_model.innerHTML = ''
+  filter_model.innerHTML = '<option class="models" value="">Masin modeli</option>'
   console.log("taped");
     let option = e.target;
     console.log(option.value);
     marka_id = option.value
+    console.log(marka_id);
     let csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
     let obj = {
       marka_id
@@ -60,9 +63,10 @@ filter_mark.addEventListener("change", e => {
   
     
     responseJson.forEach(element => {
-        document.getElementById('filter-model').innerHTML +=`<option class="models" value="${element.id}">${element.title}</option>` 
+        document.getElementById('filter-model').innerHTML +=`<option class="models" value="${element.slug}">${element.title}</option>` 
         
     });
+
     
   console.log(responseJson,'evvvvvvvvvvvvvvvvvvvvvv');
 })
@@ -92,11 +96,11 @@ searchBtn.addEventListener('click',e => {
  
 if (marka){
 
-  search_param.set('marka_id',marka)
+  search_param.set('marka',marka)
 }
 if (model){
 
-  search_param.set('modell_id',model)
+  search_param.set('modell',model)
 }
 if (years){
 
@@ -104,7 +108,7 @@ if (years){
 }
 if (banCode){
 
-  search_param.set('vin_code',banCode)
+  search_param.set('ban_nomresi',banCode)
 }
 if (searchValue){
 
@@ -115,7 +119,10 @@ if (searchValue){
   
   url.search = search_param.toString();
   let new_url = url.toString()
-  window.location.href = new_url
+  // if(marka || model || years || banCode || searchValue){
+
+    window.location.href = new_url
+  // }
  
 })
 

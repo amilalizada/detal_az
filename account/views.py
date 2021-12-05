@@ -1,6 +1,7 @@
 from django.db import models
+from django.http import request
 from django.shortcuts import render, redirect
-from django.urls import  reverse_lazy
+from django.urls import reverse_lazy
 from django.contrib import messages
 from django.contrib.auth import authenticate, login as django_login, logout as django_logout
 from django.contrib.auth.views import LoginView, PasswordChangeView, PasswordResetView, \
@@ -10,7 +11,7 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth import get_user_model
 from django.views.generic.edit import UpdateView
 from account.tasks import send_confirmation_mail
-from account.forms import EditProfileForm, RegistrationForm,LoginForm,CustomPasswordChangeForm,CustomPasswordResetForm,ResetPasswordForm
+from account.forms import EditProfileForm, RegistrationForm, LoginForm, CustomPasswordChangeForm, CustomPasswordResetForm, ResetPasswordForm
 from django.views.generic import (
     ListView, DetailView, CreateView, TemplateView
 )
@@ -22,7 +23,7 @@ User = get_user_model()
 
 # class RegisterPageView(CreateView):
 #     form_class = RegistrationForm
-    
+
 # def RegisterPageView(request):
 #     form = RegistrationForm()
 #     if request.method == 'POST':
@@ -40,14 +41,16 @@ User = get_user_model()
 #     }
 #     return render(request, 'register.html', context)
 
+
 class RegisterPageView(CreateView):
     form_class = RegistrationForm
     success_url = reverse_lazy('account:login')
     template_name = 'register.html'
 
     def form_valid(self, form):
-        print(form.data,'form')
+        print(form.data, 'form')
         return super().form_valid(form)
+
 
 class LoginPageView(LoginView):
     form_class = LoginForm
@@ -57,7 +60,7 @@ class LoginPageView(LoginView):
 
 # class ResetPasswordPageView(TemplateView):
 #     template_name= 'reset_password.html'
-    
+
 class ChangePasswordPageView(PasswordChangeView):
     form_class = CustomPasswordChangeForm
     template_name = 'change_password.html'
@@ -75,9 +78,9 @@ class ForgetPasswordView(PasswordResetView):
     form_class = CustomPasswordResetForm
 
     def form_valid(self, form):
-        messages.success(self.request, 'password deyisilmesi ucun sizin mail-e mesaj gonderildi!')
+        messages.success(
+            self.request, 'password deyisilmesi ucun sizin mail-e mesaj gonderildi!')
         return super().form_valid(form)
-
 
 
 class CustomPasswordResetConfirmView(PasswordResetConfirmView):
@@ -88,7 +91,6 @@ class CustomPasswordResetConfirmView(PasswordResetConfirmView):
     def form_valid(self, form):
         messages.success(self.request, 'password deyisdirildi')
         return super().form_valid(form)
-
 
 
 # @login_required
@@ -104,16 +106,14 @@ class CustomPasswordResetConfirmView(PasswordResetConfirmView):
 # class RegisterPageView(TemplateView):
 #     template_name = 'register.html'
 
-class SelfProfilePageView(LoginRequiredMixin,UpdateView):
-    
+class SelfProfilePageView(LoginRequiredMixin, UpdateView):
+
     model = User
     form_class = EditProfileForm
     template_name = 'self-profile.html'
 
-
-    
     def form_valid(self, form):
-    
+
         self.object = form.save()
         return super().form_valid(form)
 
@@ -124,32 +124,25 @@ class SelfProfilePageView(LoginRequiredMixin,UpdateView):
         print(context['id'])
         return context
 
-    # def get_success_url(self):
-    #     print(self.success_url,'urllllll')
-    #     if not self.success_url:
-    #         raise BaseException("No URL to redirect to. Provide a success_url.")
-    #     return str(self.success_url)
-
-            
-
     def get_object(self):
         return self.request.user
-    
 
-class UserProfilePageView(TemplateView,LoginRequiredMixin):
-    print('salammmmm')
+
+class UserProfilePageView(ListView, LoginRequiredMixin):
+
     template_name = 'user-profile2.html'
     model = Product
 
     def get_products(self):
-        sale_products = Product.objects.filter(user_id=self.request.user.id).all().order_by('-created_at')
+        sale_products = Product.objects.filter(
+            user_id=self.request.user.id).all().order_by('-created_at')
         return sale_products
 
-
     def get_context_data(self, **kwargs):
+        userr_slug = self.kwargs.get('slug')
+        user = User.objects.filter(slug=userr_slug).first()
+        print(user)
         context = super().get_context_data(**kwargs)
         context['products'] = self.get_products()
+        context['user'] = user
         return context
-
-    
-    

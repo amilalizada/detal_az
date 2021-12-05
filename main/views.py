@@ -183,55 +183,54 @@ class WishlistPageView(TemplateView):
 class SearchedProdsView(ListView):
     template_name = 'searched-products.html'
     model = Product
-    paginate_by = 4
+    paginate_by = 1
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        marka_id = self.request.GET.get('marka_id')
-        model_id = self.request.GET.get('modell_id')
+        marka_id = self.request.GET.get('marka')
+        model_id = self.request.GET.get('modell')
         years = self.request.GET.get('year')
-        banCode = self.request.GET.get('vin_code')
+        banCode = self.request.GET.get('ban_nomresi')
         searchValue = self.request.GET.get('search_value')
-        # print(marka_id, model_id, years, banCode, searchValue, 'lebunsherabi')
+
+        
 
         if banCode:
             products = Product.objects.filter(vin_code=banCode)
 
         elif marka_id and model_id and searchValue:
-            products = Product.objects.filter(Q(
-                marka_id=marka_id) | Q(modell_id=model_id) | Q(title__icontains=searchValue))
+            products = Product.objects.filter(
+                marka_id=marka_id,modell_id=model_id,title__icontains=searchValue)
+
+        elif marka_id and model_id:
+            products = Product.objects.filter(marka_id__slug=marka_id,modell_id__slug=model_id)
+            
+        elif marka_id:
+            products = Product.objects.filter(marka_id__slug=marka_id)
 
         elif searchValue:
             products = Product.objects.filter(title__icontains=searchValue)
-
-        elif marka_id and model_id:
-            products = Product.objects.filter(Q(
-                marka_id=marka_id) | Q(modell_id=model_id))
 
         else:
             products = Product.objects.filter(marka_id=marka_id)
 
         page = self.request.GET.get(
             'page', 1) if self.request.GET.get('page', 1) != '' else 1
-        data = self.get_queryset()
-        print(data,'naile xanim')
-        context = super().get_context_data(**kwargs)
-        if data:
-            paginator = Paginator(data, 2)
-            
+        print(products)
+        if products:
+            paginator = Paginator(products, self.paginate_by)
+
             results = paginator.page(page)
-            print(results,'hahahaha')
+            print(results, 'hahahaha')
             index = results.number - 1
             max_index = len(paginator.page_range)
-            start_index = index - 3 if index >= 3 else 0
-            end_index = index + 3 if index <= max_index - 3 else max_index
+            start_index = index - 5 if index >= 5 else 0
+            end_index = index + 5 if index <= max_index - 5 else max_index
             context['page_range'] = list(paginator.page_range)[
                 start_index:end_index]
-            context['products'] = products
 
         
+            context['products'] = results
 
         return context
-
-        

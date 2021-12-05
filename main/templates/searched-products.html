@@ -14,7 +14,7 @@
 <section>
     <div id="main-div-first-section">
         <div id="inner-div-first-section" class="container">
-            <div class="row" id="first-section-first-row">
+            <div class="row" id="first-section-first-row" style="margin: auto;">
                 <div class="col-md-9 col-12">
                     <div class="row first-section-inner-row">
                         <div class="col-md-5 search-input-main">
@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     <div class="row first-section-inner-row">
-                        <div class="col-md-4 search-select">
+                        <div class="col-md-4 search-select" style="padding-left: 0;">
                             <select name="Maşın markası" id="filter-mark" class="search-part-select">
                                 
                                 
@@ -39,6 +39,7 @@
                             </select>
                         </div>
                         <div class="col-md-4 search-select">
+                            {% csrf_token %}
                             <select name="Buraxılış ili" id="buraxilish-filter" class="search-part-select">
                                 <option value="">Buraxılış ili</option>
                                 
@@ -98,7 +99,7 @@
                         <span style="color: red;">{{i.user_id.first_name}}</span>
                     </div>
                     <p>{{i.title}}</p>
-                    <button>23</button>
+                    <button>{{i.price}}</button>
                 </div>
             </div>
             {% endfor %}
@@ -125,34 +126,40 @@
           </nav> -->
           <div class="row mt-5">
             <div class="col text-center">
-                <div class="block-27">
-                    {% if page_obj.has_previous %}
-                    <a class="prev-icon"
-                        href="?page={{ page_obj.previous_page_number }}{% if request.GET.marka_id %}&marka_id={{ request.GET.marka_id }}{% endif %}{% if request.GET.modell_id %}&modell_id={{ request.GET.modell_id }}{% endif %}{% if request.GET.search_value %}&search_value={{ request.GET.search_value }}{% endif %}{% if request.GET.year %}&year={{ request.GET.year }}{% endif %}{% if request.GET.vin_code %}&vin_code={{ request.GET.vin_code }}{% endif %}">
-                        <img class="previous-icon mr-2" src="{% static 'images/back.svg' %}" alt="arrow">
+                <div class="block-27 d-flex align-items-center justify-content-center">
+                    <!-- {% if page_obj.has_previous %}
+                    <a class="page-item prev"
+                        href="?page={{ page_obj.previous_page_number }}{% if request.GET.marka %}&marka={{ request.GET.marka }}{% endif %}{% if request.GET.modell %}&modell={{ request.GET.modell }}{% endif %}{% if request.GET.search_value %}&search_value={{ request.GET.search_value }}{% endif %}{% if request.GET.year %}&year={{ request.GET.year }}{% endif %}{% if request.GET.ban_nomresi %}&ban_nomresi={{ request.GET.ban_nomresi }}{% endif %}">
+                        
+                        
                     </a>
-                    {% endif %}
+                    {% endif %} -->
                     {% if page_range|length > 1 %}
                     <div class="page-numbers">
                         {% for page_number in page_range %}
                         {% if page_number == page_obj.number %}
-                        <a class="active act-num mr-2">
+                        <a class="active act-num page-item mr-2" style="background-color: white !important;
+                        color: red;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;">
                             <span>{{ page_number }}</span>
                         </a>
                         {% else %}
-                        <a class="page mr-2" href="?page={{ page_number }}{% if request.GET.marka_id %}&marka_id={{ request.GET.marka_id }}{% endif %}{% if request.GET.modell_id %}&modell_id={{ request.GET.modell_id }}{% endif %}{% if request.GET.search_value %}&search_value={{ request.GET.search_value }}{% endif %}{% if request.GET.year %}&year={{ request.GET.year }}{% endif %}{% if request.GET.vin_code %}&vin_code={{ request.GET.vin_code }}{% endif %}">
+                        <a class="page page-item mr-2" href="?page={{ page_number }}{% if request.GET.marka %}&marka={{ request.GET.marka }}{% endif %}{% if request.GET.modell %}&modell={{ request.GET.modell }}{% endif %}{% if request.GET.search_value %}&search_value={{ request.GET.search_value }}{% endif %}{% if request.GET.year %}&year={{ request.GET.year }}{% endif %}{% if request.GET.ban_nomresi %}&ban_nomresi={{ request.GET.ban_nomresi }}{% endif %}">
                             <span>{{ page_number }}</span>
                         </a>
                         {% endif %}
                         {% endfor %}
                     </div>
                     {% endif %}
-                    {% if page_obj.has_next %}
-                    <a class="next-page ml-2"
-                        href="?page={{ page_obj.next_page_number }}{% if request.GET.marka_id %}&marka_id={{ request.GET.marka_id }}{% endif %}{% if request.GET.modell_id %}&modell_id={{ request.GET.modell_id }}{% endif %}{% if request.GET.search_value %}&search_value={{ request.GET.search_value }}{% endif %}{% if request.GET.year %}&year={{ request.GET.year }}{% endif %}{% if request.GET.vin_code %}&vin_code={{ request.GET.vin_code }}{% endif %}">
-                        <img src="{% static 'images/next.svg' %}" alt="arrow" class="next-icon">
+                    
+                    <!-- {% if page_obj.has_next %}
+                    <a class="page-link ml-2"
+                        href="?page={{ page_obj.next_page_number }}{% if request.GET.marka %}&marka={{ request.GET.marka }}{% endif %}{% if request.GET.modell_id %}&modell_id={{ request.GET.modell_id }}{% endif %}{% if request.GET.search_value %}&search_value={{ request.GET.search_value }}{% endif %}{% if request.GET.year %}&year={{ request.GET.year }}{% endif %}{% if request.GET.ban_nomresi %}&ban_nomresi={{ request.GET.ban_nomresi }}{% endif %}">
+                       
                     </a>
-                    {% endif %}
+                    {% endif %} -->
                 </div>
             </div>
         </div>
