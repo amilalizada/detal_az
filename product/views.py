@@ -15,12 +15,28 @@ from main.models import *
 from django.core.paginator import Paginator
 
 
+class SingleProductView(DetailView):
+    model = Product 
+    template_name = 'single-product.html'
+    context_object_name = 'product'
+
 # Create your views here.
 class AddProductPageView(TemplateView):
     template_name = 'add-product.html'
 
 
-class ProductPageView(ListView):
+
+class UpdateProduct(DetailView):
+    template_name = 'update-product.html'
+    context_object_name = "product"
+    model = Product
+
+
+# class SingleProductView(TemplateView):
+#     template_name = 'single-product.html'
+
+
+class ProductPageView(TemplateView):
     template_name = 'products.html'
     model = Product
     context_object_name = 'all-products'

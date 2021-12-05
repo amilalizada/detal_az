@@ -33,7 +33,7 @@ User = get_user_model()
 #             user.is_active = False
 #             user.save()
 #             site_address = request.is_secure() and "https://" or "http://" + request.META['HTTP_HOST']  # https
-#             # send_confirmation_mail(user_id=user.id, site_address=site_address)
+#             # send_confirmation_mail(user_id=user.id, _address=site_address)
 #             messages.success(request, 'Siz ugurla qeydiyyatdan kecdiniz')
 #             return redirect(reverse_lazy('main:home'))
 #     context = {
@@ -124,6 +124,7 @@ class SelfProfilePageView(LoginRequiredMixin, UpdateView):
         print(context['id'])
         return context
 
+  
     def get_object(self):
         return self.request.user
 
