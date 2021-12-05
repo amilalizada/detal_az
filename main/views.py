@@ -1,6 +1,7 @@
 from typing import List
 from django.db import models
-from django.shortcuts import render,redirect 
+from django.shortcuts import render,redirect
+from django.utils import translation 
 from main.models import *
 from django.views.generic import TemplateView, CreateView, FormView
 from django.views.generic import (
@@ -184,9 +185,7 @@ class WishlistPageView(TemplateView):
 
 def change_language(request):
     if request.GET.get('lang') == 'en' or request.GET.get('lang') == 'az' or request.GET.get('lang') == 'ru':
-        path_list = request.META.get('HTTP_REFERER').split('/')
-        path_list[3] = request.GET.get('lang')
-        path = '/'.join(path_list)
-        response = HttpResponseRedirect(path)
+        translation.activate(request.GET.get('lang'))
+        response = HttpResponseRedirect(request.META.get('HTTP_REFERER'))
         response.set_cookie('django_language', request.GET['lang'])
         return response
