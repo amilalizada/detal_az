@@ -1,5 +1,5 @@
 from django.db.models.base import Model
-from main.api.serializers import ContactSerializer, MainPageSerializer, WishListSerializer, MainPageModelSerializer, FilteredProductSerializer
+from main.api.serializers import ContactSerializer, MainPageSerializer, ProductSerializer , WishListSerializer,MainPageModelSerializer, FilteredProductSerializer
 from rest_framework.generics import CreateAPIView
 from rest_framework.views import APIView
 from main.models import Contact, Modell, WishList, Marka
@@ -101,3 +101,23 @@ class FilteredProductAPIView(APIView):
         serializer = FilteredProductSerializer(products, many=True)
 
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+        
+class ActivateProductAPIView(APIView):
+    def get(self,request,*args, **kwargs):
+        products = Product.objects.filter(user_id = request.user)
+        serializer = ProductSerializer(products , many = True)
+        return Response(serializer.data, status=status.HTTP_200_OK) 
+
+    def post(self,request,*args, **kwargs):
+        product_id = request.data['product_id']
+        product = Product.objects.get(id = product_id)
+        if product.user_id == request.user:
+            if product.is_active:
+                product.is_active = False
+            else:
+                product.is_active = True
+            product.save()
+            return Response(status=status.HTTP_200_OK)
+        return Response(status=status.HTTP_400_BAD_REQUEST)

@@ -69,6 +69,7 @@ class Product(models.Model):
     year = models.IntegerField(_('Year'))
     is_active = models.BooleanField(_('Is_active'), default=False)
 
+    is_active = models.BooleanField(_("Is Active"), default=True)
 
     #moderations
     created_at = models.DateTimeField(auto_now_add=True)

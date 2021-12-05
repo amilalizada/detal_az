@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 
 
 
@@ -77,6 +77,9 @@
                 </div>
                 <p>{{i.title}}</p>
                 <button>23</button>
+                <div class="activate-button">
+
+                </div>
             </div>
         </div>
         {% endfor %}
@@ -121,35 +124,38 @@
                         <button>23</button>
                     </div>
                 </div>
-                {% endfor %}
+                
+            {% endfor %}
+            
+        </div>
+        <nav aria-label="Page navigation example pagination">
+            <ul class="pagination">
+              <li class="page-item prev">
+                <a class="page-link prev" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item nextt">
+                <a class="page-link nextt" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+    </section> 
+        
 
-            </div>
-            <nav aria-label="Page navigation example pagination">
-                <ul class="pagination">
-                    <li class="page-item prev">
-                        <a class="page-link prev" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item nextt">
-                        <a class="page-link nextt" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </section>
+{% endif %}
+
+    
 
 
-        {% endif %}
+    {% endblock %}
 
-
-
-
-        {% endblock %}
-
-        {% block js %}
-        {% endblock %}
+    {% block js %}
+    <script src="{% static 'js/activateproduct.js' %}"></script>
+    {% endblock %}
+    
