@@ -1,6 +1,6 @@
 const ActivateProductLogic = {
     productManager(productId) {
-        fetch('http://127.0.0.1:8000/en/contact-api/activate-product', {
+        fetch('http://127.0.0.1:8000/main-api/activate-product', {
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -26,7 +26,7 @@ function activateProduct(button) {
 
 
 function getProductManager() {
-    fetch('http://127.0.0.1:8000/en/contact-api/activate-product', {
+    fetch('http://127.0.0.1:8000/main-api/activate-product', {
         method: 'GET',
         credentials: 'include',
         headers: {
@@ -36,7 +36,6 @@ function getProductManager() {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             const activateButton = document.getElementsByClassName('activate-button');
             for (let i = 0; i < data.length; i++) {
                 activateButton[i].innerHTML = ''

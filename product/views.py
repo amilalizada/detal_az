@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AnonymousUser
 from django.db import models
+from django.template.response import TemplateResponse
 
 from product.models import Category, Product
 from django.http import request
@@ -11,17 +12,35 @@ from django.views.generic import (
     ListView, DetailView
 )
 from main.models import *
+from django.core.paginator import Paginator
 
+
+class SingleProductView(DetailView):
+    model = Product 
+    template_name = 'single-product.html'
+    context_object_name = 'product'
 
 # Create your views here.
 class AddProductPageView(TemplateView):
     template_name = 'add-product.html'
 
 
+
+class UpdateProduct(DetailView):
+    template_name = 'update-product.html'
+    context_object_name = "product"
+    model = Product
+
+
+# class SingleProductView(TemplateView):
+#     template_name = 'single-product.html'
+
+
 class ProductPageView(TemplateView):
     template_name = 'products.html'
     model = Product
     context_object_name = 'all-products'
+    paginate_by = 2
 
     def get_products(self):
         all_products = Product.objects.all().order_by('-created_at')
@@ -30,12 +49,32 @@ class ProductPageView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['products'] = self.get_products()
+        products = self.get_products()
+
+        page = self.request.GET.get(
+            'page', 1) if self.request.GET.get('page', 1) != '' else 1
+
+        if products:
+            paginator = Paginator(products, self.paginate_by)
+
+            results = paginator.page(page)
+            print(results, 'hahahaha')
+            index = results.number - 1
+            max_index = len(paginator.page_range)
+            start_index = index - 5 if index >= 5 else 0
+            end_index = index + 5 if index <= max_index - 5 else max_index
+            context['page_range'] = list(paginator.page_range)[
+                start_index:end_index]
+
+        
+            context['products'] = results
+
         if self.request.user.is_authenticated: 
             print('wawawawawawaawaw')
             wishlists = WishList.objects.filter(user= self.request.user)
             print(wishlists)
             wish_products = []
+            
             for i in wishlists:
                 title = i.product.title
                 wish_products.append(title)
@@ -85,3 +124,5 @@ class SaleProductPageView(ListView):
         context = super().get_context_data(**kwargs)
         context['sale'] = self.get_sale_products()
         return context
+
+

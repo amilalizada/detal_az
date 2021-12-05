@@ -6,7 +6,7 @@ xButtons.forEach(element => {
         let csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
         
         let product = element.nextElementSibling.innerHTML
-        console.log(element , 'fgf')
+        console.log(element , 'fff')
         
        
         console.log('mgcmgcvnv');
@@ -16,7 +16,7 @@ xButtons.forEach(element => {
             }
             
             console.log(obj);
-            let data = await fetch('http://127.0.0.1:8000/contact-api/wishlist/', {
+            let data = await fetch('http://127.0.0.1:8000/main-api/wishlist/', {
                 method: 'DELETE',
                 headers: {
                     "Content-type": "application/json",

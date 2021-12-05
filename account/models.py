@@ -1,3 +1,4 @@
+from enum import unique
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
@@ -12,6 +13,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.urls import reverse_lazy
 
 from django.contrib.auth.models import UserManager
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class AccountManager(UserManager):
@@ -198,3 +200,21 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 #     def __str__(self):
 #         return self.email
+
+
+class Rating(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='user_rating')
+    rated_user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='rated_user_rating')
+    rating = models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(5)])
+
+    unique_together = ('user', 'rated_user')
+
+    def __str__(self):
+        return f"{self.user} - {self.rated_user} - {self.rating}"
+    
+    def save(self, *args, **kwargs):
+        if self.user == self.rated_user:
+            raise ValidationError('You can not rate yourself')
+        super(Rating, self).save(*args, **kwargs)

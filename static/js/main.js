@@ -1,6 +1,6 @@
-const markaUrl = 'http://127.0.0.1:8000/contact-api/main/'
-const modelUrl = 'http://127.0.0.1:8000/contact-api/main-model/'
-const filterUrl = 'http://127.0.0.1:8000/contact-api/filtered-prod/'
+const markaUrl = 'http://127.0.0.1:8000/main-api/main/'
+const modelUrl = 'http://127.0.0.1:8000/en/main-api/main-model/'
+
 
 
 for(let i=1980 ; i < 2023 ; i++){
@@ -21,7 +21,7 @@ let data = fetch(markaUrl, {
     document.getElementById('filter-mark').innerHTML = '<option class="" value="">Masin markasi</option>'
     responseJson.forEach(element => {
         
-        document.getElementById('filter-mark').innerHTML +=`<option class="markas" value="${element.id}">${element.title}</option>` 
+        document.getElementById('filter-mark').innerHTML +=`<option class="markas" value="${element.slug}">${element.title}</option>` 
     });
     
   // console.log(responseJson);
@@ -30,15 +30,19 @@ let data = fetch(markaUrl, {
   console.error(error);
 });
 
-document.getElementById('filter-model').innerHTML = '<option class="models" value="">Masin modeli</option>'
+
 
 const filter_mark = document.getElementById('filter-mark');
-
+const filter_model = document.getElementById('filter-model');
+filter_model.innerHTML = '<option class="models" value="">Masin modeli</option>'
 filter_mark.addEventListener("change", e => {
+  filter_model.innerHTML = ''
+  filter_model.innerHTML = '<option class="models" value="">Masin modeli</option>'
   console.log("taped");
     let option = e.target;
     console.log(option.value);
     marka_id = option.value
+    console.log(marka_id);
     let csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
     let obj = {
       marka_id
@@ -56,12 +60,13 @@ filter_mark.addEventListener("change", e => {
     .then((response) => response.json())
 .then((responseJson) => {
     
-  document.getElementById('filter-model').innerHTML = ''
+  
     
     responseJson.forEach(element => {
-        document.getElementById('filter-model').innerHTML +=`<option class="models" value="${element.id}">${element.title}</option>` 
+        document.getElementById('filter-model').innerHTML +=`<option class="models" value="${element.slug}">${element.title}</option>` 
         
     });
+
     
   console.log(responseJson,'evvvvvvvvvvvvvvvvvvvvvv');
 })
@@ -80,37 +85,47 @@ searchBtn.addEventListener('click',e => {
     let years = document.getElementById('buraxilish-filter').value
     let searchValue = document.getElementById('search').value
     let banCode = document.getElementById('ban').value
-    console.log(banCode,marka,model,years,searchValue);
     let csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
-    obj ={
-      'marka_id' : marka,
-      'modell_id' : model,
-      'year' : years,
-      'search_value' : searchValue,
-      'ban_code' : banCode
-    }
+    localStorage.setItem('csrf',csrf_token)
+    console.log(banCode,marka,model,years,searchValue);
 
-    let data = fetch(filterUrl,{
-      method:'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        "X-CSRFToken": csrf_token
-      },
-      body: JSON.stringify(obj)
-      
-    })
-    .then((response) => response.json())
-.then((responseJson) => {
-    
-    
-   console.log(responseJson,'+++++++++++++++++++++++++++++++++++++++=');
-    
+  console.log(window.location.href,'saaaaaammmeeekm');
+  let url = new URL('http://127.0.0.1:8000/main/searched-products/?')
+
+  let search_param = url.searchParams
+ 
+if (marka){
+
+  search_param.set('marka',marka)
+}
+if (model){
+
+  search_param.set('modell',model)
+}
+if (years){
+
+  search_param.set('year',years)
+}
+if (banCode){
+
+  search_param.set('ban_nomresi',banCode)
+}
+if (searchValue){
+
+  search_param.set('search_value',searchValue)
+}
+
+
   
+  url.search = search_param.toString();
+  let new_url = url.toString()
+  // if(marka || model || years || banCode || searchValue){
+
+    window.location.href = new_url
+  // }
+ 
 })
-.catch((error) => {
-  console.error(error);
-});
+
     
-})
+
 

@@ -1,3 +1,4 @@
+from product.models import City
 from django.contrib import admin
 from main.models import *
 
@@ -6,6 +7,7 @@ admin.site.register(Marka)
 admin.site.register(Modell)
 admin.site.register(WishList)
 admin.site.register(Contact)
+admin.site.register(City)
 
 
 # class TourImageInline(admin.TabularInline):
