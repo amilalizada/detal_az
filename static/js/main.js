@@ -1,5 +1,5 @@
 const markaUrl = 'http://127.0.0.1:8000/main-api/main/'
-const modelUrl = 'http://127.0.0.1:8000/main-api/main-model/'
+const modelUrl = 'http://127.0.0.1:8000/en/main-api/main-model/'
 
 
 

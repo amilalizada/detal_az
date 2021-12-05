@@ -124,7 +124,6 @@ class SelfProfilePageView(LoginRequiredMixin, UpdateView):
         print(context['id'])
         return context
 
-  
     def get_object(self):
         return self.request.user
 
@@ -134,16 +133,12 @@ class UserProfilePageView(ListView, LoginRequiredMixin):
     template_name = 'user-profile2.html'
     model = Product
 
-    def get_products(self):
-        sale_products = Product.objects.filter(
-            user_id=self.request.user.id).all().order_by('-created_at')
-        return sale_products
-
     def get_context_data(self, **kwargs):
         userr_slug = self.kwargs.get('slug')
         user = User.objects.filter(slug=userr_slug).first()
-        print(user)
+        print(user, 'buduburadi')
         context = super().get_context_data(**kwargs)
-        context['products'] = self.get_products()
+        context['products'] = Product.objects.filter(
+            user_id=user).all().order_by('-created_at')
         context['user'] = user
         return context

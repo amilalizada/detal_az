@@ -58,8 +58,6 @@ class MainPageModelSerializer(serializers.ModelSerializer):
             'id',
             'slug',
             'title',
-            'min_year',
-            'max_year',
         )
 
 

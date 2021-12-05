@@ -51,10 +51,7 @@ class Modell(models.Model):
     title = models.CharField('Basligi', max_length=120)
     image = models.ImageField(
         _('Image'), upload_to='model_image', blank=True, null=True)
-    min_year = models.IntegerField(
-        "Minimal Buraxilis ili", null=True, blank=True)
-    max_year = models.IntegerField(
-        "Maksimal buraxilis ili", null=True, blank=True)
+    is_parent = models.BooleanField('esas model',default=False )
     slug = models.SlugField('slug', max_length=255,
                             editable=False, unique=True)
 
