@@ -10,7 +10,7 @@
 {% block content %}
 
     <div id="detail-main-image">
-        <img style="width: 100%;" src="{% static 'assets/images/image 59.png' %}" alt="">       
+        <img style="width: 100%;" src="{{parent_cat.image.url}}" alt="">       
     </div>
     <div id="details-cards" class="row">
       {% for part in parts %}
@@ -18,7 +18,7 @@
             <div class="card" style="">
             <img src="{{part.image.url}}" class="card-img-top" alt="...">
             <div class="card-body">
-              <a href="{% url 'product:filtered-products' marka model parent_detail subparent_detail part.slug %}"><p class="card-text">{{part.title}}</p></a>
+              <a style="text-decoration: none;" href="{% url 'product:filtered-products' marka model parent_detail subparent_detail part.slug %}"><p class="card-text"><span>{{part.category_order}}</span> {{part.title}}</p></a>
             </div>
           </div>
         </div>
