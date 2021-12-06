@@ -1,9 +1,10 @@
 from django.db import models
 from django.db.models import fields
+from django.db.models.aggregates import Avg
 from rest_framework import permissions
 from main.models import Contact, Marka, Modell, WishList
 from product.models import Product
-from account.models import User
+from account.models import Rating, User
 from rest_framework import serializers
 
 
@@ -94,3 +95,17 @@ class ProductSerializer(serializers.ModelSerializer):
             'discount',   
             'is_active',
         )
+
+class UserRatingSerializer(serializers.ModelSerializer):
+    avg_rating = serializers.SerializerMethodField()
+
+    class Meta:
+        model = User
+        fields = (
+            'id',
+            'avg_rating',
+        )
+    
+    def get_avg_rating(self, obj):
+        return Rating.objects.filter(rated_user=obj).aggregate(Avg('rating'))['rating__avg']
+    

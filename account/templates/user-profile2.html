@@ -31,7 +31,7 @@
                         <span><i class="fas fa-phone"></i></span>
                         <span class="number">{{user.phone}}</span>
                     </div>
-                    <div class="stars d-flex">
+                    <div id="market-star" class="stars d-flex">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -44,24 +44,28 @@
         </div>
 
     </div>
+    {% ifnotequal user request.user %}
+        
+    
     <div class="col-md-6 col-12 p-0 left">
         <form class="left mr-4" action="rating">
-            <div class="stars">
+            <div id="rate-stars" class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
-
+                
             </div>
             <div class="button">
-                <button type="submit">
+                <button id="rate-button" type="button" disabled data-rating="1">
                     reyting ver
                 </button>
             </div>
-
+            
         </form>
     </div>
+    {% endifnotequal %}
 </header>
 
 <section class="products container mb-5">
@@ -156,6 +160,9 @@
     {% endblock %}
 
     {% block js %}
-    <script src="{% static 'js/activateproduct.js' %}"></script>
+        <script src="{% static 'js/userrating.js' %}"></script>
+        {% ifequal user request.user %}
+            <script src="{% static 'js/activateproduct.js' %}"></script>
+        {% endifequal %}
     {% endblock %}
     
