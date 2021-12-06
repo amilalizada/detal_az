@@ -58,10 +58,10 @@ class MainPageMarkaAPIView(APIView):
 
 class MainPageModelAPIView(APIView):
 
-    def get(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
 
-        print(self.kwargs)
-        marka_slug = self.kwargs['marka_id']
+        marka_slug = request.data['marka_id']
+        print(marka_slug)
         models = Modell.objects.filter(marka_id__slug=marka_slug)
 
         serializer = MainPageModelSerializer(models, many=True)
