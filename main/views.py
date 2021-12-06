@@ -127,8 +127,9 @@ class InnerDetailView(ListView):
         context['subparent_detail'] = self.kwargs.get('subparent_detail_slug')
         parent_cat = Category.objects.filter(
             slug=self.kwargs.get('subparent_detail_slug'))[0]
+        context['parent_cat'] = parent_cat
         context["parts"] = Category.objects.filter(
-            parent_category=parent_cat.id).all()
+            parent_category=parent_cat.id).all().order_by('category_order')
 
         return context
 
