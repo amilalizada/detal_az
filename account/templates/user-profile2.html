@@ -58,7 +58,7 @@
                 
             </div>
             <div class="button">
-                <button id="rate-button" type="button">
+                <button id="rate-button" type="button" disabled data-rating="1">
                     reyting ver
                 </button>
             </div>
@@ -160,7 +160,9 @@
     {% endblock %}
 
     {% block js %}
-    <script src="{% static 'js/userrating.js' %}"></script>
-    <script src="{% static 'js/activateproduct.js' %}"></script>
+        <script src="{% static 'js/userrating.js' %}"></script>
+        {% ifequal user request.user %}
+            <script src="{% static 'js/activateproduct.js' %}"></script>
+        {% endifequal %}
     {% endblock %}
     

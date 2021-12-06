@@ -24,12 +24,12 @@ const RateUserLogic = {
 
 rate_button = document.getElementById('rate-button')
 if (rate_button) {
-    
+
     rate_button.addEventListener('click', function () {
         rating = rate_button.getAttribute('data-rating')
         RateUserLogic.ratingManager(rating)
     })
-    
+
     rate_stars = document.getElementById('rate-stars')
     for (let i = 0; i < rate_stars.children.length; i++) {
         rate_stars.children[i].addEventListener('click', function () {
@@ -40,11 +40,12 @@ if (rate_button) {
                 }
             }
             rate_button.setAttribute('data-rating', i + 1)
+            rate_button.disabled = false
         })
     }
 }
-    
-    
+
+
 
 function getUserRating() {
     fetch(`http://127.0.0.1:8000/main-api/user-rating/${userSlug}`, {
@@ -57,11 +58,15 @@ function getUserRating() {
     })
         .then(response => response.json())
         .then(data => {
-            avg_rating = Math.ceil(data['avg_rating'])
+            avg_rating = Math.round(data.avg_rating * 2) / 2
             market_star = document.getElementById('market-star')
             for (let i = 0; i < market_star.children.length; i++) {
                 market_star.children[i].classList.remove('text-warning')
+                market_star.children[i].classList = 'fas fa-star'
                 if (i < avg_rating) {
+                    if (i + 0.5 == avg_rating) {
+                        market_star.children[i].classList = 'fas fa-star-half-alt'
+                    }
                     market_star.children[i].classList.add('text-warning')
                 }
             }

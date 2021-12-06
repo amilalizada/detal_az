@@ -207,9 +207,10 @@ class Rating(models.Model):
         User, on_delete=models.CASCADE, related_name='user_rating')
     rated_user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='rated_user_rating')
-    rating = models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(5)])
+    rating = models.IntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(5)])
 
-    unique_together = ('user', 'rated_user')
+    class Meta:
+        unique_together = ('user', 'rated_user')
 
     def __str__(self):
         return f"{self.user} - {self.rated_user} - {self.rating}"
