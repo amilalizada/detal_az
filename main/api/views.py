@@ -63,7 +63,7 @@ class MainPageModelAPIView(APIView):
 
         marka_slug = request.data['marka_id']
         print(marka_slug)
-        models = Modell.objects.filter(marka_id__slug=marka_slug)
+        models = Modell.objects.filter(marka_id__slug=marka_slug,is_parent=False)
 
         serializer = MainPageModelSerializer(models, many=True)
 

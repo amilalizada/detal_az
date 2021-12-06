@@ -1,7 +1,7 @@
 const slug = document.getElementById("product-slug").innerText
 console.log(slug)
-const markaUrl = 'http://127.0.0.1:8000/contact-api/main/'
-const modelUrl = 'http://127.0.0.1:8000/contact-api/main-model/'
+const markaUrl = 'http://127.0.0.1:8000/main-api/main/'
+const modelUrl = 'http://127.0.0.1:8000/main-api/main-model/'
 const updateProduct = `http://127.0.0.1:8000/product-api/product-detail/${slug}`
 console.log(updateProduct) 
 const categoryUrl = 'http://127.0.0.1:8000/product-api/category/'

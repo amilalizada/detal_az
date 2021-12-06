@@ -198,23 +198,26 @@ class SearchedProdsView(ListView):
         
 
         if banCode:
-            products = Product.objects.filter(vin_code=banCode)
+            products = Product.objects.filter(vin_code=banCode).order_by('-created_at')
 
         elif marka_id and model_id and searchValue:
             products = Product.objects.filter(
-                marka_id=marka_id,modell_id=model_id,title__icontains=searchValue)
+                marka_id=marka_id,modell_id=model_id,title__icontains=searchValue).order_by('-created_at')
+
+        elif marka_id and model_id and years:
+            products = Product.objects.filter(marka_id__slug=marka_id,modell_id__slug=model_id,year=years).order_by('-created_at')
 
         elif marka_id and model_id:
-            products = Product.objects.filter(marka_id__slug=marka_id,modell_id__slug=model_id)
+            products = Product.objects.filter(marka_id__slug=marka_id,modell_id__slug=model_id).order_by('-created_at')
             
         elif marka_id:
-            products = Product.objects.filter(marka_id__slug=marka_id)
+            products = Product.objects.filter(marka_id__slug=marka_id).order_by('-created_at')
 
         elif searchValue:
-            products = Product.objects.filter(title__icontains=searchValue)
+            products = Product.objects.filter(title__icontains=searchValue).order_by('-created_at')
 
         else:
-            products = Product.objects.filter(marka_id=marka_id)
+            products = Product.objects.filter(marka_id=marka_id).order_by('-created_at')
 
         page = self.request.GET.get(
             'page', 1) if self.request.GET.get('page', 1) != '' else 1

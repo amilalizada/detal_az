@@ -59,6 +59,7 @@ class MainPageModelSerializer(serializers.ModelSerializer):
             'id',
             'slug',
             'title',
+            'is_parent',
         )
 
 
