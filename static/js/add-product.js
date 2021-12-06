@@ -52,7 +52,7 @@ let data = fetch(markaUrl, {
 .then((responseJson) => {
     responseJson.forEach(element => {
         
-        document.getElementById('masin-markalari').innerHTML +=`<option class="markas" value="${element.id}">${element.title}</option>` 
+        document.getElementById('masin-markalari').innerHTML +=`<option class="markas" value="${element.slug}">${element.title}</option>` 
     });
     
   // console.log(responseJson);
@@ -69,6 +69,7 @@ filter_mark.addEventListener("change", e => {
     let option = e.target;
     console.log(option.value);
     marka_id = option.value
+    console.log(marka_id);
     let csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
     let obj = {
       marka_id
