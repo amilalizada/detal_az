@@ -53,6 +53,7 @@ class RegistrationForm(UserCreationForm):
             'password2',
 
         )
+        choices = ['Satici',"Alici"]
 
         widgets = {
             'email': forms.EmailInput(attrs={
@@ -71,12 +72,17 @@ class RegistrationForm(UserCreationForm):
                 'class':'user-select-is-market',
                 'sozunu':'marketsinqizmi'
             }),
+            # 'is_market': forms.ChoiceField(),
+            #  'is_market': forms.Select(attrs={
+            #     'class': 'user-form-input',
+            #     'placeholder': 'Satici ?'
+            # }),
             'adress': forms.TextInput(attrs={
                 'class': 'user-form-input',
                 'placeholder': 'Adress'
             }),
             # 'image':forms.FileField()
-}
+}           
 
     def clean(self):
         password1 = self.cleaned_data.get('password1')
