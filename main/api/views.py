@@ -71,6 +71,8 @@ class MainPageModelAPIView(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
+
+
 class FilteredProductAPIView(APIView):
 
     def post(self, request, *args, **kwargs):

@@ -61,8 +61,8 @@ class Product(models.Model):
                                   on_delete=models.CASCADE, db_index=True, related_name="model_product")
     category_id = models.ForeignKey(Category, verbose_name=_("Category"),
                                     on_delete=models.CASCADE, db_index=True, related_name="category_product")
-    cirty = models.ForeignKey(
-        'City', verbose_name='City', on_delete=models.CASCADE, related_name='category_city')
+    city = models.ForeignKey(
+        'City', verbose_name='City', on_delete=models.CASCADE, related_name='category_city',null=True,blank=True)
 
     title = models.CharField(_('Title'), max_length=120)
     description = models.TextField(_("Description"), null=True, blank=True)
@@ -79,7 +79,7 @@ class Product(models.Model):
     year = models.IntegerField(_('Year'))
     is_active = models.BooleanField(_('Is_active'), default=False)
 
-    is_active = models.BooleanField(_("Is Active"), default=True)
+    
 
     # moderations
     created_at = models.DateTimeField(auto_now_add=True)

@@ -139,6 +139,6 @@ class UserProfilePageView(ListView, LoginRequiredMixin):
         print(user, 'buduburadi')
         context = super().get_context_data(**kwargs)
         context['products'] = Product.objects.filter(
-            user_id=user).all().order_by('-created_at')
+            user_id=user,is_active=True).all().order_by('-created_at')
         context['user'] = user
         return context

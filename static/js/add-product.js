@@ -1,5 +1,5 @@
-const markaUrl = 'http://127.0.0.1:8000/main-api/main/'
-const modelUrl = 'http://127.0.0.1:8000/main-api/main-model/'
+const markaUrl = 'http://127.0.0.1:8000/product-api/add-product-marka/'
+const modelUrl = 'http://127.0.0.1:8000/product-api/add-product-model/'
 const addProductUrl = 'http://127.0.0.1:8000/product-api/add-product/'
 const categoryUrl = 'http://127.0.0.1:8000/product-api/category/'
 
@@ -52,7 +52,7 @@ let data = fetch(markaUrl, {
 .then((responseJson) => {
     responseJson.forEach(element => {
         
-        document.getElementById('masin-markalari').innerHTML +=`<option class="markas" value="${element.slug}">${element.title}</option>` 
+        document.getElementById('masin-markalari').innerHTML +=`<option class="markas"  value="${element.id}">${element.title}</option>` 
     });
     
   // console.log(responseJson);

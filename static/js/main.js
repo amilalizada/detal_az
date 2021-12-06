@@ -21,7 +21,7 @@ let data = fetch(markaUrl, {
     document.getElementById('filter-mark').innerHTML = '<option class="" value="">Masin markasi</option>'
     responseJson.forEach(element => {
         
-        document.getElementById('filter-mark').innerHTML +=`<option class="markas" value="${element.slug}">${element.title}</option>` 
+        document.getElementById('filter-mark').innerHTML +=`<option class="markas mr-2" value="${element.slug}">${element.title}</option>` 
     });
     
   // console.log(responseJson);

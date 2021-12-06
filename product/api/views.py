@@ -12,16 +12,19 @@ from django.http import Http404
 from django.db.models import Q
 from product.models import Image
 from rest_framework.permissions import IsAuthenticated
+from main.api.serializers import MainPageModelSerializer,MainPageSerializer
 
 
 class CreatePoruct(APIView):
 
     def post(self,request,*args,**kwargs):
-        permission_classes = [IsAuthenticated]
+        # permission_classes = [IsAuthenticated]
         # permission_classes = [is]
         product_data = request.data 
         product_data['user_id'] = request.user.id
-        # print(product_data,'sekiiil')
+        print(request.user,'useeer')
+
+        print(product_data,'sekiiil')
         
         serializer = ProductCreateSerializer(data = product_data, context = {'request':request})
         serializer.is_valid(raise_exception=True)
@@ -97,3 +100,25 @@ class CategoryApiView(APIView):
 
 
 
+class AddProductMarkaAPIView(APIView):
+
+     def get(self, request, format=None):
+        markas = Marka.objects.all()
+        print(markas)
+        serializer = MainPageSerializer(markas, many=True)
+
+        print(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class AddProductModelAPIView(APIView):
+
+    def post(self, request, *args, **kwargs):
+
+        marka_id = request.data['marka_id']
+        models = Modell.objects.filter(marka_id=marka_id,is_parent=False)
+
+        serializer = MainPageModelSerializer(models, many=True)
+
+        print(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
