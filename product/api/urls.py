@@ -8,6 +8,8 @@ app_name = 'productapi'
 urlpatterns = [
     path('add-product/',CreatePoruct.as_view(),name='create-product'),
     path('category/',CategoryApiView.as_view(),name='category-api'),
-    path('product-detail/<str:slug>', ProductDetail.as_view(), name='product-detail')
+    path('product-detail/<str:slug>', ProductDetail.as_view(), name='product-detail'),
+    path('add-product-marka/', AddProductMarkaAPIView.as_view(), name='product-detail'),
+    path('add-product-model/', AddProductModelAPIView.as_view(), name='product-detail'),
     # path('category-detail/',CategoryDetail.as_view(),name='category-detail-api'),
 ]
