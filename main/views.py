@@ -25,9 +25,14 @@ class HomePageView(ListView):
         markalar = Marka.objects.all().order_by('-created_at')[:8]
         return markalar
 
+    def get_vip(self):
+        vip = Product.objects.filter(is_vip=True).order_by('-created_at')[:8]
+        return vip
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['markalar'] = self.get_markalar()
+        context['vip'] = self.get_vip()
         context['endirimli'] = Product.objects.filter(is_discount=True)
         context['box_categories'] = Category.objects.filter(
             is_box_category=True)

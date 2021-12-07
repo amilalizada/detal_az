@@ -119,7 +119,46 @@
                 {% endfor %}
         </div>
     </section>
-
+    
+    <h1 id="vip-title">VIP Elanlar</h1>
+    <section class="products container mb-5">
+        <div class="row mb-5">
+            {% for i in vip %}
+            <a style="text-decoration: none; color: black;" href="{% url 'product:single-product' i.slug%}"></a>
+            <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
+                
+                <div class="incard">
+                    {% csrf_token %}
+                    {% if i.title in wishes %}
+                    <i class="fas fa-heart unwish"></i>
+                    {% else %}
+                    <i class="fas fa-heart wish"></i>
+                    {%endif%}
+                    
+                    {% if i.is_vip %}
+                        <img class="vip" src="{% static '/assets/images/Group 392.png' %}" alt="">
+                    {% endif %}
+                    <span class='d-none foridinput'>{{i.id}}</span>
+                    <span class='d-none foridinput'>{{request.user.id}}</span>
+                    
+                    
+                    <img style="width:100%;"  src="{{i.main_image.url}}" alt="">
+                    
+                    <div class="d-flex">
+                        <span>satici:</span>
+                        <a style="color: red; text-decoration: none;" href="{% url 'account:user-profile' i.user_id.slug  %}"><span style="color: red;">{{i.user_id.first_name}}</span></a>
+                    </div>
+                    <p>{{i.title}}</p>
+                    <button>{{i.price}} AZN</button>
+                </div>
+            
+            </div>
+            </a>
+        
+            {% endfor %}
+            
+        </div>
+    </section>
     <h1 id="markalar-title">Maşın markaları</h1>
     <section class="container" id="markalar-section">
         <div id="markalar-main-div">

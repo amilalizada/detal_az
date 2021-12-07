@@ -205,7 +205,7 @@ body {
     justify-content: center;
 }
 
-#markalar-title {
+#markalar-title, #vip-title {
     color: #C70E0E;
     margin-top: 15%;
     text-align: center;
@@ -460,6 +460,69 @@ body {
     border: none;
     background-color: transparent;
     border-bottom: 3px solid white;
+}
+
+
+.incard{
+    background: #FFFFFF;
+    padding: 0 45px 0 45px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+    justify-content: center;
+    
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 12px;
+}
+
+
+.fa-heart{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    color: grey;
+    font-size: 25px;
+}
+
+.vip{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: grey;
+    width: 30px !important;
+    height: 30px !important;
+}
+
+.wish{
+    color: grey;
+}
+.unwish{
+    color: #C70E0E;
+}
+
+
+.incard img{
+    width: 80%;
+    height: 180px;
+}
+.incard button{
+    background: #C70E0E;
+    border-radius: 8px;
+    border: none;
+    color: #FFFFFF;
+    height: 40px;
+    width: 100%;
+}
+
+
+.card-item{
+    height: 360px;
+    margin-bottom: 30px;
 }
 
 @media only screen and (min-width: 992px){
