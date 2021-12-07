@@ -142,3 +142,20 @@ class UserProfilePageView(ListView, LoginRequiredMixin):
             user_id=user,is_active=True).all().order_by('-created_at')
         context['user'] = user
         return context
+
+
+
+class UserProfile2PageView(ListView, LoginRequiredMixin):
+
+    template_name = 'user-profile3.html'
+    model = Product
+
+    def get_context_data(self, **kwargs):
+        userr_slug = self.kwargs.get('slug')
+        user = User.objects.filter(slug=userr_slug).first()
+        print(user, 'buduburadi')
+        context = super().get_context_data(**kwargs)
+        context['products'] = Product.objects.filter(
+            user_id=user,is_active=False).all().order_by('-created_at')
+        context['user'] = user
+        return context

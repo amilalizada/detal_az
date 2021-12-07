@@ -7,8 +7,8 @@ from datetime import timedelta
 @shared_task
 def check_active_products():
     startdate = timezone.now()
-    enddate = startdate - timedelta(days=14)
-    products = Product.objects.filter(updated_at__lte=enddate)
+    enddate = startdate - timedelta(months=1)
+    products = Product.objects.filter(user_id__is_market=False, updated_at__lte=enddate)
     for product in products:
         product.is_active = False
         product.save()

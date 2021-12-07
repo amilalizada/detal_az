@@ -42,7 +42,7 @@ function getProductManager() {
                 if (data[i]['is_active'] == false) {
                     activateButton[i].innerHTML = `<button data-id='${data[i]['id']}' class='mt-2 activate' onclick='activateProduct(this)'>Aktiv et</button>`
                 } else {
-                    activateButton[i].innerHTML = `<button data-id='${data[i]['id']}' class='mt-2 activate' onclick='activateProduct(this)'>Deaktiv et</button>`
+                    activateButton[i].innerHTML = ""
                 }
 
             }

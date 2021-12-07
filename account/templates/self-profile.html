@@ -31,6 +31,16 @@
                     <a style="border: none; text-decoration:none; color:black;" href="{% url 'account:user-profile' request.user.slug %}" class="mr-5">Hesabim</a>
                 </div>
             </div>
+            {% ifequal user.is_market False %}
+            <div class="icon mb-sm-5 mb-md-none">
+                <div class="img">
+                    <img src="{% static '/assets/images/open-box 1.png'%}" alt="">
+                </div>
+                <div class="text">
+                    <a style="border: none; text-decoration:none; color:black;" href="{% url 'account:user-profile2' request.user.slug %}" class="mr-5">Vaxtı keçmiş məhsullar</a>
+                </div>
+            </div>
+            {% endifequal %}
             <div class="icon mb-sm-5 mb-md-none">
                 <div class="img">
                     <img src="{% static '/assets/images/logout 1.png'%}" alt="">

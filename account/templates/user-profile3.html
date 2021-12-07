@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/user-profile2.css' %}">
+<link rel="stylesheet" href="{% static '/css/products.css' %}">
+{% endblock %}
+{% block content %}
+
+
+<section class="products container mb-5">
+    <div class="row mb-5">
+        {% for i in products %}
+        <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
+            <div class="incard">
+                <i class="fas fa-heart"></i>
+                <img src="{{i.main_image.url}}" alt="">
+                <div class="d-flex">
+                    <span>satici:</span>
+                    <span style="color: red;">{{i.user_id.first_name}}</span>
+                </div>
+                <p>{{i.title}}</p>
+                <button>23</button>
+                <div class="activate-button">
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+
+        
+
+    
+
+
+    {% endblock %}
+
+    {% block js %}
+        <script src="{% static 'js/userrating.js' %}"></script>
+        {% ifequal user request.user %}
+            <script src="{% static 'js/activateproduct.js' %}"></script>
+        {% endifequal %}
+    {% endblock %}
+    
