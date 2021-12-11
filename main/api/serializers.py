@@ -81,13 +81,14 @@ class FilteredProductSerializer(serializers.ModelSerializer):
         )
             
 class ProductSerializer(serializers.ModelSerializer):
-
+    user = serializers.SerializerMethodField()
     class Meta:
         model = Product
         permisson_classes = [permissions.IsAuthenticated]
 
         fields = (
             'id',
+            'user',
             'title',
             'price',
             'description',
@@ -96,6 +97,9 @@ class ProductSerializer(serializers.ModelSerializer):
             'discount',   
             'is_active',
         )
+    
+    def get_user(self, obj):
+        return obj.user_id.first_name
 
 class UserRatingSerializer(serializers.ModelSerializer):
     avg_rating = serializers.SerializerMethodField()
