@@ -104,7 +104,8 @@ class Product(models.Model):
         title = self.title
 
     # moderations
-        self.slug = f"{slugify(self.title)}-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
+        if not self.slug:
+            self.slug = f"{slugify(self.title)}-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
         super().save()
 
     # def get_absolute_url(self):

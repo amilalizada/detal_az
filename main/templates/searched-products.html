@@ -99,7 +99,10 @@
                         <span style="color: red;">{{i.user_id.first_name}}</span>
                     </div>
                     <p>{{i.title}}</p>
-                    <button>{{i.price}}</button>
+                    <a style="width: 80%;" href="{% url 'product:single-product' i.slug %}">
+                        <button>{{i.price}}</button>
+
+                    </a>
                 </div>
             </div>
             {% endfor %}
