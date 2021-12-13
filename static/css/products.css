@@ -344,3 +344,12 @@ ul {
     justify-content: center;
     align-items: center;
 }
+
+.vip{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: grey;
+    width: 30px !important;
+    height: 30px !important;
+}

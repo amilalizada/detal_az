@@ -11,7 +11,6 @@
 {% block content %}
 
 
-
 {% if user.is_market %}
 <header class="head row m-0 container m-auto">
     <div class="col-md-6 col-12 p-0">
@@ -67,13 +66,15 @@
     </div>
     {% endifnotequal %}
 </header>
-
 <section class="products container mb-5">
     <div class="row mb-5">
         {% for i in products %}
         <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
             <div class="incard">
                 <i class="fas fa-heart"></i>
+                {% if i.is_vip %}
+                <img class="vip" src="{% static '/assets/images/Group 392.png' %}" alt="">
+                {% endif %}
                 <img src="{{i.main_image.url}}" alt="">
                 <div class="d-flex">
                     <span>satici:</span>
@@ -87,22 +88,22 @@
             </div>
         </div>
         {% endfor %}
-
-
+        
+        
         {% else %}
-
+        
         <header class="headd  m-0 m-auto">
-           
-
+            
+            
             {% if request.user.is_authenticated and user == request.user %}
             <div id='foratag'>
-
+                
                 <a class='atagfix' style="text-decoration:none; color:white;"
-                    href="{% url 'account:self-profile' request.user.slug %}">redakte et</a>
+                href="{% url 'account:self-profile' request.user.slug %}">redakte et</a>
             </div>
-
+            
             {% endif %}
-
+            
         </header>
         <section class="products container mb-5 mt-5">
             <div class="row mb-5">
@@ -113,12 +114,15 @@
                     </a>
                 </div>
                 {% endif %}
-
-
+                
+                
                 {% for i in products %}
                 <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
                     <div class="incard">
                         <i class="fas fa-heart"></i>
+                        {% if i.is_vip %}
+                        <img class="vip" src="{% static '/assets/images/Group 392.png' %}" alt="">
+                        {% endif %}
                         <img src="{{i.main_image.url}}" alt="">
                         <div class="d-flex">
                             <span>satici:</span>
@@ -151,7 +155,6 @@
           </nav>
     </section> 
         
-
 {% endif %}
 
     
