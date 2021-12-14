@@ -149,6 +149,7 @@ html, body{
 
 #navbar-section {
     background-color: #E5E5E5;
+    width: 70%;
 }
 .responsive-wish{
     display: none;
@@ -214,6 +215,18 @@ html, body{
     .nav-item{
     border-bottom: 2px #ED1F24 solid;
     margin: 20px;
+    }
+    .navbar-res{
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+    #navbar-section{
+        width: 100% !important;
+    }
+    .footer-li{
+        display: flex;
+        justify-content: center;
     }
 }
 
