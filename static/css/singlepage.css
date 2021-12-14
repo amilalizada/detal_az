@@ -1,6 +1,9 @@
 body{
     background-color: #E5E5E5;
 }
+.container{
+    width: 70% !important;
+}
 
 ul{
     padding: 0;
@@ -27,16 +30,16 @@ li{
 }
 .product-price{
     outline: none;
-    border: 2px solid #C70E0E;
+    border: 2px solid #ED1F24;
     background-color: #E5E5E5;
-    color: #C70E0E;
+    color: #ED1F24;
     width: 250px;
     height: 50px;
     border-radius: 12px;
     cursor:text;
 }
 .product-user-number{
-    background-color:#C70E0E ;
+    background-color:#ED1F24 ;
     border-radius: 12px;
 }
 .user-a{
@@ -51,4 +54,14 @@ li{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+
+a{
+    color: #ED1F24;
+    text-decoration: none;
+
+}
+a :hover{
+    color: #FFC000;
 }

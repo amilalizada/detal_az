@@ -20,6 +20,14 @@ class SingleProductView(DetailView):
     template_name = 'single-product.html'
     context_object_name = 'product'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # user = User.objects.filter(context['object'].user_id)
+        context['user'] = context['object'].user_id
+        print(context)
+        return context
+
+
 # Create your views here.
 class AddProductPageView(TemplateView):
     template_name = 'add-product.html'
@@ -31,6 +39,7 @@ class UpdateProduct(DetailView):
     context_object_name = "product"
     model = Product
 
+   
 
 # class SingleProductView(TemplateView):
 #     template_name = 'single-product.html'

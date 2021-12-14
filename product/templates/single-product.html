@@ -13,7 +13,7 @@
 {% endblock %}
 {% block content %}
 
-<div class="product-carousel">
+<div class="product-carousel mt-5">
     {%for i in product.product_image.all %}
     {% if forloop.counter == 1 %}
     <a
@@ -56,7 +56,9 @@
             </div>
         </div>
         <div>
+            {% if request.user.is_authenticated and user == request.user %}
             <a href="{% url 'product:update-product' product.slug %}">Elanı düzəlt</a>
+            {% endif %}
             <p>Məhsulun adı: <b>{{product.title}}</b></p>
             <p>Məhsulun markası: <b>{{product.marka_id}}</b></p>
             <p>Məhsulun modeli: <b>{{product.modell_id}}</b></p>

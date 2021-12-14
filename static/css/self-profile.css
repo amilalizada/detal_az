@@ -7,6 +7,9 @@
 body{
     background-color: #E5E5E5;
 }
+.container{
+    width: 70% !important;
+}
 .my_container{
     width: 60%;
     margin:auto;
@@ -45,7 +48,7 @@ body{
     border-radius: 5px;
 }
 .update-profile input:focus{
-    border-color: 1px solid #C70E0E !important;
+    border-color: 1px solid #ED1F24 !important;
 }
 .buttons{
     width: 60%;
@@ -59,7 +62,7 @@ body{
 }
 .legv a{
     text-decoration: none;
-    color: #C70E0E;
+    color: #ED1F24;
 }
 .buttons button {
     width: 40%;
@@ -68,7 +71,7 @@ body{
 .yadda-saxla{
     border-radius: 5px;
     border: 1px solid #dc3545;
-    background-color: #C70E0E ;
+    background-color: #ED1F24 ;
     color: white;
 }
 
@@ -88,3 +91,14 @@ body{
         width: 100%;
     }
   }
+
+
+
+  a{
+    color: #ED1F24;
+    text-decoration: none;
+
+}
+a :hover{
+    color: #FFC000;
+}

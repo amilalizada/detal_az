@@ -7,7 +7,9 @@ body{
     width: 70%;
     margin: 10% auto;    
 }
-
+.container{
+    width: 70% !important;
+}
 
 #details-cards{
     width: 70%;
@@ -28,6 +30,16 @@ body{
 }
 
 .card-text{
-    color: #C70E0E;
+    color: #ED1F24;
     text-align: center;
+}
+
+
+a{
+    color: #ED1F24;
+    text-decoration: none;
+
+}
+a :hover{
+    color: #FFC000;
 }

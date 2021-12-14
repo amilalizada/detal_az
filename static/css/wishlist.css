@@ -4,6 +4,9 @@
     box-sizing: border-box;
 }
 
+.container{
+    width: 70% !important;
+}
 body{
     background-color: #E5E5E5 !important;
 }
@@ -75,3 +78,13 @@ line-height: 27px;
         font-size: 15px;
     }
    }
+
+
+
+   a{
+    text-decoration: none;
+    color: #ED1F24;
+}
+a :hover{
+    color: #FFC000;
+}

@@ -6,6 +6,9 @@
     background-position: center;
     text-align: center;
 }
+.container{
+    width: 70% !important;
+}
 
 #footer-main {
     width: 60%;
@@ -19,4 +22,14 @@ ul {
 
 .footer-li {
     color: white;
+}
+
+
+a{
+    color: #ED1F24;
+    text-decoration: none;
+
+}
+a :hover{
+    color: #FFC000;
 }

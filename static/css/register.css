@@ -2,6 +2,11 @@ body{
     background: #E5E5E5;
 }
 
+.container{
+    width: 70% !important;
+}
+
+
 #user-profile-main{
     width: 70%;
     margin: 5% auto;
@@ -40,13 +45,13 @@ body{
 
 .left-button{
     border-radius: 8px;
-    border: 1px solid #C70E0E;
+    border: 1px solid #ED1F24;
     background-color: #FFFFFF;
-    color: #C70E0E;
+    color: #ED1F24;
 }
 
 .right-button{
-    background: #C70E0E;
+    background: #ED1F24;
     border-radius: 4px;
     color: #FFFFFF;
     border: none;
@@ -112,7 +117,7 @@ body{
     display: none !important;
 }
 .right-button-image{
-    background: #C70E0E;
+    background: #ED1F24;
     border-radius: 4px;
     color: #FFFFFF;
     border: none;
@@ -133,4 +138,14 @@ body{
     #right-button{
         width: 100%;
     }
+}
+
+
+a{
+    color: #ED1F24;
+    text-decoration: none;
+
+}
+a :hover{
+    color: #FFC000;
 }

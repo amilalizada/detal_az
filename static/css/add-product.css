@@ -2,7 +2,9 @@ body{
     background: #E5E5E5;
 }
 
-
+.container{
+  width: 70% !important;
+}
 
 #product-form{
     display: flex;
@@ -59,20 +61,20 @@ body{
 
 .left-button{
     border-radius: 8px;
-    border: 1px solid #C70E0E;
+    border: 1px solid #ED1F24;
     background-color: #FFFFFF;
-    color: #C70E0E;
+    color: #ED1F24;
 }
 
 .right-button{
-    background: #C70E0E;
+    background: #ED1F24;
     border-radius: 4px;
     color: #FFFFFF;
     border: none;
     outline: none;
 }
 .right-button-image{
-    background: #C70E0E;
+    background: #ED1F24;
     border-radius: 4px;
     color: #FFFFFF;
     border: none;
@@ -110,7 +112,7 @@ body{
 
   #upper-side {
     padding: 2em;
-    background-color: #C70E0E;
+    background-color: #ED1F24;
     display: block;
     color: #fff;
     border-top-right-radius: 8px;
@@ -153,7 +155,7 @@ body{
     position: relative;
     top: 1.5em;
     text-decoration: none;
-    background: #C70E0E;
+    background: #ED1F24;
     color: #fff;
     margin: auto;
     padding: .8em 3em;
@@ -229,3 +231,13 @@ body{
     
 
   
+
+
+  a{
+    color: #ED1F24;
+    text-decoration: none;
+
+}
+a :hover{
+    color: #FFC000;
+}

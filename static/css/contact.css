@@ -2,7 +2,9 @@ body{
     background-color: #E5E5E5;
 }
 
-
+.container{
+    width: 70% !important;
+}
 #contact-section {
     margin-top: 15%;
     max-height: 800px;
@@ -166,3 +168,14 @@ body{
 
 
 
+
+
+
+a{
+    color: #ED1F24;
+    text-decoration: none;
+
+}
+a :hover{
+    color: #FFC000;
+}

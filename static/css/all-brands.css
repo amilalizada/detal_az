@@ -6,6 +6,9 @@
 body {
     background: #E5E5E5;
 }
+.container{
+    width: 70% !important;
+}
 
 
 .header-body{
@@ -53,7 +56,7 @@ body {
     font-weight: bold;
     font-size: 37px;
     line-height: 54px;
-    color: #C70E0E;
+    color: #ED1F24;
     text-align: center;
 }
 
@@ -73,7 +76,7 @@ body {
 }
 .cars-search-button{
     color: white;
-    background: #C70E0E;
+    background: #ED1F24;
     border-radius: 0px 4px 4px 0px;
     border: none;
     outline: none;
@@ -137,7 +140,7 @@ body {
     color: white;
 }
 .page-link{
-    background-color: #C70E0E;
+    background-color: #ED1F24;
     color: white;
 }
 .products-header-2{
@@ -152,11 +155,11 @@ body {
 }
 
 .prev:hover{
-    background-color: #C70E0E;
+    background-color: #ED1F24;
     color: white;
 }
 .nextt:hover{
-    background-color: #C70E0E;
+    background-color: #ED1F24;
     color: white;
 }
 
@@ -198,4 +201,15 @@ body {
         margin-top: 5%;
     }
     
+}
+
+
+
+a{
+    color: #ED1F24;
+    text-decoration: none;
+
+}
+a :hover{
+    color: #FFC000;
 }

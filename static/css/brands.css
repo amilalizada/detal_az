@@ -1,9 +1,12 @@
 body{
     background: #E5E5E5;    
 }
+.container{
+    width: 70% !important;
+}
 
 .brand-title{
-    background: #C70E0E;
+    background: #ED1F24;
     width: 100%;
     height: 200px;
     text-align: center;
@@ -40,4 +43,15 @@ body{
         display: grid;  
         grid-template-columns: 1fr 1fr;
     }
+}
+
+
+
+a{
+    color: #ED1F24;
+    text-decoration: none;
+
+}
+a :hover{
+    color: #FFC000;
 }

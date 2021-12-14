@@ -1,6 +1,9 @@
 body{
     background: #E5E5E5;
 }
+.container{
+    width: 70% !important;
+}
 
 #subparts-main{
     width: 85%;
@@ -21,11 +24,11 @@ body{
 }
 .sub-parts-a{
     text-decoration: none;
-    color: #C70E0E;
+    color: #ED1F24;
 }
 
 .sub-parts-a:hover{
-    color: #C70E0E;
+    color: #ED1F24;
 }
 .sub-parts-image{
     display: flex;
@@ -33,4 +36,15 @@ body{
     align-items: center;
     width: 250px;
     height: 200px;
+}
+
+
+
+a{
+    color: #ED1F24;
+    text-decoration: none;
+
+}
+a :hover{
+    color: #FFC000;
 }

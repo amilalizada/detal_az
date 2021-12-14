@@ -1,9 +1,131 @@
+
+html, body{
+    height: 100%;
+}
+
+/* reklam section */
+
+#reklam-banner-top-section{
+    width: 100%;
+}
+
+#reklam-banner-top{
+    height: 120px;
+    width: 100%;
+}
+
+
+
+#reklam-banner-bottom-section{
+    width: 100%;
+}
+
+#reklam-banner-bottom{
+    height: 120px;
+    width: 100%;
+}
+
+
+
+#reklam-banner-left-side{
+    width: 10%;
+    height: 100vh;
+    position: absolute;
+    
+}
+
+#reklam-banner-left{
+    width: 100%;
+    height: 100%;
+}
+
+#reklam-banner-left-side-second{
+    width: 10%;
+    height: 200%;
+    position: absolute;
+    top: 235%;
+}
+
+#reklam-banner-left-second{
+    width: 100%;
+    height: 100%;
+}
+#reklam-banner-right-side-second{
+    width: 10%;
+    height: 200%;
+    position: absolute;
+    top: 235%;
+    right: 0;
+}
+
+#reklam-banner-right-second{
+    width: 100%;
+    height: 100%;
+}
+
+#reklam-banner-right-side{
+    width: 10%;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+}
+
+#reklam-banner-right{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+@media only screen and (max-width: 768px){
+    #reklam-banner-left-side{
+        width: 10%;
+        height: 100%;
+        position: absolute;
+    }
+    #reklam-banner-right-side{
+        width: 10%;
+        height: 100%;
+    }
+    #reklam-banner-left-side-second{
+        width: 10%;
+        height: 200%;
+        position: absolute;
+        top: 135%;
+    }
+    #reklam-banner-right-side-second{
+        width: 10%;
+        height: 200%;
+        position: absolute;
+        top: 135%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .navbar-nav {
     justify-content: space-around;
 }
 
 .wishlist-icon {
-    color: #C70E0E;
+    color: #ED1F24;
 }
 
 #navbar-section {
@@ -18,12 +140,12 @@
 }
 
 .navbar_item:hover {
-    color: #C70E0E;
+    color: #ED1F24;
     text-decoration: none;
 }
 
 #nav-button {
-    background: #C70E0E;
+    background: #ED1F24;
     border-radius: 8px;
     border: none;
     outline: none;
@@ -49,7 +171,7 @@
         width: 100%;
     }
     .nav-item{
-    border-bottom: 2px #C70E0E solid;
+    border-bottom: 2px #ED1F24 solid;
     margin: 20px;
     }
 
@@ -67,7 +189,17 @@
         width: 100%;
     }
     .nav-item{
-    border-bottom: 2px #C70E0E solid;
+    border-bottom: 2px #ED1F24 solid;
     margin: 20px;
     }
+}
+
+
+a{
+    color: #ED1F24;
+    text-decoration: none;
+
+}
+a :hover{
+    color: #FFC000;
 }

@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+.container{
+    width: 70% !important;
+}
 body{
     background-color: #E5E5E5 !important;
 }
@@ -10,7 +13,7 @@ body{
     justify-content: space-around;
 }
 .wishlist-icon {
-    color: #C70E0E;
+    color: #ED1F24;
 }
 #navbar-section {
     background-color: #E5E5E5;
@@ -20,11 +23,11 @@ body{
     text-decoration: none;
 }
 .navbar_item:hover {
-    color: #C70E0E;
+    color: #ED1F24;
     text-decoration: none;
 }
 #nav-button {
-    background: #C70E0E;
+    background: #ED1F24;
     border-radius: 8px;
     border: none;
     outline: none;
@@ -44,10 +47,10 @@ font-weight: bold;
 font-size: 43px;
 line-height: 50px;
 
-color: #C70E0E;
+color: #ED1F24;
 }
 .cart-title{
-    background-color: #C70E0E;
+    background-color: #ED1F24;
     pad: 0 30px 0 30px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -105,7 +108,7 @@ ul {
     color: white;
 }
 .page-link{
-    background-color: #C70E0E;
+    background-color: #ED1F24;
     color: white;
 }
 .products-header-2{
@@ -119,10 +122,21 @@ ul {
     color: red;
 }
 .prev:hover{
-    background-color: #C70E0E;
+    background-color: #ED1F24;
     color: white;
 }
 .nextt:hover{
-    background-color: #C70E0E;
+    background-color: #ED1F24;
     color: white;
+}
+
+
+
+a{
+    color: #ED1F24;
+    text-decoration: none;
+
+}
+a :hover{
+    color: #FFC000;
 }
