@@ -26,18 +26,21 @@
                     </li>
                     
                     {% if request.user.is_authenticated %}
-                    <li>
+                    <li class="nav-item" >
                         <a href="{% url 'account:logout' %}?next=/main/" class="nav-item" style="border: none; text-decoration:none;color:black;"> {% translate 'Çıxış' %} </a>
-                        <a href="{% url 'account:self-profile' request.user.slug %}" class="nav-item" style="border: none; text-decoration:none;color:black;">{{request.user}}</a>
-                    
                     </li>
+                        <li class="nav-item">
+                            <a href="{% url 'account:self-profile' request.user.slug %}" class="nav-item" style="border: none; text-decoration:none;color:black;">{{request.user}}</a>
+
+                        </li>
+                    
                     {% else %} 
-                        <li>
+                        <li class="nav-item">
                         <a href="{% url 'account:login' %}" class="nav-item" style="border: none; text-decoration:none; color:black;"> {% translate 'Daxil Ol' %} </a>
                         </li>
                     {% endif %}
                      {% if not request.user.is_authenticated %}
-                    <li>
+                    <li nav-item>
                         <a href="{% url 'account:register' %}" class="nav-item" style="border: none; text-decoration:none;color:black;"> {% translate 'Qeydiyyat' %} </a>
                     </li>
                     {% endif %}
