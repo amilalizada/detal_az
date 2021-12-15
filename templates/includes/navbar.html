@@ -49,22 +49,33 @@
                     {% endif %}
                     <li class="nav-item dropdown" style="border: none;">
                         <a class="navbar_item dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            {{lang|upper}}
-                            <!-- <img src="{% static '/assets/images/AZ.png' %}" alt=""> -->
+                            
+                            {% ifequal lang 'ru'  %}
+                            <img style="width: 28px; height: 20px;" src=" {% static '/assets/images/RU.jpg' %}" alt="">
+                            {% endifequal %}
+                            {% ifequal lang 'az'  %}
+                            <img style="width: 28px; height: 20px;" src=" {% static '/assets/images/AZ.png' %}" alt="">
+                            {% endifequal %}
+                            {% ifequal lang 'en'  %}
+                            <img style="width: 28px; height: 20px;" src=" {% static '/assets/images/EN.png' %}" alt="">
+                            {% endifequal %}
                         </a>
                         <ul class="dropdown-menu" style="right: 0px; min-width:4rem;" aria-labelledby="navbarDropdownMenuLink">
                             <input type="hidden" value="{% translate 'Lang' %}">
                             {% ifnotequal lang "en" %}
                             <li><a class="dropdown-item"	
-                                    href="{% url 'main:set_language'%}?lang=en&next={{request.path}}">{% translate 'EN' %}</a></li>
+                                    href="{% url 'main:set_language'%}?lang=en&next={{request.path}}"><img style="width: 28px; height: 20px;" src=" {% static '/assets/images/EN.png' %}" alt=""></a></li>
+                           
+
                             {% endifnotequal %}
                             {% ifnotequal lang "az" %}
                             <li><a class="dropdown-item"
-                                    href="{% url 'main:set_language'%}?lang=az&next={{request.path}}">{% translate 'AZ' %}</a></li>
+                                    href="{% url 'main:set_language'%}?lang=az&next={{request.path}}">
+                                    <img style="width: 28px; height: 20px;" src=" {% static '/assets/images/AZ.png' %}" alt=""></a></li>
                             {% endifnotequal %}
                             {% ifnotequal lang "ru" %}
                             <li><a class="dropdown-item"
-                                href="{% url 'main:set_language'%}?lang=ru&next={{request.path}}">{% translate 'RU' %}</a></li>
+                                href="{% url 'main:set_language'%}?lang=ru&next={{request.path}}"> <img style="width: 28px; height: 20px;" src="{% static '/assets/images/RU.jpg' %}" alt=""></a></li>
                             {% endifnotequal %}
                             <!-- <li>
                                 <a class="dropdown-item" href="#"></a>

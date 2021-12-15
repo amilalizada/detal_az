@@ -307,7 +307,7 @@ ul {
 .page-numbers{
     display: flex;
 }
-.page-item{
+/* .page-item{
     width: 35px;
     height: 35px;
     border-radius: 2px;
@@ -318,8 +318,8 @@ ul {
     text-decoration: none;
     margin-left: 3px;
     margin-right: 3px;
-}
-.page-item:hover{
+/* } */
+/* .page-item:hover{
     
     color: white;
     background-color: #C70E0E;
@@ -327,9 +327,9 @@ ul {
     text-decoration: none;
     margin-left: 3px;
     margin-right: 3px;
-}
+} */ */
 
-.page-link{
+/* .page-link{
     width: 30px;
     height: 30px;
     border-radius: 2px;
@@ -343,7 +343,7 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 .vip{
     position: absolute;
