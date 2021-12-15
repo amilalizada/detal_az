@@ -78,6 +78,7 @@ class Product(models.Model):
     is_discount = models.BooleanField(_("Is Discount"), default=False)
     year = models.IntegerField(_('Year'))
     is_active = models.BooleanField(_('Is_active'), default=False)
+    is_vip = models.BooleanField(_('Is Vip'), default=False)
 
     
 

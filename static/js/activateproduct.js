@@ -36,14 +36,25 @@ function getProductManager() {
     })
         .then(response => response.json())
         .then(data => {
-            const activateButton = document.getElementsByClassName('activate-button');
+            products = document.getElementById('products');
+            products.innerHTML = '';
+            console.log(data);
             for (let i = 0; i < data.length; i++) {
-                activateButton[i].innerHTML = ''
-                if (data[i]['is_active'] == false) {
-                    activateButton[i].innerHTML = `<button data-id='${data[i]['id']}' class='mt-2 activate' onclick='activateProduct(this)'>Aktiv et</button>`
-                } else {
-                    activateButton[i].innerHTML = `<button data-id='${data[i]['id']}' class='mt-2 activate' onclick='activateProduct(this)'>Deaktiv et</button>`
-                }
+                products.innerHTML += `<div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
+                    <div class="incard">
+                        <i class="fas fa-heart"></i>
+                        <img src="${data[i]['main_image']}" alt="">
+                        <div class="d-flex">
+                            <span>satici:</span>
+                            <span style="color: red;">${data[i]['user']}</span>
+                        </div>
+                        <p>${data[i]['title']}</p>
+                        <button>23</button>
+                        <div class="activate-button">
+                        <button data-id='${data[i]['id']}' class='mt-2 activate' onclick='activateProduct(this)'>Aktiv et</button>
+                        </div>
+                    </div>
+                </div>`
 
             }
         });

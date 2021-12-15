@@ -93,6 +93,9 @@
             <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
                 <div class="incard">
                     <i class="fas fa-heart wish"></i>
+                    {% if i.is_vip %}
+                        <img class="vip" src="{% static '/assets/images/Group 392.png' %}" alt="">
+                    {% endif %}
                     <span class='d-none foridinput'>{{i.id}}</span>
                     <span class='d-none foridinput'>{{request.user.id}}</span>
                     
