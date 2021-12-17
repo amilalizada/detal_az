@@ -29,7 +29,7 @@ html, body{
 }
 
 #reklam-banner-top{
-    height: 120px;
+    height: 180px;
     width: 100%;
 }
 
@@ -40,15 +40,15 @@ html, body{
 }
 
 #reklam-banner-bottom{
-    height: 120px;
+    height: 180px;
     width: 100%;
 }
 
 
 
 #reklam-banner-left-side{
-    width: 10%;
-    height: 100vh;
+    width: 15%;
+    height: 80vh;
     position: absolute;
     
 }
@@ -60,7 +60,7 @@ html, body{
 
 #reklam-banner-left-side-second{
     width: 10%;
-    height: 200%;
+    height: 80vh;
     position: absolute;
     top: 235%;
 }
@@ -71,9 +71,9 @@ html, body{
 }
 #reklam-banner-right-side-second{
     width: 10%;
-    height: 200%;
+    height: 80vh;
     position: absolute;
-    top: 235%;
+    top: 0;
     right: 0;
 }
 
@@ -83,8 +83,8 @@ html, body{
 }
 
 #reklam-banner-right-side{
-    width: 10%;
-    height: 100vh;
+    width: 15%;
+    height: 80vh;
     position: absolute;
     right: 0;
 }
@@ -95,7 +95,7 @@ html, body{
 }
 
 
-
+/* 
 @media only screen and (max-width: 768px){
     #reklam-banner-left-side{
         width: 10%;
@@ -118,7 +118,7 @@ html, body{
         position: absolute;
         top: 135%;
     }
-}
+} */
 
 
 

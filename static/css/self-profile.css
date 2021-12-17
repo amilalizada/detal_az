@@ -11,6 +11,42 @@
 }
 
 
+
+
+#reklam-banner-left-side-self-profile-page{
+    width: 15%;
+    height: 60vh;
+    position: absolute;
+    
+}
+#reklam-banner-right-side-self-profile-page{
+    width: 15%;
+    height: 60vh;
+    position: absolute;
+    right: 0;
+
+}
+
+@media only screen and (max-width: 768px){
+    #reklam-banner-left-side-self-profile-page{
+        width: 15%;
+        height: 30vh;
+        position: absolute;
+        
+    }
+    #reklam-banner-right-side-self-profile-page{
+        width: 15%;
+        height: 30vh;
+        position: absolute;
+        right: 0;
+    
+    }
+}
+
+
+
+
+
 *{
     font-family: Circe Rounded;
 }

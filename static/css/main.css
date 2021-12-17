@@ -13,6 +13,29 @@
 
 
 
+/* reklamlar */
+
+
+#reklam-banner-left-side-main-page{
+    width: 15%;
+    height: 100vh;
+    position: absolute;
+    
+}
+#reklam-banner-right-side-main-page{
+    width: 15%;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+
+}
+
+
+
+
+
+
+
 
 *{
     margin: 0;
@@ -721,6 +744,27 @@ ul {
 
 
 @media only screen and (max-width: 768px) {
+
+    /* reklam responsive */
+
+
+#reklam-banner-left-side-main-page{
+    width: 15%;
+    height: 50vh;
+    position: absolute;
+    
+}
+#reklam-banner-right-side-main-page{
+    width: 15%;
+    height: 50vh;
+    position: absolute;
+    right: 0;
+
+}
+
+
+
+
     #contact-img {
         position: absolute;
         left: 0;
@@ -921,3 +965,11 @@ a{
 a :hover{
     color: #FFC000;
 }
+
+
+
+
+
+
+
+

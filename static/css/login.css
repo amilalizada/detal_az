@@ -15,6 +15,20 @@
     font-family: Circe Rounded;
 }
 
+#reklam-banner-left-side-login-page{
+    width: 15%;
+    height: 90vh;
+    position: absolute;
+    
+}
+#reklam-banner-right-side-login-page{
+    width: 15%;
+    height: 90vh;
+    position: absolute;
+    right: 0;
+
+}
+
 
 
 body{
@@ -25,7 +39,7 @@ body{
 }
 
 .login-main{
-    width: 80%;
+    width: 65%;
     height: 600px;
     margin: 0 auto;
     margin-top: 5%;
@@ -126,6 +140,19 @@ body{
     #login-social-part{
         height: 90%;
     }
+    #reklam-banner-left-side-login-page{
+        width: 15%;
+        height: 65vh;
+        position: absolute;
+        
+    }
+    #reklam-banner-right-side-login-page{
+        width: 15%;
+        height: 65vh;
+        position: absolute;
+        right: 0;
+    
+    }
 }
 
 
@@ -175,3 +202,7 @@ a{
 a :hover{
     color: #FFC000;
 }
+
+
+
+

@@ -24,7 +24,10 @@ class SingleProductView(DetailView):
         context = super().get_context_data(**kwargs)
         # user = User.objects.filter(context['object'].user_id)
         context['user'] = context['object'].user_id
-        print(context)
+        product = context['product']
+        product.watch_count +=1
+        product.save()
+        print(product.watch_count,'salaaaam')
         return context
 
 

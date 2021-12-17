@@ -68,7 +68,7 @@ class Product(models.Model):
     is_discount = models.BooleanField(_("Is Discount") , default=False)
     year = models.IntegerField(_('Year'))
     is_active = models.BooleanField(_('Is_active'), default=False)
-
+    watch_count = models.IntegerField(_("Watch Count"), default=0)
     is_active = models.BooleanField(_("Is Active"), default=True)
 
     #moderations
@@ -94,7 +94,7 @@ class Product(models.Model):
         title = self.title
 
     #moderations
-        self.slug = f"{slugify(self.title)}-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
+        self.slug = f"{slugify(self.title)}-{self.created_at}"
         super().save()
     
     # def get_absolute_url(self):
