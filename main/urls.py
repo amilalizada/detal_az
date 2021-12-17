@@ -12,6 +12,7 @@ urlpatterns = [
     path('car-detail/<str:model_slug>/<str:marka_slug>/',CarDetailView.as_view(),name='car-detail'),
     path('contact/',ContactView.as_view(),name='contact'),
     path('shops/',ShopsView.as_view(),name='shops'),
+    path('shops/<str:slug>/',ShopDetailView.as_view(),name='shop_detail'),
     path('inner-details/<str:model_slug>/<str:marka_slug>/<str:parent_detail_slug>/<str:subparent_detail_slug>/',InnerDetailView.as_view(),name='inner-details'),
     path('single-page/',SinglePageView.as_view(),name='isingle-page'),
     path('searched-products/',SearchedProdsView.as_view(),name='searched'),

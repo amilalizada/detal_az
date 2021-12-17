@@ -1,3 +1,4 @@
+from django.core import paginator
 from django.db import models
 from django.http import request
 from django.shortcuts import render, redirect
@@ -18,7 +19,7 @@ from django.views.generic import (
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from product.models import Product
-
+from main.views import SafePaginator
 User = get_user_model()
 
 # class RegisterPageView(CreateView):
@@ -132,6 +133,7 @@ class UserProfilePageView(ListView, LoginRequiredMixin):
 
     template_name = 'user-profile2.html'
     model = Product
+    paginator_class = SafePaginator
     paginate_by = 4
     context_object_name = 'products'
 

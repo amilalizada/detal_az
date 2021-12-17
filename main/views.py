@@ -13,8 +13,20 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from product.models import Category, Product
 from django.db.models import Q
-from django.core.paginator import Paginator
+from django.core.paginator import EmptyPage, Paginator
 
+
+class SafePaginator(Paginator):
+    def validate_number(self, number):
+        try:
+            return super(SafePaginator, self).validate_number(number)
+        except EmptyPage:
+            if number > 1:
+                return self.num_pages
+            else:
+                raise EmptyPage(
+                    'That page contains no results'
+                )
 
 # Create your views here.
 class HomePageView(ListView):
@@ -145,8 +157,24 @@ class ShopsView(ListView):
     model = User
     queryset = User.objects.filter(is_market=True)
     context_object_name = 'shops'
+    paginator_class = SafePaginator
     paginate_by = 4
 
+
+class ShopDetailView(ListView):
+    model = Product
+    template_name = 'shop-detail.html'
+    context_object_name = 'products'
+    paginator_class = SafePaginator
+    paginate_by = 4
+
+    def get_queryset(self, **kwargs):
+        return Product.objects.filter(
+            user_id__slug=self.kwargs.get('slug')).all().order_by('-created_at')  
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
 
 class SubParts(ListView):
     template_name = 'sub_parts.html'
