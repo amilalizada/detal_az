@@ -6,6 +6,7 @@ admin.site.register(Marka)
 admin.site.register(Modell)
 admin.site.register(WishList)
 admin.site.register(Contact)
+admin.site.register(Advertisements)
 
 
 # class TourImageInline(admin.TabularInline):

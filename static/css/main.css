@@ -13,24 +13,6 @@
 
 
 
-/* reklamlar */
-
-
-#reklam-banner-left-side-main-page{
-    width: 15%;
-    height: 100vh;
-    position: absolute;
-    
-}
-#reklam-banner-right-side-main-page{
-    width: 15%;
-    height: 100vh;
-    position: absolute;
-    right: 0;
-
-}
-
-
 
 
 
@@ -972,4 +954,45 @@ a :hover{
 
 
 
+
+
+
+
+
+
+/* reklamlar */
+
+
+#reklam-banner-left-side-main-page{
+    width: 15%;
+    height: 100vh;
+    position: absolute;
+    
+}
+#reklam-banner-right-side-main-page{
+    width: 15%;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+
+}
+#reklam-banner-top-section{
+    width: 100%;
+}
+
+#reklam-banner-top{
+    height: 180px;
+    width: 100%;
+}
+
+
+
+#reklam-banner-bottom-section{
+    width: 100%;
+}
+
+#reklam-banner-bottom{
+    height: 180px;
+    width: 100%;
+}
 

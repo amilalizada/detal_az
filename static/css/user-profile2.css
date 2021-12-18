@@ -88,3 +88,42 @@ a{
 a :hover{
     color: #FFC000;
 }
+
+
+
+
+
+
+/* reklam */
+
+
+
+#reklam-banner-left-user-profile-page{
+    width: 15%;
+    height: 80vh;
+    position: absolute;
+    
+}
+#reklam-banner-right-user-profile-page{
+    width: 15%;
+    height: 80vh;
+    position: absolute;
+    right: 0;
+
+}
+
+@media only screen and (max-width: 768px){
+    #reklam-banner-left-user-profile-page{
+        width: 15%;
+        height: 40vh;
+        position: absolute;
+        
+    }
+    #reklam-banner-right-user-profile-page{
+        width: 15%;
+        height: 40vh;
+        position: absolute;
+        right: 0;
+    
+    }
+}

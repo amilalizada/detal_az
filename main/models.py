@@ -119,3 +119,42 @@ class WishList(models.Model):
         self.slug = f"{slugify(create)}-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
         super().save()
 
+
+
+class Advertisements(models.Model):
+    Advertisements_Pages = [
+        ("Main Page","Əsas Səhife"),
+        ("About Page", "Haqqimizda"),
+        ("All Brands Page", "Butun Markalar"),
+        ("All Models Page", "Butun Modeller"),
+        ("Car Detail Page", "Esas Kateqoriyalar"),
+    ]
+
+    image = models.ImageField(_('Image'), upload_to='advertisement_image/')
+    order = models.IntegerField(_("Order"), default=0)
+
+    is_top = models.BooleanField(_("Top Advertisement"), default=False)
+    is_bottom = models.BooleanField(_("Bottom Adverstiment"), default=False)
+    is_right = models.BooleanField(_("Right Advertisement"), default=False)
+    is_left = models.BooleanField(_("Left Advertisement"), default=False)
+    pages = models.CharField(_("Sehifeler"), choices=Advertisements_Pages , max_length=50, null=True,blank=True)
+
+
+    # moderations
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta():
+        verbose_name = 'Reklam Banneri'
+        verbose_name_plural = 'Reklam Bannerleri'
+
+    def __str__(self):
+        return f"{self.image}"
+
+    def save(self, *args, **kwargs):
+
+        super().save()
+        create = str(self.created_at)
+        
+        self.slug = f"{slugify(create)}-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
+        super().save()

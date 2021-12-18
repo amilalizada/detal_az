@@ -8,7 +8,15 @@
 <link rel="stylesheet" href="{% static 'css/main.css' %}">
 {% endblock %}
 {% block content %}
-
+{% for reklam in reklamlar %}
+{% if reklam.is_top %}
+<section id="reklam-banner-top-section">
+    <div id="reklam-banner-top">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+    </div>
+</section>
+{% endif %}
+{% endfor %}
      
 
 
@@ -62,32 +70,23 @@
     
 
     <section id="reklam-banner-left-side-main-page" class="mt-5">
-        <div id="reklam-banner-left">
-            <img src="https://banker.az/wp-content/uploads/2019/08/azercell-cover-1-1.png" style="width: 100%; height: 100%;" alt="">
-        </div>
+      {% for reklam in reklamlar %}
+      {% if reklam.is_left %}
         <div id="reklam-banner-left" class="mt-5">
-            <img src="https://banker.az/wp-content/uploads/2019/08/azercell-cover-1-1.png" style="width: 100%; height: 100%;" alt="">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
         </div>
-        <div id="reklam-banner-left" class="mt-5">
-            <img src="https://banker.az/wp-content/uploads/2019/08/azercell-cover-1-1.png" style="width: 100%; height: 100%;" alt="">
-        </div>
-        <div id="reklam-banner-left" class="mt-5">
-            <img src="https://banker.az/wp-content/uploads/2019/08/azercell-cover-1-1.png" style="width: 100%; height: 100%;" alt="">
-        </div>      
+        {% endif %}
+        {% endfor %}
     </section>
     <section id="reklam-banner-right-side-main-page" class="mt-5">
-        <div id="reklam-banner-right">
-            <img src="https://banker.az/wp-content/uploads/2019/08/azercell-cover-1-1.png" style="width: 100%; height: 100%;" alt="">
-        </div>
-        <div id="reklam-banner-right" class="mt-5">
-            <img src="https://banker.az/wp-content/uploads/2019/08/azercell-cover-1-1.png" style="width: 100%; height: 100%;" alt="">
-        </div>
-        <div id="reklam-banner-right" class="mt-5">
-            <img src="https://banker.az/wp-content/uploads/2019/08/azercell-cover-1-1.png" style="width: 100%; height: 100%;" alt="">
-        </div>
-        <div id="reklam-banner-right" class="mt-5">
-            <img src="https://banker.az/wp-content/uploads/2019/08/azercell-cover-1-1.png" style="width: 100%; height: 100%;" alt="">
-        </div>
+        {% for reklam in reklamlar %}
+        {% if reklam.is_right %}
+          <div id="reklam-banner-left" class="mt-5">
+              <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+          </div>
+          {% endif %}
+          {% endfor %}
+        
     </section>
 
 
@@ -257,7 +256,15 @@
         </div>
     </section>
 
-
+    {% for reklam in reklamlar %}
+    {% if reklam.is_bottom %}
+    <section id="reklam-banner-bottom-section" class="mt-5">
+        <div id="reklam-banner-bottom">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+    </section>
+    {% endif %}
+    {% endfor %}
     {% endblock %}
 
     {% block js %}

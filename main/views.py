@@ -26,6 +26,9 @@ class HomePageView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        reklamlar = Advertisements.objects.filter(pages ='Main Page')
+        print(reklamlar,'........')
+        context['reklamlar'] = reklamlar
         context['markalar'] = self.get_markalar()
         context['endirimli'] = Product.objects.filter(is_discount=True)
         context['box_categories'] = Category.objects.filter(

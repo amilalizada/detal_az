@@ -87,19 +87,26 @@
         <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
             <div class="incard">
                 <i class="fas fa-heart"></i>
-                <img src="{{i.main_image.url}}" alt="">
+                <a class="img-a" href="{% url 'product:single-product' i.slug %}">
+                    <img src="{{i.main_image.url}}" alt="">
+                </a>
                 <div class="d-flex">
                     <span>satici:</span>
-                    <span style="color: red;">{{i.user_id.first_name}}</span>
+                    <a href="{% url 'account:user-profile' user.slug %}">{{i.user_id.first_name}}</a>
                 </div>
                 <p>{{i.title}}</p>
-                <button>23</button>
+                
+                <a href="{% url 'product:single-product' i.slug %}" style="width: 80%; text-align: center;">
+                    <button style="margin: 0 auto;">{{i.price}} AZN</button>
+                </a>
                 <div class="activate-button">
 
                 </div>
             </div>
         </div>
         {% endfor %}
+    </div>
+    </section>
 
 
         {% else %}
@@ -138,7 +145,7 @@
                             <span style="color: red;">{{i.user_id.first_name}}</span>
                         </div>
                         <p>{{i.title}}</p>
-                        <button>23</button>
+                        <button>{{i.price}} AZN</button>
                     </div>
                 </div>
                 
@@ -163,6 +170,7 @@
             </ul>
           </nav>
     </section> 
+
         
 
 {% endif %}
