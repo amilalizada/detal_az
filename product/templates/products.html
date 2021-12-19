@@ -95,7 +95,7 @@
                     <span class='d-none foridinput'>{{request.user.id}}</span>
                     
                     
-                        <img src="{{i.main_image.url}}" alt="">
+                        <a style="text-align: center;" href="{% url 'product:single-product' i.slug %}"><img src="{{i.main_image.url}}" alt=""></a>
                     
                     <div class="d-flex">
                         <span>satici:</span>
