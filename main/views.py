@@ -58,22 +58,22 @@ class AboutPageView(TemplateView):
     template_name = 'about.html'
 
 
-class AllBrandsView(ListView):
-    template_name = 'all-brands.html'
-
 
 class AllBrandsView(ListView):
     model = Marka
     template_name = 'all-brands.html'
     context_object_name = 'markalar'
+    queryset = Marka.objects.all().order_by('-created_at')
+    paginate_by = 1
+    paginator_class = SafePaginator
 
-    def get_markalar(self):
-        markalar = Marka.objects.all().order_by('-created_at')
-        return markalar
+    # def get_markalar(self):
+    #     markalar = Marka.objects.all().order_by('-created_at')
+    #     return markalar
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['markalar'] = self.get_markalar()
+        # context['markalar'] = self.get_markalar()
         return context
 
 

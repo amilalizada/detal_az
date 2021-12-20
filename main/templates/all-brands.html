@@ -38,7 +38,7 @@
             <div class="col-12 col-lg-3 col-md-4 col-sm-6 all-cars-cards">
                 <div class="all-cars-card">
                     <div class="all-cars-card-img" style="height: 100px;">
-                        <a href="{% url 'main:brands' marka.id %}"> <img src="{{marka.image.url}}" style="width:100%" alt=""></a>
+                        <a href="{% url 'main:brands' marka.slug %}"> <img src="{{marka.image.url}}" style="width:100%" alt=""></a>
                     </div>
                     <h6 class="card-title">{{marka.title}}</h6>
                     <a class="card-url" href="{% url 'main:brands' marka.slug %}"><button class="card-button">Hissələri</button></a>
@@ -46,23 +46,39 @@
             </div>
             {% endfor %}
         </div>
-        <nav style="margin-top: 5%;" aria-label="Page navigation example pagination">
-            <ul class="pagination">
-              <li class="page-item prev">
-                <a class="page-link prev" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                </a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item nextt">
-                <a class="page-link nextt" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
+        <nav aria-label="Page navigation example">
+          {% if is_paginated %}
+          <ul class="pagination">
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{page_obj.previous_page_number}}"
+                >&laquo;</a
+              >
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+              <a class="page-link" href="#">&laquo;</a>
+            </li>
+            {% endif %} {% for i in paginator.page_range %} {% if page_obj.number == i %}
+            <li class="page-item"><a class="page-link active bg-light text-danger">{{ i }}</a></li>
+            {% else %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+            </li>
+            {% endif %} {% endfor %} {% if page_obj.has_next %}
+            <li class="page-item">
+              <a href="?page={{page_obj.next_page_number}}" class="page-link"
+                >&raquo;</a
+              >
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+              <a class="page-link">&raquo;</a>
+            </li>
+            {% endif %}
+          </ul>
+          {% endif %}
+        </nav>
     </section>
 
     {% endblock %}
