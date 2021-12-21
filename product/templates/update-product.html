@@ -8,6 +8,36 @@
 <link rel="stylesheet" href="{% static '/css/add-product.css' %}">
 {% endblock %}
 {% block content %}
+{% for reklam in reklamlar %}
+{% if reklam.is_top %}
+<section id="reklam-banner-top-section">
+    <div id="reklam-banner-top">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+    </div>
+</section>
+{% endif %}
+{% endfor %}
+
+
+<section id="reklam-banner-left-side-addproduct-page" class="mt-5">
+    {% for reklam in reklamlar %}
+    {% if reklam.is_left %}
+      <div id="reklam-banner-left" class="mt-5">
+          <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+      </div>
+      {% endif %}
+      {% endfor %}
+  </section>
+  <section id="reklam-banner-right-side-addproduct-page" class="mt-5">
+      {% for reklam in reklamlar %}
+      {% if reklam.is_right %}
+        <div id="reklam-banner-left" class="mt-5">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+        {% endif %}
+        {% endfor %}
+      
+  </section>
 {% if request.user.is_authenticated and user == request.user  %}
 
 <div id='card' class="animated fadeIn">
@@ -83,7 +113,22 @@
         </form>
     </div>
     {% endif %}
+
+
+
+    {% for reklam in reklamlar %}
+{% if reklam.is_bottom %}
+<section id="reklam-banner-bottom-section" class="mt-5">
+    <div id="reklam-banner-bottom">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+    </div>
+</section>
+{% endif %}
+{% endfor %}
     {% endblock %}
+
+
+
 
     {% block js %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>

@@ -22,8 +22,50 @@
     box-sizing: border-box;
 }
 
+
+
+/* reklam */
+
+
+#reklam-banner-top-section{
+    width: 100%;
+}
+
+#reklam-banner-top{
+    height: 180px;
+    width: 100%;
+}
+
+
+
+#reklam-banner-bottom-section{
+    width: 100%;
+}
+
+#reklam-banner-bottom{
+    height: 180px;
+    width: 100%;
+}
+
+
+#reklam-banner-left-side-wislist-page{
+    width: 15%;
+    height: 70vh;
+    position: absolute;
+    
+}
+#reklam-banner-right-side-wislist-page{
+    width: 15%;
+    height: 70vh;
+    position: absolute;
+    right: 0;
+
+}
+
+
+
 .container{
-    width: 70% !important;
+    width: 60% !important;
 }
 body{
     background-color: #E5E5E5 !important;

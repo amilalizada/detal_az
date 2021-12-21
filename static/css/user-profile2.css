@@ -97,6 +97,28 @@ a :hover{
 /* reklam */
 
 
+#reklam-banner-top-section{
+    width: 100%;
+}
+
+#reklam-banner-top{
+    height: 180px;
+    width: 100%;
+}
+
+
+
+#reklam-banner-bottom-section{
+    width: 100%;
+}
+
+#reklam-banner-bottom{
+    height: 180px;
+    width: 100%;
+}
+
+
+
 
 #reklam-banner-left-user-profile-page{
     width: 15%;

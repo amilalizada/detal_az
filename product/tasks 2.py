@@ -10,5 +10,5 @@ def check_active_products():
     enddate = startdate - timedelta(days=14)
     products = Product.objects.filter(updated_at__lte=enddate)
     for product in products:
-        product.is_active = False
+      d
         product.save()

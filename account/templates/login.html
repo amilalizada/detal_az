@@ -9,16 +9,36 @@
 {% endblock %}
 {% block content %}
 
-<section id="reklam-banner-left-side-login-page" class="mt-5">
-    <div id="reklam-banner-left">
-        <img src="https://banker.az/wp-content/uploads/2019/08/azercell-cover-1-1.png" style="width: 100%; height: 100%;" alt="">
-    </div> 
-</section>
-<section id="reklam-banner-right-side-login-page" class="mt-5">
-    <div id="reklam-banner-right">
-        <img src="https://banker.az/wp-content/uploads/2019/08/azercell-cover-1-1.png" style="width: 100%; height: 100%;" alt="">
+{% for reklam in reklamlar %}
+{% if reklam.is_top %}
+<section id="reklam-banner-top-section">
+    <div id="reklam-banner-top">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
     </div>
 </section>
+{% endif %}
+{% endfor %}
+
+
+<section id="reklam-banner-left-side-login-page" class="mt-5">
+    {% for reklam in reklamlar %}
+    {% if reklam.is_left %}
+      <div id="reklam-banner-left" class="mt-5">
+          <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+      </div>
+      {% endif %}
+      {% endfor %}
+  </section>
+  <section id="reklam-banner-right-side-login-page" class="mt-5">
+      {% for reklam in reklamlar %}
+      {% if reklam.is_right %}
+        <div id="reklam-banner-left" class="mt-5">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+        {% endif %}
+        {% endfor %}
+      
+  </section>
 
 
     <h1 style="color: #ED1F24; text-align: center;" class="mt-5">Hesabınıza daxil olun</h1>
@@ -94,6 +114,16 @@
             </div>
         </div>
     </div>
+
+    {% for reklam in reklamlar %}
+    {% if reklam.is_bottom %}
+    <section id="reklam-banner-bottom-section" class="mt-5">
+        <div id="reklam-banner-bottom">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+    </section>
+    {% endif %}
+    {% endfor %}
     {% endblock %}
 
     {% block js %}

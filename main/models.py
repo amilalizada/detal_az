@@ -126,10 +126,32 @@ class Advertisements(models.Model):
         ("Main Page","Əsas Səhife"),
         ("About Page", "Haqqimizda"),
         ("All Brands Page", "Butun Markalar"),
+        ("Brand", "Marka"),
         ("All Models Page", "Butun Modeller"),
         ("Car Detail Page", "Esas Kateqoriyalar"),
+        ("Car Filter Page", "Orta Kateqoriyalar"),
+        ("Contact Page","Kontakt Sehifesi"),
+        ("Inner Details Page", "Ic Detallar"),
+        ("Searched Products", "Axtarilan Detallar"),
+        ("Shops Page", "Maqazinler"),
+        ("Sub Parts Page", "Ic Kateqoriyalar"),
+        ("Wish List Page", "Arzu Listi Sehifesi"),
+        ("Change Password Page", "Sifreni Deyisme Sehifesi"),
+        ("Forget Password Page", "Sifreni Unutdum Sehifesi"),
+        ("Login Page",'Hesaba Daxil Olmaq'),
+        ("Reset Password Page", "Sifreni Yenilemek"),
+        ("Register Page","Registrasiyadan Kecmek"),
+        ("Self Profile", "Profil Sehifesi"),
+        ("User Profile", "Basqa Userin Profili"),
+        ("Add Product", "Product Elave Etmek"),
+        ("Filtered Product", "Filtrlenmis Detallar"),
+        ("Products Page", "Productlar Sehifesi"),
+        ("Sale Product", "Endirimde Olan Mehsullar"),
+        ("Single Produt","Productun Sehifesi"),
+        ("Update Product", "Productun Duzelis Sehifesi")
+        
     ]
-
+    title = models.CharField(_("Reklamin adi"), null=True,blank=True,max_length=128)
     image = models.ImageField(_('Image'), upload_to='advertisement_image/')
     order = models.IntegerField(_("Order"), default=0)
 

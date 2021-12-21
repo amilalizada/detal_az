@@ -13,6 +13,37 @@
 {% endblock %}
 {% block content %}
 
+
+{% for reklam in reklamlar %}
+{% if reklam.is_top %}
+<section id="reklam-banner-top-section">
+    <div id="reklam-banner-top">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+    </div>
+</section>
+{% endif %}
+{% endfor %}
+
+<section id="reklam-banner-left-side-singleproduct-page" class="mt-5">
+    {% for reklam in reklamlar %}
+    {% if reklam.is_left %}
+      <div id="reklam-banner-left" class="mt-5">
+          <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+      </div>
+      {% endif %}
+      {% endfor %}
+  </section>
+  <section id="reklam-banner-right-side-singleproduct-page" class="mt-5">
+      {% for reklam in reklamlar %}
+      {% if reklam.is_right %}
+        <div id="reklam-banner-left" class="mt-5">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+        {% endif %}
+        {% endfor %}
+      
+  </section>
+
 <div class="product-carousel mt-5">
     {%for i in product.product_image.all %}
     {% if forloop.counter == 1 %}
@@ -76,6 +107,19 @@
     </div>
 
 </div>
+
+
+
+
+{% for reklam in reklamlar %}
+{% if reklam.is_bottom %}
+<section id="reklam-banner-bottom-section" class="mt-5">
+    <div id="reklam-banner-bottom">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+    </div>
+</section>
+{% endif %}
+{% endfor %}
 
     {% endblock %}
 

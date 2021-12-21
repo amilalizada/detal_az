@@ -17,11 +17,58 @@
 
 
 
+
+/* reklam */
+
+
+#reklam-banner-top-section{
+    width: 100%;
+}
+
+#reklam-banner-top{
+    height: 180px;
+    width: 100%;
+}
+
+
+
+#reklam-banner-bottom-section{
+    width: 100%;
+}
+
+#reklam-banner-bottom{
+    height: 180px;
+    width: 100%;
+}
+
+
+#reklam-banner-left-side-cardetail-page{
+    width: 10%;
+    height: 80vh;
+    position: absolute;
+    
+}
+#reklam-banner-right-side-cardetail-page{
+    width: 10%;
+    height: 80vh;
+    position: absolute;
+    right: 0;
+
+}
+
+
+
 body{
     background: #E5E5E5;
 }
 .container{
     width: 70% !important;
+}
+
+#car-parts{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 10%;
 }
 #car-parts-main{
     width: 70%;

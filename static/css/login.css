@@ -15,6 +15,32 @@
     font-family: Circe Rounded;
 }
 
+
+
+/* reklam */
+
+
+#reklam-banner-top-section{
+    width: 100%;
+}
+
+#reklam-banner-top{
+    height: 180px;
+    width: 100%;
+}
+
+
+
+#reklam-banner-bottom-section{
+    width: 100%;
+}
+
+#reklam-banner-bottom{
+    height: 180px;
+    width: 100%;
+}
+
+
 #reklam-banner-left-side-login-page{
     width: 15%;
     height: 90vh;

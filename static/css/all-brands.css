@@ -14,6 +14,47 @@
 
 
 
+/* reklam */
+
+
+#reklam-banner-top-section{
+    width: 100%;
+}
+
+#reklam-banner-top{
+    height: 180px;
+    width: 100%;
+}
+
+
+
+#reklam-banner-bottom-section{
+    width: 100%;
+}
+
+#reklam-banner-bottom{
+    height: 180px;
+    width: 100%;
+}
+
+
+#reklam-banner-left-side-allbrands-page{
+    width: 15%;
+    height: 100vh;
+    position: absolute;
+    
+}
+#reklam-banner-right-side-allbrands-page{
+    width: 15%;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+
+}
+
+
+
+
 *{
     margin: 0;
     padding: 0;
@@ -29,7 +70,7 @@ body {
 
 
 .header-body{
-    width: 80%;
+    width: 70%;
     align-items: center;
     margin: 0 auto;
     height: 600px;
