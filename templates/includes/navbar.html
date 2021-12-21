@@ -11,17 +11,17 @@
                 <div class="offset-md-1"></div>
                 <ul class="navbar-nav col-md-11">
                     <li class="nav-item">
-                        <a class="navbar_item active" aria-current="page" href="{% url 'product:products' %}"> {% translate 'Məhsullar' %} </a>
+                        <a class="navbar_item active" aria-current="page" href="{% url 'main:shops' %}"> {% translate 'Mağazalar' %} </a>
                     </li>
                     <li class="nav-item">
-                        <a class="navbar_item" href="{% url 'main:shops' %}"> {% translate 'Mağazalar' %} </a>
+                        <a class="navbar_item" href="{% url 'product:products' %}"> {% translate 'Elanlar' %} </a>
                     </li>
                     <li class="nav-item">
-                        <a class="navbar_item" href="{% url 'main:about' %}"> {% translate 'Haqqımızda' %} </a>
+                        <a class="navbar_item" href="{% url 'product:sale-products' %}"> {% translate 'Endirimli Elanlar' %} </a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="navbar_item" href="{% url 'main:contact' %}"> {% translate 'Bizimlə Əlaqə' %} </a>
-                    </li>
+                    </li> -->
                     
                     {% if request.user.is_authenticated %}
                     <li>

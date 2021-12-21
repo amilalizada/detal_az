@@ -114,6 +114,7 @@ class SaleProductPageView(ListView):
     model = Product
     template_name = 'sale-products.html'
     context_object_name = 'sale-products'
+    paginate_by = 2
 
     def get_sale_products(self):
         sale_products = Product.objects.filter(is_discount = True)
@@ -122,7 +123,26 @@ class SaleProductPageView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['sale'] = self.get_sale_products()
+        products = self.get_sale_products()
+        
+
+        page = self.request.GET.get(
+            'page', 1) if self.request.GET.get('page', 1) != '' else 1
+
+        if products:
+            paginator = Paginator(products, self.paginate_by)
+
+            results = paginator.page(page)
+            print(results, 'hahahaha')
+            index = results.number - 1
+            max_index = len(paginator.page_range)
+            start_index = index - 5 if index >= 5 else 0
+            end_index = index + 5 if index <= max_index - 5 else max_index
+            context['page_range'] = list(paginator.page_range)[
+                start_index:end_index]
+
+        
+            context['sale'] = results
         return context
 
 

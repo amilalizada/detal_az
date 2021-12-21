@@ -1,4 +1,6 @@
-let hearts = document.querySelectorAll('.fa-heart');
+let hearts = []
+hearts = document.querySelectorAll('.fa-heart');
+console.log(hearts);
 
 
 hearts.forEach(element => {

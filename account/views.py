@@ -134,7 +134,7 @@ class UserProfilePageView(ListView, LoginRequiredMixin):
     template_name = 'user-profile2.html'
     model = Product
     paginator_class = SafePaginator
-    paginate_by = 4
+    paginate_by = 1
     context_object_name = 'products'
 
     def get_queryset(self, **kwargs):

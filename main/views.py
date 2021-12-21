@@ -1,8 +1,8 @@
 from typing import List
 from django.core import paginator
 from django.db import models
-from django.shortcuts import render,redirect
-from django.utils import translation 
+from django.shortcuts import render, redirect
+from django.utils import translation
 from main.models import *
 from django.views.generic import TemplateView, CreateView, FormView
 from django.views.generic import (
@@ -29,6 +29,8 @@ class SafePaginator(Paginator):
                 )
 
 # Create your views here.
+
+
 class HomePageView(ListView):
     model = Marka
     template_name = 'index.html'
@@ -42,11 +44,19 @@ class HomePageView(ListView):
         vip = Product.objects.filter(is_vip=True).order_by('-created_at')[:8]
         return vip
 
+    def get_sale_products(self):
+        sale_products = Product.objects.filter(is_discount=True)
+        return sale_products
+    
+    def get_products(self):
+        all_products = Product.objects.all().order_by('-created_at')
+        return all_products
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['markalar'] = self.get_markalar()
         context['vip'] = self.get_vip()
-        context['endirimli'] = Product.objects.filter(is_discount=True)
+        context['products'] = self.get_products()
         context['box_categories'] = Category.objects.filter(
             is_box_category=True)
         context['long_box_categories'] = Category.objects.filter(
@@ -170,11 +180,12 @@ class ShopDetailView(ListView):
 
     def get_queryset(self, **kwargs):
         return Product.objects.filter(
-            user_id__slug=self.kwargs.get('slug')).all().order_by('-created_at')  
+            user_id__slug=self.kwargs.get('slug')).all().order_by('-created_at')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
+
 
 class SubParts(ListView):
     template_name = 'sub_parts.html'
@@ -227,33 +238,36 @@ class SearchedProdsView(ListView):
         banCode = self.request.GET.get('ban_nomresi')
         searchValue = self.request.GET.get('search_value')
 
-        
-
         if banCode:
-            products = Product.objects.filter(vin_code=banCode).order_by('-created_at')
+            products = Product.objects.filter(
+                vin_code=banCode).order_by('-created_at')
 
         elif marka_id and model_id and searchValue:
             products = Product.objects.filter(
-                marka_id=marka_id,modell_id=model_id,title__icontains=searchValue).order_by('-created_at')
+                marka_id=marka_id, modell_id=model_id, title__icontains=searchValue).order_by('-created_at')
 
         elif marka_id and model_id and years:
-            products = Product.objects.filter(marka_id__slug=marka_id,modell_id__slug=model_id,year=years).order_by('-created_at')
+            products = Product.objects.filter(
+                marka_id__slug=marka_id, modell_id__slug=model_id, year=years).order_by('-created_at')
 
         elif marka_id and model_id:
-            products = Product.objects.filter(marka_id__slug=marka_id,modell_id__slug=model_id).order_by('-created_at')
-            
+            products = Product.objects.filter(
+                marka_id__slug=marka_id, modell_id__slug=model_id).order_by('-created_at')
+
         elif marka_id:
-            products = Product.objects.filter(marka_id__slug=marka_id).order_by('-created_at')
+            products = Product.objects.filter(
+                marka_id__slug=marka_id).order_by('-created_at')
 
         elif searchValue:
-            products = Product.objects.filter(title__icontains=searchValue).order_by('-created_at')
+            products = Product.objects.filter(
+                title__icontains=searchValue).order_by('-created_at')
 
         else:
-            products = Product.objects.filter(marka_id=marka_id).order_by('-created_at')
-
+            products = Product.objects.filter(
+                marka_id=marka_id).order_by('-created_at')
         page = self.request.GET.get(
             'page', 1) if self.request.GET.get('page', 1) != '' else 1
-        print(products)
+
         if products:
             paginator = Paginator(products, self.paginate_by)
 
@@ -266,7 +280,6 @@ class SearchedProdsView(ListView):
             context['page_range'] = list(paginator.page_range)[
                 start_index:end_index]
 
-        
             context['products'] = results
 
         return context
