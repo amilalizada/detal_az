@@ -22,59 +22,6 @@
 
     
     
-    <section>
-        <div id="main-div-first-section">
-            <div id="inner-div-first-section" class="container">
-                <div class="row" id="first-section-first-row">
-                    <div class="col-9">
-                        <div class="row first-section-inner-row">
-                            <div class="col-5 search-input-main">
-                                <input class="search-input" placeholder="Axtardiginiz mehsulun adini qeyd edin"
-                                    type="text">
-                            </div>
-                            <div class="col-5 search-input-main">
-                                <input class="search-input" placeholder="Vin kod ile axtar" type="text">
-                            </div>
-                        </div>
-                        <div class="row first-section-inner-row">
-                            <div class="col-4">
-                                <select name="Maşın markası" id="" class="search-part-select">
-                                    <option value="0">Maşın markası</option>
-                                    <option value="1">BMW</option>
-                                    <option value="2">Mercedes</option>
-                                    <option value="3">Porshce</option>
-                                    <option value="4">Hyundai</option>
-                                </select>
-                            </div>
-                            <div class="col-4">
-                                <select name="Maşın modeli" id="" class="search-part-select">
-                                    <option value="0">Maşın modeli</option>
-                                    <option value="1">C-class</option>
-                                    <option value="2">E-class</option>
-                                    <option value="3">G-class</option>
-                                    <option value="4">B-class</option>
-                                </select>
-                            </div>
-                            <div class="col-4">
-                                <select name="Buraxılış ili" id="" class="search-part-select">
-                                    <option value="0">Buraxılış ili</option>
-                                    <option value="1">2016</option>
-                                    <option value="2">2017</option>
-                                    <option value="3">2018</option>
-                                    <option value="4">2019</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-3">
-                        <button class="search-button">Axtar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
 
 
 
@@ -126,14 +73,15 @@
             {% for i in products %}
             <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
                 <div class="incard">
-                    <i class="fas fa-heart wish"></i>
                     {% if i.is_vip %}
-                        <img class="vip" src="{% static '/assets/images/Group 392.png' %}" alt="">
+                        <img class="vip" src="{% static '/assets/images/Group 392.png' %}" style="
+                        position: absolute;
+                        right: 20px;
+                        top: 20px;" alt="">
                     {% endif %}
                     <span class='d-none foridinput'>{{i.id}}</span>
                     <span class='d-none foridinput'>{{request.user.id}}</span>
                     
-                    <a href="{% url 'product:single-product' i.slug%}">
                     <i class="fas fa-heart"></i>
                     <a class="img-a" href="{% url 'product:single-product' i.slug %}">
                         <img src="{{i.main_image.url}}" alt="">

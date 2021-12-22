@@ -64,7 +64,7 @@
     <div class="col-md-6 col-12 p-0">
         <div class="row ">
             <div class="img col-6">
-                <img src="{{user.image.url}}" alt="" width="100">
+                <img src="{{user.image.url}}" alt="" style="width: 100%;">
             </div>
             <div class="desc col-6">
                 <div class="d-flex flex-column">
@@ -114,7 +114,7 @@
     </div>
     {% endifnotequal %}
 </header>
-<section class="products container mb-5">
+<section class="products container mt-5 mb-5">
     <div class="row mb-5">
         {% for i in products %}
         <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
@@ -123,7 +123,6 @@
                 {% if i.is_vip %}
                         <img class="vip" src="{% static '/assets/images/Group 392.png' %}" alt="">
                     {% endif %}
-                <img src="{{i.main_image.url}}" alt="">
                 <a class="img-a" href="{% url 'product:single-product' i.slug %}">
                     <img style="width: 100%; height: 100%;" src="{{i.main_image.url}}" alt="">
                 </a>

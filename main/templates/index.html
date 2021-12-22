@@ -21,41 +21,37 @@
      
 
 
-    <section>
-        <div id="main-div-first-section">
-            <div id="inner-div-first-section" class="container">
-                <div class="row" id="first-section-first-row">
-                    <div class="col-md-9 col-12">
-                        <div class="row first-section-inner-row">
-                            <div class="col-md-5 search-input-main">
-                                <input id='search' class="search-input" placeholder="Axtardiginiz mehsulun adini qeyd edin" type="text">
-                            </div>
-                            <div class="col-md-5 search-input-main">
-                                <input id='ban' class="search-input" placeholder="Ban nomre ile axtar" type="text">
-                            </div>
+<section>
+    <div id="main-div-first-section">
+        <div id="inner-div-first-section" class="container">
+            <div class="row" id="first-section-first-row" >
+                <div class="col-md-9 col-12">
+                    <div class="row first-section-inner-row">
+                        <div class="col-md-5 search-input-main">
+                            <input id='search' class="search-input" placeholder="Axtardiginiz mehsulun adini qeyd edin" type="text">
                         </div>
                         <div class="col-md-5 search-input-main">
                             <input id='ban' class="search-input" placeholder="Ban nomre ile axtar" type="text">
                         </div>
                     </div>
                     <div class="row first-section-inner-row">
-                        <div class="col-md-4 search-select">
+                        <div class="col-md-4 search-select" style="padding-left: 0;">
                             <select name="Maşın markası" id="filter-mark" class="search-part-select">
-
-
-
+                                
+                                
+                                
                             </select>
                         </div>
                         <div class="col-md-4 search-select">
                             <select name="Maşın modeli" id="filter-model" class="search-part-select amil">
-
-
+                                
+                                
                             </select>
                         </div>
                         <div class="col-md-4 search-select">
                             <select name="Buraxılış ili" id="buraxilish-filter" class="search-part-select">
                                 <option value="">Buraxılış ili</option>
-
+                                
                             </select>
                         </div>
                     </div>
@@ -68,7 +64,6 @@
         </div>
     </div>
 </section>
-
 
 
 
@@ -252,7 +247,9 @@
                     <a style="color: red; text-decoration: none;" href="{% url 'account:user-profile' i.user_id.slug  %}"><span style="color: red;">{{i.user_id.first_name}}</span></a>
                 </div>
                 <p>{{i.title}}</p>
-                <button>{{i.price}} AZN</button>
+                <a href="{% url 'product:single-product' i.slug %}" style="width: 80%; text-align: center;">
+                    <button style="margin: 0 auto;">{{i.price}} AZN</button>
+                </a>
             </div>
         
         </div>

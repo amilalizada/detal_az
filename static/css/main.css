@@ -263,15 +263,15 @@ body {
     justify-content: center;
 }
 
-<<<<<<< HEAD
-#markalar-title, #vip-title {
-    color: #C70E0E;
-=======
 #markalar-title {
     color: #ED1F24;
->>>>>>> features/ads
     margin-top: 15%;
     text-align: center;
+}
+#vip-title{
+    color: #ED1F24;
+    margin-top: 15%;
+    text-align: center; 
 }
 
 /* #markalar-main-div {
@@ -1055,8 +1055,6 @@ line-height: 14px;
         height: 100px;
     }
 }
-<<<<<<< HEAD
-=======
 
 
 
@@ -1118,4 +1116,3 @@ a :hover{
     width: 100%;
 }
 
->>>>>>> features/ads

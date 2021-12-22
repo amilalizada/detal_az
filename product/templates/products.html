@@ -116,10 +116,6 @@
     <section class="products container mb-5">
         <div class="row mb-5">
             {% for i in products %}
-<<<<<<< HEAD
-            <!-- <a style="text-decoration: none; color: black;" href="{% url 'product:single-product' i.slug%}"></a> -->
-=======
->>>>>>> features/ads
             <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
                 
                 <div class="incard">
@@ -133,7 +129,7 @@
                     <span class='d-none foridinput'>{{request.user.id}}</span>
                     
                     
-                        <a style="text-align: center;" href="{% url 'product:single-product' i.slug %}"><img src="{{i.main_image.url}}" alt=""></a>
+
                     
                     <i class="fas fa-heart"></i>
                     <a class="img-a" href="{% url 'product:single-product' i.slug %}">
