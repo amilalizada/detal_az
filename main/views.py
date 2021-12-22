@@ -86,10 +86,7 @@ class AboutPageView(TemplateView):
 #         context['reklamlar'] = reklamlar
 #         return context
 
-<<<<<<< HEAD
-=======
 
->>>>>>> features/ads
 
 class AllBrandsView(ListView):
     model = Marka
@@ -105,13 +102,9 @@ class AllBrandsView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-<<<<<<< HEAD
-        # context['markalar'] = self.get_markalar()
-=======
         context['markalar'] = self.get_markalar()
         reklamlar = Advertisements.objects.filter(pages ='All Brands Page')
         context['reklamlar'] = reklamlar
->>>>>>> features/ads
         return context
 
 
@@ -228,13 +221,10 @@ class ShopDetailView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-<<<<<<< HEAD
-=======
         context["shops"] = User.objects.filter(is_market=True).all()
         reklamlar = Advertisements.objects.filter(pages ='Shops Page')
         context['reklamlar'] = reklamlar
 
->>>>>>> features/ads
         return context
 
 

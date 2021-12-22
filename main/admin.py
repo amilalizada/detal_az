@@ -7,11 +7,8 @@ admin.site.register(Marka)
 admin.site.register(Modell)
 admin.site.register(WishList)
 admin.site.register(Contact)
-<<<<<<< HEAD
 admin.site.register(City)
-=======
 admin.site.register(Advertisements)
->>>>>>> features/ads
 
 
 # class TourImageInline(admin.TabularInline):

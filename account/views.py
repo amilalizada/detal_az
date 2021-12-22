@@ -19,12 +19,9 @@ from django.views.generic import (
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from product.models import Product
-<<<<<<< HEAD
 from main.views import SafePaginator
-=======
 from main.models import *
 
->>>>>>> features/ads
 User = get_user_model()
 
 # class RegisterPageView(CreateView):

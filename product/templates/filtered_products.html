@@ -126,7 +126,6 @@
             {% for i in products %}
             <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
                 <div class="incard">
-<<<<<<< HEAD
                     <i class="fas fa-heart wish"></i>
                     {% if i.is_vip %}
                         <img class="vip" src="{% static '/assets/images/Group 392.png' %}" alt="">
@@ -135,10 +134,8 @@
                     <span class='d-none foridinput'>{{request.user.id}}</span>
                     
                     <a href="{% url 'product:single-product' i.slug%}">
-=======
                     <i class="fas fa-heart"></i>
                     <a class="img-a" href="{% url 'product:single-product' i.slug %}">
->>>>>>> features/ads
                         <img src="{{i.main_image.url}}" alt="">
                     </a>
                     <div class="d-flex">

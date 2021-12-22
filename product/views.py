@@ -155,7 +155,6 @@ class SaleProductPageView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-<<<<<<< HEAD
         products = self.get_sale_products()
         
 
@@ -176,11 +175,9 @@ class SaleProductPageView(ListView):
 
         
             context['sale'] = results
-=======
         context['sale'] = self.get_sale_products()
         reklamlar = Advertisements.objects.filter(pages ='Sale Product')
         context['reklamlar'] = reklamlar
->>>>>>> features/ads
         return context
 
 

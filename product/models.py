@@ -78,14 +78,11 @@ class Product(models.Model):
     is_discount = models.BooleanField(_("Is Discount"), default=False)
     year = models.IntegerField(_('Year'))
     is_active = models.BooleanField(_('Is_active'), default=False)
-<<<<<<< HEAD
     is_vip = models.BooleanField(_('Is Vip'), default=False)
 
     
-=======
     watch_count = models.IntegerField(_("Watch Count"), default=0)
     is_active = models.BooleanField(_("Is Active"), default=True)
->>>>>>> features/ads
 
     # moderations
     created_at = models.DateTimeField(auto_now_add=True)
@@ -106,8 +103,11 @@ class Product(models.Model):
             return round(son_qiymet, 2)
 
     def save(self, *args, **kwargs):
+
         title = self.title
-        self.slug = f"{slugify(title)}-{self.created_at}"
+
+    #moderations
+        self.slug = f"{slugify(self.title)}-{self.created_at}"
         super().save()
 
     # def get_absolute_url(self):
