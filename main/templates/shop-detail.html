@@ -22,7 +22,7 @@
             </div>
 
             <div class="cart-title d-flex justify-content-center align-items-center">
-                <h3 class="text-center">{{product}}</h3>
+              <a href="{% url 'product:single-product' product.slug %}" style="font-size: 1.75rem; color: #fff; text-decoration: none;">{{product}}</a>
             </div>
         </div>
     {% endfor %}
@@ -43,10 +43,10 @@
                 <a class="page-link" href="#">&laquo;</a>
               </li>
               {% endif %} {% for i in paginator.page_range %} {% if page_obj.number == i %}
-              <li class="page-item"><a class="page-link active bg-light text-danger">{{ i }}</a></li>
+              <li class="page-item"><a class="page-link active bg-light text-danger">{{i}}</a></li>
               {% else %}
               <li class="page-item">
-                <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                <a class="page-link" href="?page={{i}}">{{ i }}</a>
               </li>
               {% endif %} {% endfor %} {% if page_obj.has_next %}
               <li class="page-item">

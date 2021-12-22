@@ -7,6 +7,16 @@
 {% block css %}
 <link rel="stylesheet" href="{% static '/css/user-profile2.css' %}">
 <link rel="stylesheet" href="{% static '/css/products.css' %}">
+<style>
+    .vip{
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        color: grey;
+        width: 30px !important;
+        height: 30px !important;
+    }
+</style>
 {% endblock %}
 {% block content %}
 
@@ -73,8 +83,8 @@
             <div class="incard">
                 <i class="fas fa-heart"></i>
                 {% if i.is_vip %}
-                <img class="vip" src="{% static '/assets/images/Group 392.png' %}" alt="">
-                {% endif %}
+                        <img class="vip" src="{% static '/assets/images/Group 392.png' %}" alt="">
+                    {% endif %}
                 <img src="{{i.main_image.url}}" alt="">
                 <div class="d-flex">
                     <span>satici:</span>
