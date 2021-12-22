@@ -19,7 +19,12 @@ from django.views.generic import (
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from product.models import Product
+<<<<<<< HEAD
 from main.views import SafePaginator
+=======
+from main.models import *
+
+>>>>>>> features/ads
 User = get_user_model()
 
 # class RegisterPageView(CreateView):
@@ -52,11 +57,23 @@ class RegisterPageView(CreateView):
         print(form.data, 'form')
         return super().form_valid(form)
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        reklamlar = Advertisements.objects.filter(pages ='Register Page')
+        context['reklamlar'] = reklamlar
+        return context
+
 
 class LoginPageView(LoginView):
     form_class = LoginForm
     template_name = 'login.html'
     success_url = reverse_lazy('main:home')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        reklamlar = Advertisements.objects.filter(pages ='Login Page')
+        context['reklamlar'] = reklamlar
+        return context
 
 
 # class ResetPasswordPageView(TemplateView):
@@ -70,6 +87,12 @@ class ChangePasswordPageView(PasswordChangeView):
     def form_valid(self, form):
         messages.success(self.request, 'Password set olundu')
         return super().form_valid(form)
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        reklamlar = Advertisements.objects.filter(pages ='Change Password Page')
+        context['reklamlar'] = reklamlar
+        return context
 
 
 class ForgetPasswordView(PasswordResetView):
@@ -83,6 +106,12 @@ class ForgetPasswordView(PasswordResetView):
             self.request, 'password deyisilmesi ucun sizin mail-e mesaj gonderildi!')
         return super().form_valid(form)
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        reklamlar = Advertisements.objects.filter(pages ='Forget Password Page')
+        context['reklamlar'] = reklamlar
+        return context
+
 
 class CustomPasswordResetConfirmView(PasswordResetConfirmView):
     template_name = 'reset_password.html'
@@ -92,6 +121,12 @@ class CustomPasswordResetConfirmView(PasswordResetConfirmView):
     def form_valid(self, form):
         messages.success(self.request, 'password deyisdirildi')
         return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        reklamlar = Advertisements.objects.filter(pages ='Reset Password Page')
+        context['reklamlar'] = reklamlar
+        return context
 
 
 # @login_required
@@ -122,6 +157,8 @@ class SelfProfilePageView(LoginRequiredMixin, UpdateView):
         context = super().get_context_data(**kwargs)
         self.object = self.get_object()
         context['id'] = self.object.id
+        reklamlar = Advertisements.objects.filter(pages ='Self Profile')
+        context['reklamlar'] = reklamlar
         print(context['id'])
         return context
 
@@ -165,4 +202,6 @@ class UserProfile2PageView(ListView, LoginRequiredMixin):
         context['products'] = Product.objects.filter(
             user_id=user,is_active=False).all().order_by('-created_at')
         context['user'] = user
+        reklamlar = Advertisements.objects.filter(pages ='User Profile')
+        context['reklamlar'] = reklamlar
         return context

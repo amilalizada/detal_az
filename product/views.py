@@ -20,9 +20,28 @@ class SingleProductView(DetailView):
     template_name = 'single-product.html'
     context_object_name = 'product'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # user = User.objects.filter(context['object'].user_id)
+        context['user'] = context['object'].user_id
+        reklamlar = Advertisements.objects.filter(pages ='Single Produt')
+        context['reklamlar'] = reklamlar
+        product = context['product']
+        product.watch_count +=1
+        product.save()
+        print(product.watch_count,'salaaaam')
+        return context
+
+
 # Create your views here.
 class AddProductPageView(TemplateView):
     template_name = 'add-product.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        reklamlar = Advertisements.objects.filter(pages ='Add Product')
+        context['reklamlar'] = reklamlar
+        return context
 
 
 
@@ -31,6 +50,16 @@ class UpdateProduct(DetailView):
     context_object_name = "product"
     model = Product
 
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        reklamlar = Advertisements.objects.filter(pages ='Update Product')
+        context['reklamlar'] = reklamlar
+        return context
+
+    
+
+   
 
 # class SingleProductView(TemplateView):
 #     template_name = 'single-product.html'
@@ -50,7 +79,8 @@ class ProductPageView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         products = self.get_products()
-
+        reklamlar = Advertisements.objects.filter(pages ='Products Page')
+        context['reklamlar'] = reklamlar
         page = self.request.GET.get(
             'page', 1) if self.request.GET.get('page', 1) != '' else 1
 
@@ -103,6 +133,8 @@ class FilteredProducts(ListView):
         context['child_detail'] = self.kwargs.get('child_detail_slug')
         category = Category.objects.filter(slug = self.kwargs.get('child_detail_slug'))[0]
         products = Product.objects.filter(modell_id = model, category_id = category)
+        reklamlar = Advertisements.objects.filter(pages ='Filtered Product')
+        context['reklamlar'] = reklamlar
         # context["subparts"] = Category.objects.filter(parent_category = parent_cat.id).all()
         context['products'] = products
         
@@ -123,6 +155,7 @@ class SaleProductPageView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+<<<<<<< HEAD
         products = self.get_sale_products()
         
 
@@ -143,6 +176,11 @@ class SaleProductPageView(ListView):
 
         
             context['sale'] = results
+=======
+        context['sale'] = self.get_sale_products()
+        reklamlar = Advertisements.objects.filter(pages ='Sale Product')
+        context['reklamlar'] = reklamlar
+>>>>>>> features/ads
         return context
 
 

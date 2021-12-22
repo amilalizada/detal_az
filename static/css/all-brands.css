@@ -1,15 +1,76 @@
+@font-face {
+    font-family: 'Circe Rounded';
+    src: url('CirceRounded-ExtraLight.eot');
+    src: local('Circe Rounded Extra Light'), local('CirceRounded-ExtraLight'),
+        url('CirceRounded-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('CirceRounded-ExtraLight.woff2') format('woff2'),
+        url('CirceRounded-ExtraLight.woff') format('woff'),
+        url('../Fonts/Circe\Rounded/CirceRounded-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+
+
+
+
+/* reklam */
+
+
+#reklam-banner-top-section{
+    width: 100%;
+}
+
+#reklam-banner-top{
+    height: 180px;
+    width: 100%;
+}
+
+
+
+#reklam-banner-bottom-section{
+    width: 100%;
+}
+
+#reklam-banner-bottom{
+    height: 180px;
+    width: 100%;
+}
+
+
+#reklam-banner-left-side-allbrands-page{
+    width: 15%;
+    height: 100vh;
+    position: absolute;
+    
+}
+#reklam-banner-right-side-allbrands-page{
+    width: 15%;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+
+}
+
+
+
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Circe Rounded;
 }
 body {
     background: #E5E5E5;
 }
+.container{
+    width: 70% !important;
+}
 
 
 .header-body{
-    width: 80%;
+    width: 70%;
     align-items: center;
     margin: 0 auto;
     height: 600px;
@@ -53,7 +114,7 @@ body {
     font-weight: bold;
     font-size: 37px;
     line-height: 54px;
-    color: #C70E0E;
+    color: #ED1F24;
     text-align: center;
 }
 
@@ -73,7 +134,7 @@ body {
 }
 .cars-search-button{
     color: white;
-    background: #C70E0E;
+    background: #ED1F24;
     border-radius: 0px 4px 4px 0px;
     border: none;
     outline: none;
@@ -137,7 +198,7 @@ body {
     color: white;
 }
 .page-link{
-    background-color: #C70E0E;
+    background-color: #ED1F24;
     color: white;
 }
 .products-header-2{
@@ -152,11 +213,11 @@ body {
 }
 
 .prev:hover{
-    background-color: #C70E0E;
+    background-color: #ED1F24;
     color: white;
 }
 .nextt:hover{
-    background-color: #C70E0E;
+    background-color: #ED1F24;
     color: white;
 }
 
@@ -198,4 +259,15 @@ body {
         margin-top: 5%;
     }
     
+}
+
+
+
+a{
+    color: #ED1F24;
+    text-decoration: none;
+
+}
+a :hover{
+    color: #FFC000;
 }

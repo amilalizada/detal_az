@@ -8,6 +8,15 @@
 <link rel="stylesheet" href="{% static '/css/sale-products.css' %}">
 {% endblock %}
 {% block content %}
+{% for reklam in reklamlar %}
+{% if reklam.is_top %}
+<section id="reklam-banner-top-section">
+    <div id="reklam-banner-top">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+    </div>
+</section>
+{% endif %}
+{% endfor %}
 
     <!-- <section>
         <div id="main-div-first-section">
@@ -62,6 +71,28 @@
         </div>
     </section> -->
 
+
+
+
+<section id="reklam-banner-left-side-product-page" class="mt-5">
+    {% for reklam in reklamlar %}
+    {% if reklam.is_left %}
+      <div id="reklam-banner-left" class="mt-5">
+          <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+      </div>
+      {% endif %}
+      {% endfor %}
+  </section>
+  <section id="reklam-banner-right-side-product-page" class="mt-5">
+      {% for reklam in reklamlar %}
+      {% if reklam.is_right %}
+        <div id="reklam-banner-left" class="mt-5">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+        {% endif %}
+        {% endfor %}
+      
+  </section>
     <div class="cardent container row m-auto mt-5">
         <div class="col-12 col-md-5 ml-5">
             <div style="margin-left: 60px;" class="inner-cardent">
@@ -165,6 +196,19 @@
             <img class="customer-photo" src="{% static '/assets/images/image 35.png' %}" alt="">
         </div>
     </div>
+
+
+
+
+    {% for reklam in reklamlar %}
+    {% if reklam.is_bottom %}
+    <section id="reklam-banner-bottom-section" class="mt-5">
+        <div id="reklam-banner-bottom">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+    </section>
+    {% endif %}
+    {% endfor %}
     {% endblock %}
 
     {% block js %}

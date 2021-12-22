@@ -20,8 +20,46 @@
 {% endblock %}
 {% block content %}
 
+{% for reklam in reklamlar %}
+{% if reklam.is_top %}
+<section id="reklam-banner-top-section">
+    <div id="reklam-banner-top">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+    </div>
+</section>
+{% endif %}
+{% endfor %}
+
+
+<section id="reklam-banner-left-user-profile-page" class="mt-5">
+    {% for reklam in reklamlar %}
+    {% if reklam.is_left %}
+      <div id="reklam-banner-left" class="mt-5">
+          <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+      </div>
+      {% endif %}
+      {% endfor %}
+  </section>
+  <section id="reklam-banner-right-user-profile-page" class="mt-5">
+      {% for reklam in reklamlar %}
+      {% if reklam.is_right %}
+        <div id="reklam-banner-left" class="mt-5">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+        {% endif %}
+        {% endfor %}
+      
+  </section>
+
+
+
 
 {% if user.is_market %}
+
+
+
+
+
 <header class="head row m-0 container m-auto">
     <div class="col-md-6 col-12 p-0">
         <div class="row ">
@@ -82,24 +120,40 @@
         <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
             <div class="incard">
                 <i class="fas fa-heart"></i>
+<<<<<<< HEAD
                 {% if i.is_vip %}
                         <img class="vip" src="{% static '/assets/images/Group 392.png' %}" alt="">
                     {% endif %}
                 <img src="{{i.main_image.url}}" alt="">
+=======
+                <a class="img-a" href="{% url 'product:single-product' i.slug %}">
+                    <img style="width: 100%; height: 100%;" src="{{i.main_image.url}}" alt="">
+                </a>
+>>>>>>> features/ads
                 <div class="d-flex">
                     <span>satici:</span>
-                    <span style="color: red;">{{i.user_id.first_name}}</span>
+                    <a href="{% url 'account:user-profile' user.slug %}">{{i.user_id.first_name}}</a>
                 </div>
                 <p>{{i.title}}</p>
-                <button>23</button>
+                
+                <a href="{% url 'product:single-product' i.slug %}" style="width: 80%; text-align: center;">
+                    <button style="margin: 0 auto;">{{i.price}} AZN</button>
+                </a>
                 <div class="activate-button">
 
                 </div>
             </div>
         </div>
         {% endfor %}
+<<<<<<< HEAD
         
         
+=======
+    </div>
+    </section>
+
+
+>>>>>>> features/ads
         {% else %}
         
         <header class="headd  m-0 m-auto">
@@ -130,16 +184,28 @@
                 <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
                     <div class="incard">
                         <i class="fas fa-heart"></i>
+<<<<<<< HEAD
                         {% if i.is_vip %}
                         <img class="vip" src="{% static '/assets/images/Group 392.png' %}" alt="">
                         {% endif %}
                         <img src="{{i.main_image.url}}" alt="">
+=======
+                        <a class="img-a" href="{% url 'product:single-product' i.slug %}">
+                            <img style="width: 100%; height: 100%;" src="{{i.main_image.url}}" alt="">
+                        </a>
+>>>>>>> features/ads
                         <div class="d-flex">
                             <span>satici:</span>
-                            <span style="color: red;">{{i.user_id.first_name}}</span>
+                            <a href="{% url 'account:user-profile' user.slug %}">{{i.user_id.first_name}}</a>
                         </div>
                         <p>{{i.title}}</p>
-                        <button>23</button>
+                        
+                        <a href="{% url 'product:single-product' i.slug %}" style="width: 80%; text-align: center;">
+                            <button style="margin: 0 auto;">{{i.price}} AZN</button>
+                        </a>
+                        <div class="activate-button">
+        
+                        </div>
                     </div>
                 </div>
                 
@@ -147,6 +213,7 @@
             
         </div>
     </section> 
+<<<<<<< HEAD
     
     {% endif %}
     <nav aria-label="Page navigation example">
@@ -182,10 +249,24 @@
         </ul>
         {% endif %}
       </nav>
+=======
+
+        
+
+{% endif %}
+>>>>>>> features/ads
 
     
 
-
+{% for reklam in reklamlar %}
+    {% if reklam.is_bottom %}
+    <section id="reklam-banner-bottom-section" class="mt-5">
+        <div id="reklam-banner-bottom">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+    </section>
+    {% endif %}
+    {% endfor %}
     {% endblock %}
 
     {% block js %}

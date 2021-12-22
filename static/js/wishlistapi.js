@@ -11,7 +11,7 @@ hearts.forEach(element => {
             element.classList.remove('wish')
             let csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
             
-            element.style = 'color: #C70E0E;'
+            element.style = 'color: #ED1F24;'
         
             
             let yaxin = element.nextElementSibling

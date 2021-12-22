@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load static %}
+{% load static i18n %}
 <html lang="en">
 
 <head>
@@ -18,18 +18,18 @@
 
 <body>
     {% include 'includes/navbar.html' %}
-
+   
     {% if messages %}
     
     {% endif %}
 
     {% block content %}
-
+  
     {% endblock %}
 
 
-    
-
+        
+  
     {% include 'includes/footer.html' %}
 
  

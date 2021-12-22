@@ -54,6 +54,9 @@ class HomePageView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        reklamlar = Advertisements.objects.filter(pages ='Main Page')
+        print(reklamlar,'........')
+        context['reklamlar'] = reklamlar
         context['markalar'] = self.get_markalar()
         context['vip'] = self.get_vip()
         context['products'] = self.get_products()
@@ -67,7 +70,26 @@ class HomePageView(ListView):
 class AboutPageView(TemplateView):
     template_name = 'about.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        reklamlar = Advertisements.objects.filter(pages ='About Page')
+        context['reklamlar'] = reklamlar
+        return context
 
+
+# class AllBrandsView(ListView):
+#     template_name = 'all-brands.html'
+
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         reklamlar = Advertisements.objects.filter(pages ='All Brands Page')
+#         context['reklamlar'] = reklamlar
+#         return context
+
+<<<<<<< HEAD
+=======
+
+>>>>>>> features/ads
 
 class AllBrandsView(ListView):
     model = Marka
@@ -83,7 +105,13 @@ class AllBrandsView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+<<<<<<< HEAD
         # context['markalar'] = self.get_markalar()
+=======
+        context['markalar'] = self.get_markalar()
+        reklamlar = Advertisements.objects.filter(pages ='All Brands Page')
+        context['reklamlar'] = reklamlar
+>>>>>>> features/ads
         return context
 
 
@@ -104,6 +132,8 @@ class BrandsView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['modeller'] = self.get_modeller()
+        reklamlar = Advertisements.objects.filter(pages ='All Models Page')
+        context['reklamlar'] = reklamlar
         return context
 
 
@@ -116,10 +146,7 @@ class CarDetailView(ListView):
     #     return reverse_lazy('main:car-detail' , kwargs = {'slug': self.marka_slug, "model_slug":self.marka_model.model_slug})
 
     def get_main_categories(self):
-        main_categories = Category.objects.filter(is_parent=True)
-        for i in main_categories:
-            print(i.image)
-        # print(main_categories,'bulardi')
+        main_categories = Category.objects.filter(is_parent=True).order_by("category_order")
         return main_categories
 
     def get_context_data(self, **kwargs):
@@ -128,15 +155,29 @@ class CarDetailView(ListView):
         context['marka'] = self.kwargs.get('marka_slug')
         context['model'] = self.kwargs.get('model_slug')
         context['main_categories'] = self.get_main_categories()
+        reklamlar = Advertisements.objects.filter(pages ='Car Detail Page')
+        context['reklamlar'] = reklamlar
         return context
 
 
 class CarFilterView(TemplateView):
     template_name = 'car-filter.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        reklamlar = Advertisements.objects.filter(pages ='Car Filter Page')
+        context['reklamlar'] = reklamlar
+        return context
+
 
 class ContactView(TemplateView):
     template_name = 'contact.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        reklamlar = Advertisements.objects.filter(pages ='Contact Page')
+        context['reklamlar'] = reklamlar
+        return context
 
 
 class InnerDetailView(ListView):
@@ -158,6 +199,9 @@ class InnerDetailView(ListView):
         context['parent_cat'] = parent_cat
         context["parts"] = Category.objects.filter(
             parent_category=parent_cat.id).all().order_by('category_order')
+
+        reklamlar = Advertisements.objects.filter(pages ='Inner Details Page')
+        context['reklamlar'] = reklamlar
 
         return context
 
@@ -184,6 +228,13 @@ class ShopDetailView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+<<<<<<< HEAD
+=======
+        context["shops"] = User.objects.filter(is_market=True).all()
+        reklamlar = Advertisements.objects.filter(pages ='Shops Page')
+        context['reklamlar'] = reklamlar
+
+>>>>>>> features/ads
         return context
 
 
@@ -204,6 +255,9 @@ class SubParts(ListView):
         context['parent_detail'] = self.kwargs.get('parent_detail_slug')
         context["subparts"] = Category.objects.filter(
             parent_category=parent_cat.id).all()
+        reklamlar = Advertisements.objects.filter(pages ='Sub Parts Page')
+        context['reklamlar'] = reklamlar
+            
 
         return context
 
@@ -221,6 +275,8 @@ class WishlistPageView(TemplateView):
         wishlists = WishList.objects.filter(user=self.request.user).all()
         print(wishlists)
         context['wishes'] = wishlists
+        reklamlar = Advertisements.objects.filter(pages ='Wish List Page')
+        context['reklamlar'] = reklamlar
         return context
 
 
@@ -237,6 +293,8 @@ class SearchedProdsView(ListView):
         years = self.request.GET.get('year')
         banCode = self.request.GET.get('ban_nomresi')
         searchValue = self.request.GET.get('search_value')
+        reklamlar = Advertisements.objects.filter(pages ='Searched Products')
+        context['reklamlar'] = reklamlar
 
         if banCode:
             products = Product.objects.filter(

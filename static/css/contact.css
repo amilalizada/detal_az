@@ -1,8 +1,66 @@
+@font-face {
+    font-family: 'Circe Rounded';
+    src: url('CirceRounded-ExtraLight.eot');
+    src: local('Circe Rounded Extra Light'), local('CirceRounded-ExtraLight'),
+        url('CirceRounded-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('CirceRounded-ExtraLight.woff2') format('woff2'),
+        url('CirceRounded-ExtraLight.woff') format('woff'),
+        url('../Fonts/Circe\Rounded/CirceRounded-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+
+*{
+    font-family: Circe Rounded;
+}
+
+
+/* reklam */
+
+
+#reklam-banner-top-section{
+    width: 100%;
+}
+
+#reklam-banner-top{
+    height: 180px;
+    width: 100%;
+}
+
+#reklam-banner-bottom-section{
+    width: 100%;
+}
+
+#reklam-banner-bottom{
+    height: 180px;
+    width: 100%;
+}
+
+#reklam-banner-left-side-contact-page{
+    width: 15%;
+    height: 70vh;
+    position: absolute;
+    
+}
+
+#reklam-banner-right-side-contact-page{
+    width: 15%;
+    height: 70vh;
+    position: absolute;
+    right: 0;
+
+}
+
+
+
 body{
     background-color: #E5E5E5;
 }
 
-
+.container{
+    width: 70% !important;
+}
 #contact-section {
     margin-top: 15%;
     max-height: 800px;
@@ -166,3 +224,14 @@ body{
 
 
 
+
+
+
+a{
+    color: #ED1F24;
+    text-decoration: none;
+
+}
+a :hover{
+    color: #FFC000;
+}
