@@ -145,7 +145,7 @@ class UserProfilePageView(ListView, LoginRequiredMixin):
     def get_context_data(self, **kwargs):
         userr_slug = self.kwargs.get('slug')
         user = User.objects.filter(slug=userr_slug).first()
-        print(user, 'buduburadi')
+        
         context = super().get_context_data(**kwargs)
         context['user'] = user
         return context

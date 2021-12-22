@@ -189,10 +189,10 @@
     <h1 id="hisseler-title">En son Elanlar</h1>
     <div class="row mb-5">
         {% for i in products %}
-        <a style="text-decoration: none; color: black;" href="{% url 'product:single-product' i.slug%}"></a>
+        <!-- <a style="text-decoration: none; color: black;" href="{% url 'product:single-product' i.slug%}"></a> -->
         <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
-            
-            <div class="incard">    
+                
+            <div class="incard">
                 {% csrf_token %}
                 {% if i.title in wishes %}
                 <i class="fas fa-heart unwish"></i>
@@ -203,7 +203,7 @@
                 <span class='d-none foridinput'>{{request.user.id}}</span>
                 
                 
-                    <img src="{{i.main_image.url}}" alt="">
+                    <a style="text-align: center;" href="{% url 'product:single-product' i.slug %}"><img src="{{i.main_image.url}}" alt=""></a>
                 
                 <div class="d-flex">
                     <span>satici:</span>
