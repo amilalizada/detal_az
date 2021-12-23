@@ -5,6 +5,7 @@ console.log(hearts);
 
 hearts.forEach(element => {
     element.addEventListener('click', async (e) => { 
+        console.log(element.classList)
         e.preventDefault();
         
         if(element.classList.contains("wish")){
