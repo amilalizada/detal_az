@@ -1,3 +1,4 @@
+from main.views import SafePaginator
 from django.contrib.auth.models import AnonymousUser
 from django.db import models
 from django.template.response import TemplateResponse
@@ -70,6 +71,7 @@ class ProductPageView(TemplateView):
     model = Product
     context_object_name = 'all-products'
     paginate_by = 2
+    paginator_class = SafePaginator
 
     def get_products(self):
         all_products = Product.objects.all().order_by('-created_at')
@@ -117,6 +119,7 @@ class ProductPageView(TemplateView):
 class FilteredProducts(ListView):
     template_name = 'filtered_products.html'
     model = Product
+    paginate_by = 1
 
     # def get_success_url(self , **kwargs):
     #     return reverse_lazy('main:sub-parts' , kwargs = {'pk': self.object.pk})
@@ -136,7 +139,24 @@ class FilteredProducts(ListView):
         reklamlar = Advertisements.objects.filter(pages ='Filtered Product')
         context['reklamlar'] = reklamlar
         # context["subparts"] = Category.objects.filter(parent_category = parent_cat.id).all()
-        context['products'] = products
+        
+
+        page = self.request.GET.get(
+            'page', 1) if self.request.GET.get('page', 1) != '' else 1
+
+        if products:
+            paginator = Paginator(products, self.paginate_by)
+
+            results = paginator.page(page)
+            print(results, 'hahahaha')
+            index = results.number - 1
+            max_index = len(paginator.page_range)
+            start_index = index - 5 if index >= 5 else 0
+            end_index = index + 5 if index <= max_index - 5 else max_index
+            context['page_range'] = list(paginator.page_range)[
+                start_index:end_index]
+            context['products'] = results
+
         
         return context
 

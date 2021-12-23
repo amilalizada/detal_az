@@ -16,6 +16,21 @@ from django.db.models import Q
 from django.core.paginator import EmptyPage, Paginator
 
 
+# class SafePaginator(Paginator):
+#     def validate_number(self, number):
+#         try:
+#             return super(SafePaginator, self).validate_number(number)
+#         except EmptyPage:
+#             if number > 1:
+#                 return self.num_pages
+#             else:
+#                 raise EmptyPage(
+#                     'That page contains no results'
+#                 )
+
+# Create your views here.
+
+
 class SafePaginator(Paginator):
     def validate_number(self, number):
         try:
@@ -27,8 +42,6 @@ class SafePaginator(Paginator):
                 raise EmptyPage(
                     'That page contains no results'
                 )
-
-# Create your views here.
 
 
 class HomePageView(ListView):
@@ -55,7 +68,13 @@ class HomePageView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         reklamlar = Advertisements.objects.filter(pages ='Main Page')
-        print(reklamlar,'........')
+        if self.request.user.is_authenticated: 
+            wishlists = WishList.objects.filter(user= self.request.user)
+            wish_products = [] 
+            for i in wishlists:
+                title = i.product.title
+                wish_products.append(title)
+            context['wishes'] = wish_products
         context['reklamlar'] = reklamlar
         context['markalar'] = self.get_markalar()
         context['vip'] = self.get_vip()
@@ -94,7 +113,6 @@ class AllBrandsView(ListView):
     context_object_name = 'markalar'
     queryset = Marka.objects.all().order_by('-created_at')
     paginate_by = 1
-    paginator_class = SafePaginator
 
     # def get_markalar(self):
     #     markalar = Marka.objects.all().order_by('-created_at')
@@ -204,7 +222,6 @@ class ShopsView(ListView):
     model = User
     queryset = User.objects.filter(is_market=True)
     context_object_name = 'shops'
-    paginator_class = SafePaginator
     paginate_by = 4
 
 
@@ -212,7 +229,6 @@ class ShopDetailView(ListView):
     model = Product
     template_name = 'shop-detail.html'
     context_object_name = 'products'
-    paginator_class = SafePaginator
     paginate_by = 4
 
     def get_queryset(self, **kwargs):
