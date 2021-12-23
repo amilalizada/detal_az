@@ -9,6 +9,7 @@ from product.api.views import *
 app_name = 'productapi'
 urlpatterns = [
     path('add-product/',CreatePoruct.as_view(),name='create-product'),
+    path('city/',CityAPIView.as_view(),name='city'),
     path('category/',CategoryApiView.as_view(),name='category-api'),
     path('product-detail/<str:slug>', ProductDetail.as_view(), name='product-detail'),
     path("add-product-marka/" , AddProductMarkaAPIView.as_view(), name='add-product-marka'),

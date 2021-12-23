@@ -1,7 +1,7 @@
 from django.db import models
 from django.db.models import fields
 from main.models import Contact, Marka, Modell, WishList
-from product.models import Category, Image, Product
+from product.models import Category, City, Image, Product
 from rest_framework import serializers
 from main.models import Marka,Modell
 from django.contrib.auth import  get_user_model
@@ -19,6 +19,14 @@ class MarkaSerializer(serializers.ModelSerializer):
 
     class Meta:
         model  = Marka
+
+        fields = '__all__'
+
+
+class CitySerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = City
 
         fields = '__all__'
 
@@ -67,10 +75,13 @@ class ProductCreateSerializer(serializers.ModelSerializer):
             'vin_code',
             'price',
             'image',
+            'created_at',
+            'updated_at',
             "main_image",
             'year',
             'category_id',
-            'slug'
+            'is_new',
+            'city',
         )
 
     # def get_image(self,obj):

@@ -16,7 +16,7 @@ class Category(models.Model):
     parent_category = models.ForeignKey('self', verbose_name='Parent Category', on_delete=models.CASCADE, db_index=True,
                                         related_name='sub_categories', blank=True, null=True)
 
-    title = models.CharField(_('Title'), max_length=120)
+    title = models.CharField(_('Title'), max_length=120,null=True,blank=True)
     image = models.ImageField(
         _("Image"), upload_to='product_image', null=True, blank=True)
     category_order = models.IntegerField(
@@ -68,7 +68,7 @@ class Product(models.Model):
     description = models.TextField(_("Description"), null=True, blank=True)
     vin_code = models.CharField(
         _("Vin code"), max_length=120, null=True, blank=True)
-    price = models.DecimalField(_('Qiymet'), max_digits=6, decimal_places=2)
+    price = models.DecimalField(_('Qiymet'), max_digits=8, decimal_places=2)
     discount = models.IntegerField(
         _('Discount Percentage'), null=True, blank=True)
     main_image = models.ImageField(
@@ -79,10 +79,10 @@ class Product(models.Model):
     year = models.IntegerField(_('Year'))
     is_active = models.BooleanField(_('Is_active'), default=False)
     is_vip = models.BooleanField(_('Is Vip'), default=False)
+    is_new =models.BooleanField(_("Is New"), default=False)
 
     
     watch_count = models.IntegerField(_("Watch Count"), default=0)
-    is_active = models.BooleanField(_("Is Active"), default=True)
 
     # moderations
     created_at = models.DateTimeField(auto_now_add=True)

@@ -3,7 +3,7 @@ from product.models import *
 from main.models import *
 from account.models import *
 from django.db.models.base import Model
-from product.api.serializers import CategorySerializer, ProductCreateSerializer,ImageSeriazlier,ModellSerializer,MarkaSerializer
+from product.api.serializers import CategorySerializer, CitySerializer, ProductCreateSerializer,ImageSeriazlier,ModellSerializer,MarkaSerializer
 from rest_framework.generics import CreateAPIView
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -15,6 +15,20 @@ from rest_framework.permissions import IsAuthenticated
 from main.api.serializers import MainPageModelSerializer,MainPageSerializer
 
 
+
+
+
+
+class CityAPIView(APIView):
+
+    def get(self, request, format=None):
+        cities = City.objects.all()
+        serializer = CitySerializer(cities, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+
+
 class CreatePoruct(APIView):
 
     def post(self,request,*args,**kwargs):
@@ -22,15 +36,23 @@ class CreatePoruct(APIView):
         # permission_classes = [is]
         product_data = request.data 
         product_data['user_id'] = request.user.id
-        print(request.user,'useeer')
-
-        print(product_data,'sekiiil')
-        
         serializer = ProductCreateSerializer(data = product_data, context = {'request':request})
         serializer.is_valid(raise_exception=True)
         serializer.save()
+        print(serializer.data,'yoooooooooo')
         images_data = product_data.pop('image')
         product = Product.objects.filter(id = serializer.data['id'])[0]
+        if product.title_az:
+            product.title_en = product.title_az
+            product.title_ru = product.title_az
+        elif product.title_ru:
+            product.title_en = product.title_ru
+            product.title_az = product.title_ru
+        else:
+            product.title_az = product.title_en
+            product.title_ru = product.title_en
+        product.save()
+        
         for image_data in images_data:
             image = Image.objects.create(product=product, image = image_data)
             image.save()
