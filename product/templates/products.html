@@ -136,7 +136,11 @@
                     </a>
                     <div class="d-flex">
                         <span>satici:</span>
+<<<<<<< HEAD
                         <a href="{% url 'account:user-profile' i.user_id.slug %}">{{i.user_id.first_name}}</a>
+=======
+                        <a href="{% url 'account:user-profile' i.slug %}">{{i.user_id.first_name}}</a>
+>>>>>>> amil
                     </div>
                     <p>{{i.title}}</p>
                     
@@ -251,4 +255,6 @@
 
     {% block js %}
     <script src="{% static '/js/main.js' %}"></script>
+    <script src="{% static '/js/wishlistapi.js' %}"></script>
+
     {% endblock %}

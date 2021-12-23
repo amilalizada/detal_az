@@ -128,16 +128,23 @@
                 {% endif %}
                     <span class='d-none foridinput'>{{i.id}}</span>
                     <span class='d-none foridinput'>{{request.user.id}}</span>
+<<<<<<< HEAD
                     
                     
 
                     
+=======
+>>>>>>> amil
                     <a class="img-a" href="{% url 'product:single-product' i.slug %}">
                         <img src="{{i.main_image.url}}" alt="">
                     </a>
                     <div class="d-flex">
                         <span>satici:</span>
+<<<<<<< HEAD
                         <a href="{% url 'account:user-profile' i.user_id.slug %}">{{i.user_id.first_name}}</a>
+=======
+                        <a href="{% url 'account:user-profile' i.slug %}">{{i.user_id.first_name}}</a>
+>>>>>>> amil
                     </div>
                     <p>{{i.title}}</p>
                     

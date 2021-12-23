@@ -1,5 +1,4 @@
-let hearts = []
-hearts = document.querySelectorAll('.fa-heart');
+var hearts = document.querySelectorAll('.fa-heart');
 console.log(hearts);
 
 
