@@ -24,8 +24,9 @@
                     <li class="footer-li"><a href="{% url 'product:add-product' %}">Məhsul əlavə et</a></li>
                     <li class="footer-li"><a href="{% url 'account:change-password' %}">Şifrəni dəyiş</a></li>
                     <li class="footer-li"><a href="{% url 'account:self-profile' request.user.slug %}">Mənim hesabım</a></li>
-                    <li class="footer-li"><a href="{% url 'account:logout' %}">Çıxış</a></li>
+                    <li class="footer-li"><a href="{% url 'account:logout' %}?next=/main/">Çıxış</a></li>
                     {% else %}
+                    <li class="footer-li"><a href="{% url 'product:products' %}">Məhsullar</a></li>
                     <li class="footer-li"><a href="{% url 'account:forget-password' %}">Şifrəni unutdum</a></li>
                     <li class="footer-li"><a href="{% url 'account:login' %}">Daxil ol</a></li>
                     <li class="footer-li"><a href="{% url 'account:register' %}">Qeydiyyat</a></li>
