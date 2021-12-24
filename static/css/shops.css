@@ -100,13 +100,12 @@ body{
 }
 .header-text{
     width: 100%;
-height: 150px;
-font-style: normal;
-font-weight: bold;
-font-size: 43px;
-line-height: 50px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 43px;
+    line-height: 50px;
 
-color: #ED1F24;
+    color: #ED1F24;
 }
 .cart-title{
     background-color: #ED1F24;
@@ -135,29 +134,9 @@ color: #FFFFFF;
 }
 
 
-#footer {
-    width: 100%;
-    height: 400px;
-    background-color: #1B1B1B;
-    background-image: url("../assets/images/image-removebg-preview\ \(27\)\ 1.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    text-align: center;
-}
 
-#footer-main {
-    width: 60%;
-    margin: 0 auto;
-    padding-top: 30px;
-}
 
-ul {
-    list-style-type: none;
-}
 
-.footer-li {
-    color: white;
-}
 .pagination{
     display: flex;
     justify-content: center;

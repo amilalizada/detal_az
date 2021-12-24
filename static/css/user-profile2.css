@@ -40,14 +40,14 @@ i{
 .brand-name{
     color: #8F8F8F;
 }
-button{
+/* button{
     background-color: #ED1F24;
     height: 30px;
     width: 90px;
     border: 1px solid #ED1F24;
     color: white;
     border: 5px;
-}
+} */
 .left{
     text-align: right;
 }

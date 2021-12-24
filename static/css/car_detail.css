@@ -161,30 +161,34 @@ body{
         position: relative;
     }
     #front-part{
-        grid-row: 1/2;
-        grid-column: 1/2;
-        display: flex;
-        align-items: center;
+        grid-column: 1/1;
+    grid-row: 1/1;
+    display: block;
+    align-items: center;
+    width: 100%;
     }
     
     #middle-part{
-        grid-row: 2/3;
-        grid-column: 1/2;
-        display: flex;
+        grid-column: 1/1;
+        grid-row: 2/2;
+        display: block;
         align-items: center;
+        width: 100%;
     }
     #back-part{
-        grid-row: 3/4;
-        grid-column: 1/2;
-        display: flex;
+        grid-column: 1/1;
+        grid-row: 3/3;
+        display: block;
         align-items: center;
+        width: 100%;
     }
     #under-part{
-        margin: 0;
+        grid-column: 1/1;
         grid-row: 4/4;
-        grid-column: 1/2;
-        display: flex;
-        align-items: center;    
+        display: block;
+        align-items: center;
+        width: 100%;
+        margin-top: 0;
     }
     .car-part{
         width: 100%;
