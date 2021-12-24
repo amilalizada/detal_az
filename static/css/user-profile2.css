@@ -52,6 +52,13 @@ button{
     text-align: right;
 }
 
+
+@media only screen and (max-width:993px){
+  .left {
+    margin-top: 2%;
+    text-align: left;
+  } 
+}
 .headd{
     width: 100%;
     height: 250px;

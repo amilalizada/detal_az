@@ -52,3 +52,7 @@ a{
 a :hover{
     color: #FFC000;
 }
+
+.footer-li a{
+    color: white;
+}
