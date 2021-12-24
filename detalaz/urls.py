@@ -19,7 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('main/',include('main.urls',namespace='main')),
+    path('',include('main.urls',namespace='main')),
     path('main-api/',include('main.api.urls',namespace='mainapi')),
     path('product-api/',include('product.api.urls', namespace = 'productapi')),
     path('account/',include('account.urls',namespace='account')),
