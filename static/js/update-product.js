@@ -1,10 +1,10 @@
 const slug = document.getElementById("product-slug").innerText
 console.log(slug)
-const markaUrl = 'http://127.0.0.1:8000/product-api/add-product-marka/'
-const modelUrl = 'http://127.0.0.1:8000/product-api/add-product-model/'
-const updateProduct = `http://127.0.0.1:8000/product-api/product-detail/${slug}`
+const markaUrl = 'http://165.227.135.79/product-api/add-product-marka/'
+const modelUrl = 'http://165.227.135.79/product-api/add-product-model/'
+const updateProduct = `http://165.227.135.79/product-api/product-detail/${slug}`
 console.log(updateProduct) 
-const categoryUrl = 'http://127.0.0.1:8000/product-api/category/'
+const categoryUrl = 'http://165.227.135.79/product-api/category/'
 
 const image = []
 
@@ -257,9 +257,9 @@ searchBtn.addEventListener('click',e => {
     })
     .then((response) => response.json())
 .then((responseJson) => {
-    // 'http://127.0.0.1:8000/product/single-product/amil-20211204-154055/'
+    // 'http://165.227.135.79/product/single-product/amil-20211204-154055/'
 
-    document.location.href = `http://127.0.0.1:8000/product/single-product/${responseJson['slug']}/`;
+    document.location.href = `http://165.227.135.79/product/single-product/${responseJson['slug']}/`;
     
    console.log(responseJson,'saaa')
    if (responseJson['success']){

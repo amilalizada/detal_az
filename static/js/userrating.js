@@ -3,7 +3,7 @@ userSlug = userRatingUrl[userRatingUrl.length - 2]
 
 const RateUserLogic = {
     ratingManager(rating) {
-        fetch(`http://127.0.0.1:8000/main-api/user-rating/${userSlug}`, {
+        fetch(`http://165.227.135.79/main-api/user-rating/${userSlug}`, {
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -48,7 +48,7 @@ if (rate_button) {
 
 
 function getUserRating() {
-    fetch(`http://127.0.0.1:8000/main-api/user-rating/${userSlug}`, {
+    fetch(`http://165.227.135.79/main-api/user-rating/${userSlug}`, {
         method: 'GET',
         credentials: 'include',
         headers: {
