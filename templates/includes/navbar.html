@@ -10,7 +10,10 @@
           </div>
           {% if request.user.is_authenticated %}
           <a class="wishlist-icon responsive-wish" href="#"><i class="fas fa-heart-circle fa-2x"></i></a>
+          {% else %}
+          <div></div>
           {% endif %}
+          
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <div class="offset-md-1"></div>
                 <ul class="navbar-nav col-md-11">
