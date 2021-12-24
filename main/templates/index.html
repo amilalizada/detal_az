@@ -27,7 +27,7 @@
                 <div class="col-md-9 col-12">
                     <div class="row first-section-inner-row">
                         <div class="col-md-5 search-input-main">
-                            <input id='search' class="search-input" placeholder="Axtardiginiz mehsulun adini qeyd edin"
+                            <input id='search' class="search-input" placeholder="Məhsulun adı"
                                 type="text">
                         </div>
                         <div class="col-md-5 search-input-main">
@@ -212,7 +212,7 @@
                     <div style="height: 100%;" class="markalar-img">
                         <img style="width:100%; height: 100%;" src="{{marka.image.url}}" alt="">
                     </div>
-                    <div>
+                    <div class="markalar-texts">
                         <h6 class="text-center card-title">{{marka.title}}</h6>
                         <a class="card-url" href="{% url 'main:brands' marka.slug %}"><button
                                 class="card-button">Hissələri</button></a>

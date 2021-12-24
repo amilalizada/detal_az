@@ -296,6 +296,8 @@ body {
     background: #E9E9E9;
     border-radius: 12px;
     margin-top: 15px;
+    height: 90%;
+
 }
 
 .markalar-img {
@@ -1028,6 +1030,10 @@ line-height: 14px;
     }
     .markalar-card{
         padding: 20px 5px;
+        height: 90%;
+    }
+    .markalar-texts{
+        width: 100%;
     }
     .marka-card:nth-child(7){
         display: none;
