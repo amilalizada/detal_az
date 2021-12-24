@@ -13,7 +13,7 @@ from django.views.generic import (
 )
 from main.models import *
 from django.core.paginator import Paginator
-
+from main.views import SafePaginator
 
 class SingleProductView(DetailView):
     model = Product 
@@ -40,6 +40,7 @@ class ProductPageView(TemplateView):
     template_name = 'products.html'
     model = Product
     context_object_name = 'all-products'
+    paginator_class = SafePaginator
     paginate_by = 2
 
     def get_products(self):
