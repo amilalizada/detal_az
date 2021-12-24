@@ -1,3 +1,80 @@
+@font-face {
+    font-family: 'Circe Rounded';
+    src: url('CirceRounded-ExtraLight.eot');
+    src: local('Circe Rounded Extra Light'), local('CirceRounded-ExtraLight'),
+        url('CirceRounded-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('CirceRounded-ExtraLight.woff2') format('woff2'),
+        url('CirceRounded-ExtraLight.woff') format('woff'),
+        url('../Fonts/Circe\Rounded/CirceRounded-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+
+
+
+
+
+#reklam-banner-top-section{
+    width: 100%;
+}
+
+#reklam-banner-top{
+    height: 180px;
+    width: 100%;
+}
+
+
+
+#reklam-banner-bottom-section{
+    width: 100%;
+}
+
+#reklam-banner-bottom{
+    height: 180px;
+    width: 100%;
+}
+
+#reklam-banner-left-side-self-profile-page{
+    width: 15%;
+    height: 60vh;
+    position: absolute;
+    
+}
+#reklam-banner-right-side-self-profile-page{
+    width: 15%;
+    height: 60vh;
+    position: absolute;
+    right: 0;
+
+}
+
+@media only screen and (max-width: 768px){
+    #reklam-banner-left-side-self-profile-page{
+        width: 15%;
+        height: 30vh;
+        position: absolute;
+        
+    }
+    #reklam-banner-right-side-self-profile-page{
+        width: 15%;
+        height: 30vh;
+        position: absolute;
+        right: 0;
+    
+    }
+}
+
+
+
+
+
+*{
+    font-family: Circe Rounded;
+}
+
+
+
 *{
     margin:0;
     padding: 0;
@@ -6,6 +83,9 @@
 
 body{
     background-color: #E5E5E5;
+}
+.container{
+    width: 70% !important;
 }
 .my_container{
     width: 60%;
@@ -45,7 +125,7 @@ body{
     border-radius: 5px;
 }
 .update-profile input:focus{
-    border-color: 1px solid #C70E0E !important;
+    border-color: 1px solid #ED1F24 !important;
 }
 .buttons{
     width: 60%;
@@ -59,7 +139,7 @@ body{
 }
 .legv a{
     text-decoration: none;
-    color: #C70E0E;
+    color: #ED1F24;
 }
 .buttons button {
     width: 40%;
@@ -68,7 +148,7 @@ body{
 .yadda-saxla{
     border-radius: 5px;
     border: 1px solid #dc3545;
-    background-color: #C70E0E ;
+    background-color: #ED1F24 ;
     color: white;
 }
 
@@ -88,3 +168,14 @@ body{
         width: 100%;
     }
   }
+
+
+
+  a{
+    color: #ED1F24;
+    text-decoration: none;
+
+}
+a :hover{
+    color: #FFC000;
+}

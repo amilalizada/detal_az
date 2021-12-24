@@ -1,15 +1,17 @@
-let hearts = document.querySelectorAll('.fa-heart');
+var hearts = document.querySelectorAll('.fa-heart');
+console.log(hearts);
 
 
 hearts.forEach(element => {
     element.addEventListener('click', async (e) => { 
+        console.log(element.classList)
         e.preventDefault();
         
         if(element.classList.contains("wish")){
             element.classList.remove('wish')
             let csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
             
-            element.style = 'color: #C70E0E;'
+            element.style = 'color: #ED1F24;'
         
             
             let yaxin = element.nextElementSibling

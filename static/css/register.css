@@ -1,9 +1,94 @@
+@font-face {
+    font-family: 'Circe Rounded';
+    src: url('CirceRounded-ExtraLight.eot');
+    src: local('Circe Rounded Extra Light'), local('CirceRounded-ExtraLight'),
+        url('CirceRounded-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('CirceRounded-ExtraLight.woff2') format('woff2'),
+        url('CirceRounded-ExtraLight.woff') format('woff'),
+        url('../Fonts/Circe\Rounded/CirceRounded-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+
+*{
+    font-family: Circe Rounded;
+}
+
+
+
+
+
+
+#reklam-banner-top-section{
+    width: 100%;
+}
+
+#reklam-banner-top{
+    height: 180px;
+    width: 100%;
+}
+
+
+
+#reklam-banner-bottom-section{
+    width: 100%;
+}
+
+#reklam-banner-bottom{
+    height: 180px;
+    width: 100%;
+}
+
+
+
+
+
+#reklam-banner-left-side-register-page{
+    width: 15%;
+    height: 100vh;
+    position: absolute;
+    
+}
+#reklam-banner-right-side-register-page{
+    width: 15%;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+
+}
+
+@media only screen and (max-width: 768px){
+    #reklam-banner-left-side-register-page{
+        width: 15%;
+        height: 60vh;
+        position: absolute;
+        
+    }
+    #reklam-banner-right-side-register-page{
+        width: 15%;
+        height: 60vh;
+        position: absolute;
+        right: 0;
+    
+    }
+}
+
+
+
+
+
 body{
     background: #E5E5E5;
 }
 
+.container{
+    width: 70% !important;
+}
+
+
 #user-profile-main{
-    width: 70%;
+    width: 60%;
     margin: 5% auto;
 }
 
@@ -40,13 +125,13 @@ body{
 
 .left-button{
     border-radius: 8px;
-    border: 1px solid #C70E0E;
+    border: 1px solid #ED1F24;
     background-color: #FFFFFF;
-    color: #C70E0E;
+    color: #ED1F24;
 }
 
 .right-button{
-    background: #C70E0E;
+    background: #ED1F24;
     border-radius: 4px;
     color: #FFFFFF;
     border: none;
@@ -112,7 +197,7 @@ body{
     display: none !important;
 }
 .right-button-image{
-    background: #C70E0E;
+    background: #ED1F24;
     border-radius: 4px;
     color: #FFFFFF;
     border: none;
@@ -133,4 +218,14 @@ body{
     #right-button{
         width: 100%;
     }
+}
+
+
+a{
+    color: #ED1F24;
+    text-decoration: none;
+
+}
+a :hover{
+    color: #FFC000;
 }

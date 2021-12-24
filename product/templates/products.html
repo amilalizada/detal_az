@@ -8,7 +8,18 @@
 {% block css %}
 <link rel="stylesheet" href="{% static '/css/products.css' %}">
 {% endblock %}
-{% block content %}<!DOCTYPE html>
+{% block content %}
+
+
+{% for reklam in reklamlar %}
+{% if reklam.is_top %}
+<section id="reklam-banner-top-section">
+    <div id="reklam-banner-top">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+    </div>
+</section>
+{% endif %}
+{% endfor %}
 
     
 <section>
@@ -55,6 +66,30 @@
     </div>
 </section>
 
+
+
+
+<section id="reklam-banner-left-side-product-page" class="mt-5">
+    {% for reklam in reklamlar %}
+    {% if reklam.is_left %}
+      <div id="reklam-banner-left" class="mt-5">
+          <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+      </div>
+      {% endif %}
+      {% endfor %}
+  </section>
+  <section id="reklam-banner-right-side-product-page" class="mt-5">
+      {% for reklam in reklamlar %}
+      {% if reklam.is_right %}
+        <div id="reklam-banner-left" class="mt-5">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+        {% endif %}
+        {% endfor %}
+      
+  </section>
+
+
     <div class="cardent container row m-auto mt-5">
         <div class="col-12 col-md-5 ml-5">
             <div style="margin-left: 60px;" class="inner-cardent">
@@ -81,7 +116,6 @@
     <section class="products container mb-5">
         <div class="row mb-5">
             {% for i in products %}
-            <a style="text-decoration: none; color: black;" href="{% url 'product:single-product' i.slug%}"></a>
             <div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
                 
                 <div class="incard">
@@ -92,22 +126,29 @@
                     <i class="fas fa-heart wish"></i>
                     {%endif%}
                     <span class='d-none foridinput'>{{i.id}}</span>
-                    <span class='d-none foridinput'>{{request.user.id}}</span>
+                    <span class='d-none foridinput'>{{request.user.id}}</span> 
+                   
                     
+
                     
-                        <a style="text-align: center;" href="{% url 'product:single-product' i.slug %}"><img src="{{i.main_image.url}}" alt=""></a>
-                    
+                    <a class="img-a" href="{% url 'product:single-product' i.slug %}">
+                        <img src="{{i.main_image.url}}" alt="">
+                    </a>
                     <div class="d-flex">
                         <span>satici:</span>
-                        <a style="color: red; text-decoration: none;" href="{% url 'account:user-profile' i.user_id.slug  %}"><span style="color: red;">{{i.user_id.first_name}}</span></a>
+                        <a href="{% url 'account:user-profile' i.user_id.slug %}">{{i.user_id.first_name}}</a>
                     </div>
                     <p>{{i.title}}</p>
-                    <button>{{i.price}} AZN</button>
+                    
+                    <a href="{% url 'product:single-product' i.slug %}" style="width: 80%; text-align: center;">
+                        <button style="margin: 0 auto;">{{i.price}} AZN</button>
+                    </a>
+                    <div class="activate-button">
+    
+                    </div>
                 </div>
             
             </div>
-            </a>
-        
             {% endfor %}
             
         </div>
@@ -132,13 +173,13 @@
           <div class="row mt-5">
             <div class="col text-center">
                 <div class="block-27 d-flex align-items-center justify-content-center">
-                    <!-- {% if page_obj.has_previous %}
+                    {% if page_obj.has_previous %}
                     <a class="page-item prev"
                         href="?page={{ page_obj.previous_page_number }}{% if request.GET.marka %}&marka={{ request.GET.marka }}{% endif %}{% if request.GET.modell %}&modell={{ request.GET.modell }}{% endif %}{% if request.GET.search_value %}&search_value={{ request.GET.search_value }}{% endif %}{% if request.GET.year %}&year={{ request.GET.year }}{% endif %}{% if request.GET.ban_nomresi %}&ban_nomresi={{ request.GET.ban_nomresi }}{% endif %}">
                         
                         
                     </a>
-                    {% endif %} -->
+                    {% endif %}
                     {% if page_range|length > 1 %}
                     <div class="page-numbers">
                         {% for page_number in page_range %}
@@ -159,12 +200,12 @@
                     </div>
                     {% endif %}
                     
-                    <!-- {% if page_obj.has_next %}
+                    {% if page_obj.has_next %}
                     <a class="page-link ml-2"
                         href="?page={{ page_obj.next_page_number }}{% if request.GET.marka %}&marka={{ request.GET.marka }}{% endif %}{% if request.GET.modell_id %}&modell_id={{ request.GET.modell_id }}{% endif %}{% if request.GET.search_value %}&search_value={{ request.GET.search_value }}{% endif %}{% if request.GET.year %}&year={{ request.GET.year }}{% endif %}{% if request.GET.ban_nomresi %}&ban_nomresi={{ request.GET.ban_nomresi }}{% endif %}">
                        
                     </a>
-                    {% endif %} -->
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -189,10 +230,27 @@
         </div>
     </div>
 
+
+
+
+
+
+    {% for reklam in reklamlar %}
+    {% if reklam.is_bottom %}
+    <section id="reklam-banner-bottom-section" class="mt-5">
+        <div id="reklam-banner-bottom">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+    </section>
+    {% endif %}
+    {% endfor %}
+
     
 
     {% endblock %}
 
     {% block js %}
     <script src="{% static '/js/main.js' %}"></script>
+    <script src="{% static '/js/wishlistapi.js' %}"></script>
+
     {% endblock %}

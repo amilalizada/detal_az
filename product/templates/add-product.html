@@ -9,6 +9,38 @@
 {% endblock %}
 {% block content %}
 
+{% for reklam in reklamlar %}
+{% if reklam.is_top %}
+<section id="reklam-banner-top-section">
+    <div id="reklam-banner-top">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+    </div>
+</section>
+{% endif %}
+{% endfor %}
+
+
+<section id="reklam-banner-left-side-addproduct-page" class="mt-5">
+    {% for reklam in reklamlar %}
+    {% if reklam.is_left %}
+      <div id="reklam-banner-left" class="mt-5">
+          <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+      </div>
+      {% endif %}
+      {% endfor %}
+  </section>
+  <section id="reklam-banner-right-side-addproduct-page" class="mt-5">
+      {% for reklam in reklamlar %}
+      {% if reklam.is_right %}
+        <div id="reklam-banner-left" class="mt-5">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+        {% endif %}
+        {% endfor %}
+      
+  </section>
+
+
 <div id='card' class="animated fadeIn">
     <div id='upper-side'>
       <?xml version="1.0" encoding="utf-8"?>
@@ -37,7 +69,7 @@
   </div>
 
     <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-5" id="add-product-form">
-        <h3 style="color: #C70E0E;; text-align: center;" class=" pt-5">Məhsulu Əlavə Etmək</h3>
+        <h3 style="color: #ED1F24;; text-align: center;" class=" pt-5">Məhsulu Əlavə Etmək</h3>
         <form id="product-form" enctype="multipart/form-data" action="" method="post" >
             {% csrf_token %}
             <select class="product-form-input" name="markalar" id="masin-markalari" form="carform">
@@ -58,6 +90,14 @@
             <select class="product-form-input" name="chil-cats" id="child-categories" form="carform">
                 <option class="" value="">Detalı Seçin</option>
             </select>
+            <select class="product-form-input" name="city" id="detal-city" form="carform">
+                <option class="" value="">Şəhər</option>
+            </select>
+            <select class="product-form-input" name="is-new" id="is-new" form="carform">
+                <option class="" value="">Detalın Vəziyyəti ?</option>
+                <option value="1">Yeni</option>
+                <option value="0">İşlənmiş</option>
+            </select>
             <input class="product-form-input" type="number" id="product-price" placeholder="Məhsulun qiyməti">
             <input class="product-form-input" type="text" id="product-ban" placeholder="Vin Code">
             <input class="product-form-input" type="text" id="product-title">
@@ -76,6 +116,16 @@
             </div>
         </form>
     </div>
+
+    {% for reklam in reklamlar %}
+    {% if reklam.is_bottom %}
+    <section id="reklam-banner-bottom-section" class="mt-5">
+        <div id="reklam-banner-bottom">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+    </section>
+    {% endif %}
+    {% endfor %}
 
     {% endblock %}
 

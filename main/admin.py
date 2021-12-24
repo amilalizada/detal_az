@@ -8,6 +8,7 @@ admin.site.register(Modell)
 admin.site.register(WishList)
 admin.site.register(Contact)
 admin.site.register(City)
+admin.site.register(Advertisements)
 
 
 # class TourImageInline(admin.TabularInline):

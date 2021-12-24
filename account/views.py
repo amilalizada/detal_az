@@ -1,3 +1,4 @@
+from main.views import SafePaginator
 from django.core import paginator
 from django.db import models
 from django.http import request
@@ -19,30 +20,9 @@ from django.views.generic import (
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from product.models import Product
-from main.views import SafePaginator
+from main.models import *
+
 User = get_user_model()
-
-# class RegisterPageView(CreateView):
-#     form_class = RegistrationForm
-
-# def RegisterPageView(request):
-#     form = RegistrationForm()
-#     if request.method == 'POST':
-#         form = RegistrationForm(data=request.POST, files=request.FILES)
-#         if form.is_valid():
-#             user = form.save(commit=False)
-#             user.is_active = False
-#             user.save()
-#             site_address = request.is_secure() and "https://" or "http://" + request.META['HTTP_HOST']  # https
-#             # send_confirmation_mail(user_id=user.id, _address=site_address)
-#             messages.success(request, 'Siz ugurla qeydiyyatdan kecdiniz')
-#             return redirect(reverse_lazy('main:home'))
-#     context = {
-#         'form': form
-#     }
-#     return render(request, 'register.html', context)
-
-
 class RegisterPageView(CreateView):
     form_class = RegistrationForm
     success_url = reverse_lazy('account:login')
@@ -52,15 +32,24 @@ class RegisterPageView(CreateView):
         print(form.data, 'form')
         return super().form_valid(form)
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        reklamlar = Advertisements.objects.filter(pages='Register Page')
+        context['reklamlar'] = reklamlar
+        return context
+
 
 class LoginPageView(LoginView):
     form_class = LoginForm
     template_name = 'login.html'
     success_url = reverse_lazy('main:home')
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        reklamlar = Advertisements.objects.filter(pages='Login Page')
+        context['reklamlar'] = reklamlar
+        return context
 
-# class ResetPasswordPageView(TemplateView):
-#     template_name= 'reset_password.html'
 
 class ChangePasswordPageView(PasswordChangeView):
     form_class = CustomPasswordChangeForm
@@ -70,6 +59,12 @@ class ChangePasswordPageView(PasswordChangeView):
     def form_valid(self, form):
         messages.success(self.request, 'Password set olundu')
         return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        reklamlar = Advertisements.objects.filter(pages='Change Password Page')
+        context['reklamlar'] = reklamlar
+        return context
 
 
 class ForgetPasswordView(PasswordResetView):
@@ -83,6 +78,12 @@ class ForgetPasswordView(PasswordResetView):
             self.request, 'password deyisilmesi ucun sizin mail-e mesaj gonderildi!')
         return super().form_valid(form)
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        reklamlar = Advertisements.objects.filter(pages='Forget Password Page')
+        context['reklamlar'] = reklamlar
+        return context
+
 
 class CustomPasswordResetConfirmView(PasswordResetConfirmView):
     template_name = 'reset_password.html'
@@ -93,19 +94,12 @@ class CustomPasswordResetConfirmView(PasswordResetConfirmView):
         messages.success(self.request, 'password deyisdirildi')
         return super().form_valid(form)
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        reklamlar = Advertisements.objects.filter(pages='Reset Password Page')
+        context['reklamlar'] = reklamlar
+        return context
 
-# @login_required
-# def logout(request):
-#     django_logout(request)
-#     messages.success(request, 'Siz cixis etdiniz')
-#     return redirect(reverse_lazy('product:product_list'))
-
-
-# class LoginPageView(TemplateView):
-#     template_name = 'login.html'
-
-# class RegisterPageView(TemplateView):
-#     template_name = 'register.html'
 
 class SelfProfilePageView(LoginRequiredMixin, UpdateView):
 
@@ -122,6 +116,8 @@ class SelfProfilePageView(LoginRequiredMixin, UpdateView):
         context = super().get_context_data(**kwargs)
         self.object = self.get_object()
         context['id'] = self.object.id
+        reklamlar = Advertisements.objects.filter(pages='Self Profile')
+        context['reklamlar'] = reklamlar
         print(context['id'])
         return context
 
@@ -133,8 +129,8 @@ class UserProfilePageView(ListView, LoginRequiredMixin):
 
     template_name = 'user-profile2.html'
     model = Product
+    paginate_by = 16
     paginator_class = SafePaginator
-    paginate_by = 4
     context_object_name = 'products'
 
     def get_queryset(self, **kwargs):
@@ -145,24 +141,25 @@ class UserProfilePageView(ListView, LoginRequiredMixin):
     def get_context_data(self, **kwargs):
         userr_slug = self.kwargs.get('slug')
         user = User.objects.filter(slug=userr_slug).first()
-        print(user, 'buduburadi')
         context = super().get_context_data(**kwargs)
         context['user'] = user
         return context
-
 
 
 class UserProfile2PageView(ListView, LoginRequiredMixin):
 
     template_name = 'user-profile3.html'
     model = Product
+    paginate_by = 16
 
     def get_context_data(self, **kwargs):
         userr_slug = self.kwargs.get('slug')
         user = User.objects.filter(slug=userr_slug).first()
-        print(user, 'buduburadi')
         context = super().get_context_data(**kwargs)
         context['products'] = Product.objects.filter(
-            user_id=user,is_active=False).all().order_by('-created_at')
+            user_id=user, is_active=False).all().order_by('-created_at')
         context['user'] = user
+        reklamlar = Advertisements.objects.filter(pages='User Profile')
+        context['reklamlar'] = reklamlar
+
         return context

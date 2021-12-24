@@ -1,18 +1,80 @@
+@font-face {
+    font-family: 'Circe Rounded';
+    src: url('CirceRounded-ExtraLight.eot');
+    src: local('Circe Rounded Extra Light'), local('CirceRounded-ExtraLight'),
+        url('CirceRounded-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('CirceRounded-ExtraLight.woff2') format('woff2'),
+        url('CirceRounded-ExtraLight.woff') format('woff'),
+        url('../Fonts/Circe\Rounded/CirceRounded-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+
+
+
+
+
+
+
+
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Circe Rounded;
 }
+
+
+.container{
+    width: 70% !important;
+}
+
+
+
+
+li{
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+.card-url{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
 body {
     background: #E5E5E5;
 }
+
+
+.container{
+    width: 70% !important;
+}
+
+
 
 .navbar-nav {
     justify-content: space-around;
 }
 
 .wishlist-icon {
-    color: #C70E0E;
+    color: #ED1F24;
 }
 
 #navbar-section {
@@ -27,12 +89,12 @@ body {
 }
 
 .navbar_item:hover {
-    color: #C70E0E;
+    color: #ED1F24;
     text-decoration: none;
 }
 
 #nav-button {
-    background: #C70E0E;
+    background: #ED1F24;
     border-radius: 8px;
     border: none;
     outline: none;
@@ -64,7 +126,7 @@ body {
 }
 
 .search-input-main {
-    border-left: 3px solid #C70E0E;
+    border-left: 3px solid #ED1F24;
 }
 
  ::placeholder {
@@ -83,7 +145,7 @@ body {
 .search-button {
     width: 100%;
     height: 51px;
-    background: #C70E0E;
+    background: #ED1F24;
     border-radius: 4px;
     border: none;
     outline: none;
@@ -104,7 +166,7 @@ body {
     outline: none;
 }
 .search-select{
-    border-left: 3px solid #C70E0E;
+    border-left: 3px solid #ED1F24;
 }
 .col-4 {
     padding: 0;
@@ -205,18 +267,24 @@ body {
     justify-content: center;
 }
 
-#markalar-title, #vip-title {
-    color: #C70E0E;
+#markalar-title {
+    color: #ED1F24;
     margin-top: 15%;
     text-align: center;
 }
-
-#markalar-main-div {
-    width: 80%;
+#vip-title{
+    color: #ED1F24;
+    margin-top: 15%;
+    text-align: center; 
 }
+
+/* #markalar-main-div {
+    width: 80%;
+} */
 
 #markalar-cards {
     width: 100%;
+    margin: 0 auto;
 }
 
 .markalar-card {
@@ -224,7 +292,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 50px 20px;
+    padding: 30px 5px;
     background: #E9E9E9;
     border-radius: 12px;
     margin-top: 15px;
@@ -284,7 +352,7 @@ body {
 }
 
 #hisseler-title {
-    color: #C70E0E;
+    color: #ED1F24;
     margin-top: 15%;
     text-align: center;
 }
@@ -318,17 +386,17 @@ body {
     font-weight: bold;
     font-size: 18px;
     line-height: 24px;
-    color: #C70E0E;
+    color: #ED1F24;
 }
 
 .hisseler-desc {
     font-size: 12px;
     line-height: 14px;
-    color: #C70E0E;
+    color: #ED1F24;
 }
 
 .hisseler-button {
-    background: #C70E0E;
+    background: #ED1F24;
     border: none;
     outline: none;
     border-radius: 8px;
@@ -350,7 +418,7 @@ body {
 }
 
 .all-parts-button {
-    background: #C70E0E;
+    background: #ED1F24;
     border-radius: 8px;
     width: 200px;
     height: 40px;
@@ -390,7 +458,7 @@ body {
 .long-card:hover {
     margin-top: -2%;
     transition: 0.5s;
-    border-left: 10px solid #C70E0E;
+    border-left: 10px solid #ED1F24;
 }
 #contact-section {
     margin-top: 15%;
@@ -560,6 +628,58 @@ ul {
 .footer-li {
     color: white;
 }
+.sale-percent{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #C70E0E;
+    color: white;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sale-span{
+    color: white;
+    font-size: 15px;
+}
+.saler{
+    color: #C70E0E;
+    font-style: normal;
+font-weight: bold;
+font-size: 18px;
+line-height: 21px;
+}
+.satici{
+    font-style: normal;
+font-weight: bold;
+font-size: 18px;
+line-height: 21px;
+}
+.incard{
+    background: #FFFFFF;
+    padding: 0 45px 0 45px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+    justify-content: center;
+    
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 12px;
+}
+.incard p{
+    font-style: normal;
+font-weight: bold;
+font-size: 12px;
+line-height: 14px;
+}
 
 
 
@@ -719,7 +839,7 @@ ul {
         width: 100%;
     }
     .nav-item{
-    border-bottom: 2px #C70E0E solid;
+    border-bottom: 2px #ED1F24 solid;
     margin: 20px;
     }
     .markalar-img {
@@ -730,6 +850,33 @@ ul {
 
 
 @media only screen and (max-width: 768px) {
+
+
+    /* reklam responsive */
+
+    .card-button {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+
+#reklam-banner-left-side-main-page{
+    width: 15%;
+    height: 50vh;
+    position: absolute;
+    
+}
+#reklam-banner-right-side-main-page{
+    width: 15%;
+    height: 50vh;
+    position: absolute;
+    right: 0;
+
+}
+
+
+
+
     #contact-img {
         position: absolute;
         left: 0;
@@ -872,11 +1019,11 @@ ul {
         height: 100%;
     }
     .search-select {
-        border-left: 3px solid #C70E0E;
+        border-left: 3px solid #ED1F24;
         margin-bottom: 2%;
     }
     .search-input-main {
-        border-left: 3px solid #C70E0E;
+        border-left: 3px solid #ED1F24;
         margin-bottom: 2%;
     }
     .markalar-card{
@@ -901,7 +1048,7 @@ ul {
         width: 100%;
     }
     .nav-item{
-    border-bottom: 2px #C70E0E solid;
+    border-bottom: 2px #ED1F24 solid;
     margin: 20px;
     }
     .long-card:nth-child(4){
@@ -918,3 +1065,64 @@ ul {
         height: 100px;
     }
 }
+
+
+
+
+a{
+    color: #ED1F24;
+    text-decoration: none;
+
+}
+a :hover{
+    color: #FFC000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* reklamlar */
+
+
+#reklam-banner-left-side-main-page{
+    width: 15%;
+    height: 100vh;
+    position: absolute;
+    
+}
+#reklam-banner-right-side-main-page{
+    width: 15%;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+
+}
+#reklam-banner-top-section{
+    width: 100%;
+}
+
+#reklam-banner-top{
+    height: 180px;
+    width: 100%;
+}
+
+
+
+#reklam-banner-bottom-section{
+    width: 100%;
+}
+
+#reklam-banner-bottom{
+    height: 180px;
+    width: 100%;
+}
+

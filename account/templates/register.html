@@ -7,11 +7,43 @@
 {% endblock %}
 
 {% block content %}
-    <h2 style="color: #C70E0E;; text-align: center;">Qeydiyyatdan keçin</h2>
+{% for reklam in reklamlar %}
+{% if reklam.is_top %}
+<section id="reklam-banner-top-section">
+    <div id="reklam-banner-top">
+        <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+    </div>
+</section>
+{% endif %}
+{% endfor %}
+
+<section id="reklam-banner-left-side-register-page" class="mt-5">
+    {% for reklam in reklamlar %}
+    {% if reklam.is_left %}
+      <div id="reklam-banner-left" class="mt-5">
+          <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+      </div>
+      {% endif %}
+      {% endfor %}
+  </section>
+  <section id="reklam-banner-right-side-register-page" class="mt-5">
+      {% for reklam in reklamlar %}
+      {% if reklam.is_right %}
+        <div id="reklam-banner-left" class="mt-5">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+        {% endif %}
+        {% endfor %}
+      
+  </section>
+
+
+
+    <h2 style="color: #ED1F24;; text-align: center;" class="mt-5">Qeydiyyatdan keçin</h2>
     <div id="user-profile-main" class="row">
         <div class="col-lg-6 col-md-6 col-sm-12 col-12" id="user-profile-form">
             <div id="buttons" class="mt-5">
-                <button type="button" class="btn btn-primary" onclick="myFunction2()" id="notmarket">Adi Istifadeci</button>
+                <button type="button" class="btn btn-primary" style="background-color: #FFC000;" onclick="myFunction2()" id="notmarket">Adi Istifadeci</button>
                 <button id="market" onclick="myFunction1()" type="button" class="btn btn-danger">Market</button>
             </div>
             <form id="user-form"  method="POST" enctype="multipart/form-data" action="">
@@ -26,13 +58,24 @@
                 <div id="user-form-buttons">
                     <button class="col-12 right-button">Qeydiyyatdan keç</button>
                 </div>
-                <p style="text-align: center; margin-top: 5%;">Hesabınız var?<a href="" style="color: #C70E0E; text-decoration: none;">  Daxil olun </a></p>
+                <p style="text-align: center; margin-top: 5%;">Hesabınız var?<a href="" style="color: #ED1F24; text-decoration: none;">  Daxil olun </a></p>
             </form>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12 col-12 register-img" style="display: flex; align-items: center;">
             <img id="user-profile-image" src="{% static '/assets/images/Group 155.png' %}" alt="">
         </div>
     </div>
+
+
+    {% for reklam in reklamlar %}
+    {% if reklam.is_bottom %}
+    <section id="reklam-banner-bottom-section" class="mt-5">
+        <div id="reklam-banner-bottom">
+            <img src="{{reklam.image.url}}" style="width: 100%; height: 100%;" alt="">
+        </div>
+    </section>
+    {% endif %}
+    {% endfor %}
 
     {% endblock %}
 

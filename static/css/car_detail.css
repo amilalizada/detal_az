@@ -1,5 +1,74 @@
+@font-face {
+    font-family: 'Circe Rounded';
+    src: url('CirceRounded-ExtraLight.eot');
+    src: local('Circe Rounded Extra Light'), local('CirceRounded-ExtraLight'),
+        url('CirceRounded-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('CirceRounded-ExtraLight.woff2') format('woff2'),
+        url('CirceRounded-ExtraLight.woff') format('woff'),
+        url('../Fonts/Circe\Rounded/CirceRounded-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+
+*{
+    font-family: Circe Rounded;
+}
+
+
+
+
+/* reklam */
+
+
+#reklam-banner-top-section{
+    width: 100%;
+}
+
+#reklam-banner-top{
+    height: 180px;
+    width: 100%;
+}
+
+
+
+#reklam-banner-bottom-section{
+    width: 100%;
+}
+
+#reklam-banner-bottom{
+    height: 180px;
+    width: 100%;
+}
+
+
+#reklam-banner-left-side-cardetail-page{
+    width: 10%;
+    height: 80vh;
+    position: absolute;
+    
+}
+#reklam-banner-right-side-cardetail-page{
+    width: 10%;
+    height: 80vh;
+    position: absolute;
+    right: 0;
+
+}
+
+
+
 body{
     background: #E5E5E5;
+}
+.container{
+    width: 70% !important;
+}
+
+#car-parts{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 10%;
 }
 #car-parts-main{
     width: 70%;
@@ -13,7 +82,7 @@ body{
 
 .car-part{
     width: 100%;
-    background: #C70E0E;
+    background: #ED1F24;
     color: white;
     border-radius: 4px;
     border: none;
@@ -119,7 +188,7 @@ body{
     }
     .car-part{
         width: 100%;
-        background: #C70E0E;
+        background: #ED1F24;
         color: white;
         border-radius: 4px;
         border: none;
@@ -144,4 +213,14 @@ body{
     #image-part{
         display: none;
     }
+}
+
+
+a{
+    color: #ED1F24;
+    text-decoration: none;
+
+}
+a :hover{
+    color: #FFC000;
 }

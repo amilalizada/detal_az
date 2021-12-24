@@ -2,6 +2,8 @@ const markaUrl = 'http://127.0.0.1:8000/product-api/add-product-marka/'
 const modelUrl = 'http://127.0.0.1:8000/product-api/add-product-model/'
 const addProductUrl = 'http://127.0.0.1:8000/product-api/add-product/'
 const categoryUrl = 'http://127.0.0.1:8000/product-api/category/'
+const cityUrl = 'http://127.0.0.1:8000/product-api/city/'
+console.log(cityUrl)
 
 const image = []
 
@@ -53,6 +55,29 @@ let data = fetch(markaUrl, {
     responseJson.forEach(element => {
         
         document.getElementById('masin-markalari').innerHTML +=`<option class="markas"  value="${element.id}">${element.title}</option>` 
+    });
+    
+  // console.log(responseJson);
+})
+.catch((error) => {
+  console.error(error);
+});
+
+
+
+let cityData = fetch(cityUrl, {
+  method: 'GET',
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json'
+    
+  }
+})
+.then((response) => response.json())
+.then((responseJson) => {
+    responseJson.forEach(element => {
+        
+        document.getElementById('detal-city').innerHTML +=`<option class="cities"  value="${element.id}">${element.name}</option>` 
     });
     
   // console.log(responseJson);
@@ -211,6 +236,8 @@ searchBtn.addEventListener('click',e => {
     let banCode = document.getElementById('product-ban').value
     let price = document.getElementById("product-price").value
     let categortID = document.getElementById('child-categories').value
+    let city = document.getElementById("detal-city").value
+    let isNew = document.getElementById("is-new").value
     let mainImage = document.getElementById("gallery-photo-add").files[0]
     console.log(image,'buduba')
     formData.append('marka_id',marka)
@@ -221,6 +248,8 @@ searchBtn.addEventListener('click',e => {
     formData.append('price',price)
     formData.append('category_id',categortID)
     formData.append('main_image',mainImage)
+    formData.append('city',city)
+    formData.append("is_new",isNew)
     // formData.append('image',image)
     for (i of image){
       formData.append('image', i);
@@ -238,7 +267,9 @@ searchBtn.addEventListener('click',e => {
       'vin_code' : banCode,
       'price':price,
       'category_id':categortID,
-      'main_image':mainImage
+      'main_image':mainImage,
+      'city':city,
+      'is_new':isNew
     }
 
     let data = fetch(addProductUrl,{
