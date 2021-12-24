@@ -96,23 +96,12 @@ class AboutPageView(TemplateView):
         return context
 
 
-# class AllBrandsView(ListView):
-#     template_name = 'all-brands.html'
-
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         reklamlar = Advertisements.objects.filter(pages ='All Brands Page')
-#         context['reklamlar'] = reklamlar
-#         return context
-
-
-
 class AllBrandsView(ListView):
     model = Marka
     template_name = 'all-brands.html'
     context_object_name = 'markalar'
     queryset = Marka.objects.all().order_by('-created_at')
-    paginate_by = 1
+    paginate_by = 16
 
     # def get_markalar(self):
     #     markalar = Marka.objects.all().order_by('-created_at')
@@ -222,7 +211,7 @@ class ShopsView(ListView):
     model = User
     queryset = User.objects.filter(is_market=True)
     context_object_name = 'shops'
-    paginate_by = 4
+    paginate_by = 16
 
 
 class ShopDetailView(ListView):
@@ -230,6 +219,7 @@ class ShopDetailView(ListView):
     template_name = 'shop-detail.html'
     context_object_name = 'products'
     paginate_by = 4
+    paginator_class = SafePaginator
 
     def get_queryset(self, **kwargs):
         return Product.objects.filter(
@@ -289,7 +279,7 @@ class WishlistPageView(TemplateView):
 class SearchedProdsView(ListView):
     template_name = 'searched-products.html'
     model = Product
-    paginate_by = 1
+    paginate_by = 16
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

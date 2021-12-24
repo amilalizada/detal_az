@@ -70,7 +70,7 @@ class ProductPageView(TemplateView):
     template_name = 'products.html'
     model = Product
     context_object_name = 'all-products'
-    paginate_by = 2
+    paginate_by = 16
     paginator_class = SafePaginator
 
     def get_products(self):
@@ -119,7 +119,7 @@ class ProductPageView(TemplateView):
 class FilteredProducts(ListView):
     template_name = 'filtered_products.html'
     model = Product
-    paginate_by = 1
+    paginate_by = 16
 
     # def get_success_url(self , **kwargs):
     #     return reverse_lazy('main:sub-parts' , kwargs = {'pk': self.object.pk})
@@ -166,7 +166,7 @@ class SaleProductPageView(ListView):
     model = Product
     template_name = 'sale-products.html'
     context_object_name = 'sale-products'
-    paginate_by = 2
+    paginate_by = 16
 
     def get_sale_products(self):
         sale_products = Product.objects.filter(is_discount = True)

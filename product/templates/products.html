@@ -173,13 +173,13 @@
           <div class="row mt-5">
             <div class="col text-center">
                 <div class="block-27 d-flex align-items-center justify-content-center">
-                    <!-- {% if page_obj.has_previous %}
+                    {% if page_obj.has_previous %}
                     <a class="page-item prev"
                         href="?page={{ page_obj.previous_page_number }}{% if request.GET.marka %}&marka={{ request.GET.marka }}{% endif %}{% if request.GET.modell %}&modell={{ request.GET.modell }}{% endif %}{% if request.GET.search_value %}&search_value={{ request.GET.search_value }}{% endif %}{% if request.GET.year %}&year={{ request.GET.year }}{% endif %}{% if request.GET.ban_nomresi %}&ban_nomresi={{ request.GET.ban_nomresi }}{% endif %}">
                         
                         
                     </a>
-                    {% endif %} -->
+                    {% endif %}
                     {% if page_range|length > 1 %}
                     <div class="page-numbers">
                         {% for page_number in page_range %}
@@ -200,12 +200,12 @@
                     </div>
                     {% endif %}
                     
-                    <!-- {% if page_obj.has_next %}
+                    {% if page_obj.has_next %}
                     <a class="page-link ml-2"
                         href="?page={{ page_obj.next_page_number }}{% if request.GET.marka %}&marka={{ request.GET.marka }}{% endif %}{% if request.GET.modell_id %}&modell_id={{ request.GET.modell_id }}{% endif %}{% if request.GET.search_value %}&search_value={{ request.GET.search_value }}{% endif %}{% if request.GET.year %}&year={{ request.GET.year }}{% endif %}{% if request.GET.ban_nomresi %}&ban_nomresi={{ request.GET.ban_nomresi }}{% endif %}">
                        
                     </a>
-                    {% endif %} -->
+                    {% endif %}
                 </div>
             </div>
         </div>

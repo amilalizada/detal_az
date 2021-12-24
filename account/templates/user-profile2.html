@@ -210,7 +210,7 @@
         {% if is_paginated %}
         <ul class="pagination">
           {% if page_obj.has_previous %}
-          <li class="page-item">
+          <li class="page-item d-flex align-items-center justify-content-center">
             <a class="page-link" href="?page={{page_obj.previous_page_number}}"
               >&laquo;</a
             >
@@ -226,7 +226,7 @@
             <a class="page-link" href="?page={{ i }}">{{ i }}</a>
           </li>
           {% endif %} {% endfor %} {% if page_obj.has_next %}
-          <li class="page-item">
+          <li class="page-item d-flex align-items-center justify-content-center">
             <a href="?page={{page_obj.next_page_number}}" class="page-link"
               >&raquo;</a
             >

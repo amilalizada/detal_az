@@ -359,39 +359,38 @@ ul {
 .footer-li {
     color: white;
 }
-.prev:hover{
+/* .prev:hover{
     background-color: #ED1F24;
     color: white;
-}
-.nextt:hover{
+} */
+/* .nextt:hover{
     background-color: #ED1F24;
     color: white;
-}
+} */
 /* .active{
     background-color: white !important;
     color: red;
     display: flex;
     align-items: center;
     justify-content: center;
-} */
+} 
 /* .active span {
     color: red;
 } */
 .page-numbers{
     display: flex;
 }
-/* .page-item{
+.page-item{
     width: 35px;
-    height: 35px;
     border-radius: 2px;
     border: none;
     color: white;
-    background-color: #ED1F24;
-    padding: 5px;
+    /* background-color: #ED1F24; */
+    /* padding: 5px; */
     text-decoration: none;
     margin-left: 3px;
     margin-right: 3px;
-/* } */
+}
 /* .page-item:hover{
     
     color: white;
@@ -400,11 +399,10 @@ ul {
     text-decoration: none;
     margin-left: 3px;
     margin-right: 3px;
-} */ */
+}  */
 
-/* .page-link{
+.page-link{
     width: 30px;
-    height: 30px;
     border-radius: 2px;
     border: none;
     color: white;
@@ -416,8 +414,7 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
-<<<<<<< HEAD
-} */
+}
 
 .vip{
     position: absolute;
@@ -427,8 +424,7 @@ ul {
     width: 30px !important;
     height: 30px !important;
 }
-=======
-}
+
 
 
 a{
@@ -439,4 +435,3 @@ a{
 a :hover{
     color: #FFC000;
 }
->>>>>>> features/ads

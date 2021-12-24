@@ -1,3 +1,4 @@
+from main.views import SafePaginator
 from django.core import paginator
 from django.db import models
 from django.http import request
@@ -128,7 +129,8 @@ class UserProfilePageView(ListView, LoginRequiredMixin):
 
     template_name = 'user-profile2.html'
     model = Product
-    paginate_by = 1
+    paginate_by = 16
+    paginator_class = SafePaginator
     context_object_name = 'products'
 
     def get_queryset(self, **kwargs):
@@ -148,7 +150,7 @@ class UserProfile2PageView(ListView, LoginRequiredMixin):
 
     template_name = 'user-profile3.html'
     model = Product
-    paginate_by = 1
+    paginate_by = 16
 
     def get_context_data(self, **kwargs):
         userr_slug = self.kwargs.get('slug')
