@@ -6,7 +6,7 @@ from django.template.response import TemplateResponse
 from product.models import Category, Product
 from django.http import request
 from django.shortcuts import render,redirect
-from main.models import WishList 
+from main.models import Advertisements, WishList 
 
 from django.views.generic import TemplateView
 from django.views.generic import (
@@ -14,7 +14,7 @@ from django.views.generic import (
 )
 from main.models import *
 from django.core.paginator import Paginator
-
+from main.views import SafePaginator
 
 class SingleProductView(DetailView):
     model = Product 
@@ -70,8 +70,8 @@ class ProductPageView(TemplateView):
     template_name = 'products.html'
     model = Product
     context_object_name = 'all-products'
-    paginate_by = 16
     paginator_class = SafePaginator
+    paginate_by = 2
 
     def get_products(self):
         all_products = Product.objects.all().order_by('-created_at')
