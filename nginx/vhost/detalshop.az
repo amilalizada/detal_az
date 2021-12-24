@@ -1,7 +1,7 @@
 location /static/ {
-    alias /ivf/static/;
+    alias /detal/static/;
 }
 
 location /media/ {
-    alias /ivf/media/;
+    alias /detal/media/;
 }
