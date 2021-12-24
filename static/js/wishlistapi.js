@@ -41,9 +41,9 @@ hearts.forEach(element => {
         }
         else if(element.classList.contains("unwish")){
             let product = element.nextElementSibling.innerHTML
-            console.log(element , 'budi')
+           
             element.classList.remove('unwish')
-            element.classList.add('wish')
+            
             let csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
             console.log(product);
             let obj = {
@@ -59,9 +59,10 @@ hearts.forEach(element => {
                 },
                 body: JSON.stringify(obj)
             })
+            element.classList.add('wish')
         
-            let response = await data.json();
-            console.log(response);
+            // let response = await data.json();
+            // console.log(response);
         }
     })
 })

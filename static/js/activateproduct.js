@@ -43,14 +43,16 @@ function getProductManager() {
                 products.innerHTML += `<div class="card-item col-12 col-md-4 col-lg-4 col-xl-3 col-sm-6">
                     <div class="incard">
                         <i class="fas fa-heart"></i>
-                        <img src="${data[i]['main_image']}" alt="">
+                        <div class="d-flex"> 
+                        <img style="width:100%;" src="${data[i]['main_image']}" alt="">
+                        </div>
                         <div class="d-flex">
                             <span>satici:</span>
                             <span style="color: red;">${data[i]['user']}</span>
                         </div>
                         <p>${data[i]['title']}</p>
                         <button>23</button>
-                        <div class="activate-button">
+                        <div style="display:flex; alig-items:center; justify-content:center; width:80%;" class="activate-button mb-4">
                         <button data-id='${data[i]['id']}' class='mt-2 activate' onclick='activateProduct(this)'>Aktiv et</button>
                         </div>
                     </div>

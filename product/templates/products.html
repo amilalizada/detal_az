@@ -135,7 +135,7 @@
                         <img src="{{i.main_image.url}}" alt="">
                     </a>
                     <div class="d-flex">
-                        <span>satici:</span>
+                        <span>satıcı:</span>
                         <a href="{% url 'account:user-profile' i.user_id.slug %}">{{i.user_id.first_name}}</a>
                     </div>
                     <p>{{i.title}}</p>
@@ -152,23 +152,6 @@
             {% endfor %}
             
         </div>
-        <!-- <nav aria-label="Page navigation example pagination">
-            <ul class="pagination">
-              <li class="page-item prev">
-                <a class="page-link prev" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                </a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item nextt">
-                <a class="page-link nextt" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                </a>
-              </li>
-            </ul>
-          </nav> -->
 
           <div class="row mt-5">
             <div class="col text-center">
@@ -252,5 +235,6 @@
     {% block js %}
     <script src="{% static '/js/main.js' %}"></script>
     <script src="{% static '/js/wishlistapi.js' %}"></script>
+    <script src="{% static '/js/unwish.js' %}"></script>
 
     {% endblock %}
