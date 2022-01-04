@@ -27,6 +27,7 @@
         <div id="inner-div-first-section" class="container">
             <div class="row" id="first-section-first-row" style="margin: auto;">
                 <div class="col-md-9 col-12">
+                    {% csrf_token %}
                     <div class="row first-section-inner-row">
                         <div class="col-md-5 mt-2 search-input-main">
                             <input id='search' class="search-input" placeholder="Axtardiginiz mehsulun adini qeyd edin" type="text">
