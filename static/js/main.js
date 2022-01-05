@@ -90,7 +90,7 @@ searchBtn.addEventListener('click',e => {
     console.log(banCode,marka,model,years,searchValue);
 
   console.log(window.location.href,'saaaaaammmeeekm');
-  let url = new URL('https://165.227.135.79/main/searched-products/?')
+  let url = new URL('https://detalshop.az/main/searched-products/?')
 
   let search_param = url.searchParams
  
