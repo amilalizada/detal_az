@@ -26,7 +26,7 @@ hearts.forEach(element => {
                 
             }
             
-            let data = await fetch('http://165.227.135.79/main-api/wishlist/', {
+            let data = await fetch('/main-api/wishlist/', {
                 method: 'POST',
                 headers: {
                     "Content-type": "application/json",
@@ -51,7 +51,7 @@ hearts.forEach(element => {
             }
             element.style = 'color: grey;'
             console.log(obj);
-            let data = await fetch('http://165.227.135.79/main-api/wishlist/', {
+            let data = await fetch('/main-api/wishlist/', {
                 method: 'DELETE',
                 headers: {
                     "Content-type": "application/json",

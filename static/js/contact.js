@@ -14,7 +14,7 @@ document.getElementById('contact-button').addEventListener('click', async (e) =>
     }
 
     
-    let data = await fetch('http://165.227.135.79/main-api/contact/', {
+    let data = await fetch('/main-api/contact/', {
         method: 'POST',
         headers: {
             "Content-type": "application/json",

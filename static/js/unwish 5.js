@@ -16,7 +16,7 @@ xButtons.forEach(element => {
             }
             
             console.log(obj);
-            let data = await fetch('http://165.227.135.79/contact-api/wishlist/', {
+            let data = await fetch('/contact-api/wishlist/', {
                 method: 'DELETE',
                 headers: {
                     "Content-type": "application/json",

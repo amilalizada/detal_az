@@ -1,8 +1,8 @@
-const markaUrl = 'http://165.227.135.79/product-api/add-product-marka/'
-const modelUrl = 'http://165.227.135.79/product-api/add-product-model/'
-const addProductUrl = 'http://165.227.135.79/product-api/add-product/'
-const categoryUrl = 'http://165.227.135.79/product-api/category/'
-const cityUrl = 'http://165.227.135.79/product-api/city/'
+const markaUrl = '/product-api/add-product-marka/'
+const modelUrl = '/product-api/add-product-model/'
+const addProductUrl = '/product-api/add-product/'
+const categoryUrl = '/product-api/category/'
+const cityUrl = '/product-api/city/'
 console.log(cityUrl)
 
 const image = []

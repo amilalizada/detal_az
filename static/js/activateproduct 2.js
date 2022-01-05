@@ -1,6 +1,6 @@
 const ActivateProductLogic = {
     productManager(productId) {
-        fetch('http://165.227.135.79/en/contact-api/activate-product', {
+        fetch('/en/contact-api/activate-product', {
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -26,7 +26,7 @@ function activateProduct(button) {
 
 
 function getProductManager() {
-    fetch('http://165.227.135.79/en/contact-api/activate-product', {
+    fetch('/en/contact-api/activate-product', {
         method: 'GET',
         credentials: 'include',
         headers: {

@@ -1,4 +1,4 @@
-const tokenUrl = 'http://165.227.135.79/main-api/token/'
+const tokenUrl = '/main-api/token/'
 
 const LoginLogic = {
     fetchToken(username, password) {
