@@ -1,5 +1,5 @@
-const markaUrl = 'http://165.227.135.79/main-api/main/'
-const modelUrl = 'http://165.227.135.79/main-api/main-model/'
+const markaUrl = '/main-api/main/'
+const modelUrl = '/main-api/main-model/'
 
 
 
