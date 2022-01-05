@@ -1,5 +1,5 @@
-const markaUrl = '/main-api/main/'
-const modelUrl = '/main-api/main-model/'
+const markaUrl = 'http://165.227.135.79/main-api/main/'
+const modelUrl = 'http://165.227.135.79/main-api/main-model/'
 
 
 
@@ -90,7 +90,7 @@ searchBtn.addEventListener('click',e => {
     console.log(banCode,marka,model,years,searchValue);
 
   console.log(window.location.href,'saaaaaammmeeekm');
-  let url = new URL('/main/searched-products/?')
+  let url = new URL('https://165.227.135.79/main/searched-products/?')
 
   let search_param = url.searchParams
  
